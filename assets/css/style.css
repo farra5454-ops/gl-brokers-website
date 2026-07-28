@@ -608,7 +608,30 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
      (luminance ~55 vs ~147 at the sun), so white text reads cleanly at full
      brightness with no overlay at all. Desktop is unaffected. */
   .gl-home .photo-hero .hero-scrim{ background:none; }
-  .gl-home .photo-hero .hero-bg-video{ object-position:30% center; }
+
+  /* Mobile plays hero-sunset-mobile.mp4, NOT the poster — different framing.
+     Measured off the actual video: its sun sits at 68% across and the whole
+     frame is brighter than the poster. Anchoring the focal point hard left
+     pushes the sun off the right edge entirely and shows the darkest part of
+     the frame. Measured white-text contrast behind the paragraph:
+     50% = 1.89, 30% = 3.14, 0% = 5.68. */
+  .gl-home .photo-hero .hero-bg-video{ object-position:0% center; }
+
+  /* Local contrast instead of an overlay — keeps the sunset at full
+     brightness while guaranteeing the type stays legible over the brightest
+     patches (worst-spot contrast was still only 3.44 at 0%). */
+  .gl-home .photo-hero-content h1,
+  .gl-home .photo-hero-content p{
+    text-shadow:0 1px 3px rgba(7,21,44,.75), 0 2px 10px rgba(7,21,44,.5);
+  }
+
+  /* Hero buttons sized to match the sticky call bar rather than spanning
+     the full width. */
+  .gl-home .photo-hero-content .hero-actions{ gap:10px; flex-wrap:nowrap; }
+  .gl-home .photo-hero-content .hero-actions .btn{
+    flex:1 1 0; width:auto; min-height:48px;
+    padding:13px 10px; font-size:.92rem;
+  }
   .gl-home .photo-hero-content{ max-width:100%; text-align:center; }
   .gl-home .photo-hero-content p{ max-width:100%; }
   .gl-home .photo-hero-content .divider-star{ margin-left:auto; margin-right:auto; }
