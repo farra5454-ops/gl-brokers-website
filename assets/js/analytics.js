@@ -33,8 +33,8 @@
   "use strict";
 
   /* ---------- PASTE YOUR IDs HERE ---------- */
-  var GA4_ID = "";      // e.g. "G-ABC1234XYZ"
-  var CLARITY_ID = "";  // e.g. "abcd1234ef"
+  var GA4_ID = "G-2DQDQ45FZX";  // GL Insurance Brokers — GA4 web stream
+  var CLARITY_ID = "";          // e.g. "abcd1234ef" — still to be added
   /* ----------------------------------------- */
 
   var DEBUG = false; // set true to log every tracked event to the browser console
