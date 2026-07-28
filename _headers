@@ -27,9 +27,13 @@
 # returning visitor must be able to pick up CSS/JS changes quickly.
 # ------------------------------------------------------------
 
-# Images never change once published — cache hard.
+# Images. NOTE: `immutable` was removed deliberately — it tells browsers never
+# to revalidate, so replacing a photo under the same filename would leave
+# returning visitors on the old one for a month with no way to fix it (a
+# Cloudflare purge clears the edge, not their browser). One day in the browser,
+# one year at the edge; a deploy or purge handles the edge side.
 /assets/images/*
-  Cache-Control: public, max-age=2592000, s-maxage=31536000, immutable
+  Cache-Control: public, max-age=86400, s-maxage=31536000
 
 # Stylesheets and scripts.
 #
@@ -51,9 +55,10 @@
 /assets/js/*
   Cache-Control: public, max-age=600, s-maxage=600, stale-while-revalidate=86400
 
-# Video
+# Video — same reasoning as images above. The hero video is the most likely
+# asset to be re-cut and re-uploaded under the same filename.
 /assets/video/*
-  Cache-Control: public, max-age=2592000, s-maxage=31536000, immutable
+  Cache-Control: public, max-age=86400, s-maxage=31536000
 
 # Fonts / icons
 /favicon.ico

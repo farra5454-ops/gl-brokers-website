@@ -625,10 +625,14 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
     text-shadow:0 1px 3px rgba(7,21,44,.75), 0 2px 10px rgba(7,21,44,.5);
   }
 
-  /* Hero buttons sized to match the sticky call bar rather than spanning
-     the full width. */
-  .gl-home .photo-hero-content .hero-actions{ gap:10px; flex-wrap:nowrap; }
-  .gl-home .photo-hero-content .hero-actions .btn{
+  /* Hero/CTA buttons sized to match the sticky call bar rather than spanning
+     the full width. Deliberately NOT scoped to the homepage — the same pair
+     of buttons appears in every page hero and in the CTA band on all 41
+     pages, and they should look identical everywhere.
+     Pairs with the removal of `.hero-actions .btn{width:100%}` from the
+     480px block below; leaving that in place would override this. */
+  .hero-actions{ gap:10px; flex-wrap:nowrap; }
+  .hero-actions .btn{
     flex:1 1 0; width:auto; min-height:48px;
     padding:13px 10px; font-size:.92rem;
   }
@@ -1034,7 +1038,8 @@ section.section-compact .section-head{ margin-bottom:20px; }
 @media (max-width: 480px){
   .wrap{ padding:0 18px; }
   section{ padding:48px 0; }
-  .hero-actions .btn{ width:100%; }
+  /* `.hero-actions .btn{width:100%}` removed — buttons are now sized in the
+     760px block above so they match the sticky call bar on every page. */
 }
 
 
