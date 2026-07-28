@@ -598,8 +598,16 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 
 @media (max-width:760px){
   .gl-home .photo-hero{ min-height:auto; }
+  /* Mobile only: object-fit:cover crops the hero video inward on a narrow
+     viewport, which pulls the sun toward the centre — right where the text
+     sits once it centre-aligns below. This gradient darkens behind the copy
+     and stays light through the middle, so the sunset keeps its punch while
+     the white type stays readable. Desktop keeps background:none. */
   .gl-home .photo-hero .hero-scrim{
-    background:none;
+    background:linear-gradient(180deg,
+      rgba(7,21,44,.30) 0%,
+      rgba(7,21,44,.12) 55%,
+      rgba(7,21,44,.32) 100%);
   }
   .gl-home .photo-hero-content{ max-width:100%; text-align:center; }
   .gl-home .photo-hero-content p{ max-width:100%; }
@@ -1051,3 +1059,13 @@ section.section-compact .section-head{ margin-bottom:20px; }
   font-weight:500; font-size:.84em; color:var(--ink-faint);
   letter-spacing:0; text-transform:none;
 }
+
+/* City-page coverage cards: each coverage type links to its own detail page.
+   Uses the same navy -> gold hover the trust strip and industry links use,
+   so these read as clickable without introducing a new link style. */
+.card p strong a{
+  color:var(--navy-800);
+  text-underline-offset:2px;
+  transition:color .2s var(--ease);
+}
+.card p strong a:hover{ color:var(--gold-700); }
