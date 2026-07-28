@@ -31,14 +31,25 @@
 /assets/images/*
   Cache-Control: public, max-age=2592000, s-maxage=31536000, immutable
 
-# Stylesheets — 1 hour in the browser, long at the edge.
+# Stylesheets and scripts.
+#
+# IMPORTANT — s-maxage is deliberately SHORT (10 min) on these two.
+# An earlier version used s-maxage=2592000 (30 days) on the assumption that
+# Cloudflare Pages purges its edge cache on every deploy. It does NOT.
+# The result: analytics.js was uploaded with a live GA4 ID but the edge kept
+# serving the old empty-ID copy, so tracking silently did nothing.
+#
+# Do not raise these values unless you are willing to hit "Purge Everything"
+# in the Cloudflare dashboard after every single deploy. Filenames here are
+# not content-hashed, so the cache has no other way to know they changed.
+#
+# stale-while-revalidate keeps things fast: after the 10 minutes the edge
+# still serves instantly while fetching the new copy in the background.
 /assets/css/*
-  Cache-Control: public, max-age=3600, s-maxage=2592000, stale-while-revalidate=604800
+  Cache-Control: public, max-age=600, s-maxage=600, stale-while-revalidate=86400
 
-# Scripts — same policy. Note: after pasting your GA4/Clarity IDs into
-# analytics.js, returning visitors pick up the change within the hour.
 /assets/js/*
-  Cache-Control: public, max-age=3600, s-maxage=2592000, stale-while-revalidate=604800
+  Cache-Control: public, max-age=600, s-maxage=600, stale-while-revalidate=86400
 
 # Video
 /assets/video/*
