@@ -228,14 +228,17 @@
       var contactName = form.querySelector("#contactName");
       var email = form.querySelector("#email");
       var phone = form.querySelector("#phone");
-      var fein = form.querySelector("#fein");
-      var estimatedRevenue = form.querySelector("#estimatedRevenue");
-      var estimatedPayroll = form.querySelector("#estimatedPayroll");
 
-      [businessName, contactName, fein, estimatedRevenue, estimatedPayroll].forEach(function (f) {
+      /* Only four required fields by design — see the note in contact.html.
+         Filtered for null so removing a field from the markup can never
+         throw here and take the whole form down with it. */
+      [businessName, contactName].forEach(function (f) {
+        if (!f) return;
         if (!f.value.trim()) { setError(f, "Required"); valid = false; }
         else setError(f, "");
       });
+
+      if (!phone || !email) return valid;
 
       var phonePattern = /^[\d\s()+\-.]{7,}$/;
       if (!phone.value.trim() || !phonePattern.test(phone.value.trim())) {

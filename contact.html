@@ -6,14 +6,14 @@
 <title>Contact Us | Get a Free Quote | GL Insurance Brokers</title>
 <meta name="description" content="Contact GL Insurance Brokers in Fort Myers, FL for a free commercial insurance quote — workers' comp, general liability, auto & excess liability.">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://www.glinsurancebrokers.com/contact.html">
+<link rel="canonical" href="https://www.glinsurancebrokers.com/contact">
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact Us | GL Insurance Brokers">
 <meta property="og:description" content="Get a free commercial insurance quote from GL Insurance Brokers in Fort Myers, FL.">
-<meta property="og:url" content="https://www.glinsurancebrokers.com/contact.html">
+<meta property="og:url" content="https://www.glinsurancebrokers.com/contact">
 <meta property="og:image" content="https://www.glinsurancebrokers.com/assets/images/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Contact Us | GL Insurance Brokers">
@@ -21,14 +21,16 @@
 <meta name="twitter:image" content="https://www.glinsurancebrokers.com/assets/images/logo.png">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"GL Insurance Brokers","url":"https://www.glinsurancebrokers.com","logo":"https://www.glinsurancebrokers.com/assets/images/logo.png","telephone":"+1-239-898-2323","areaServed":{"@type":"State","name":"Florida"},"address":{"@type":"PostalAddress","addressLocality":"Fort Myers","addressRegion":"FL","addressCountry":"US"},"description":"Contact GL Insurance Brokers in Fort Myers, FL for a free commercial insurance quote — workers' comp, general liability, commercial auto, and excess liability."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.glinsurancebrokers.com/"},{"@type":"ListItem","position":2,"name":"Contact Us","item":"https://www.glinsurancebrokers.com/contact.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.glinsurancebrokers.com/"},{"@type":"ListItem","position":2,"name":"Contact Us","item":"https://www.glinsurancebrokers.com/contact"}]}</script>
 
 <!--
-  SETUP NEEDED: this form posts to a placeholder endpoint so submissions do not
-  go anywhere yet. To receive messages by email without exposing an address in
-  this file, create a free form endpoint (e.g. https://formspree.io or
-  https://web3forms.com), then replace the <form action="..."> URL below with
-  your real endpoint. See the chat summary for step-by-step instructions.
+  This form posts to a live Formspree endpoint and submissions are delivered.
+
+  KEEP THIS FORM SHORT. It was cut from 7 required fields to 4 on purpose:
+  asking a first-time visitor for their FEIN, payroll, and revenue before
+  they have ever spoken to anyone kills the lead. Collect the underwriting
+  detail on the follow-up call — the only job of this form is to get a name
+  and a phone number.
 -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,19 +109,8 @@
             <span class="err">Please enter a valid email address.</span>
           </div>
           <div class="field">
-            <label for="fein">FEIN</label>
-            <input type="text" id="fein" name="fein" inputmode="numeric" placeholder="12-3456789" required>
-            <span class="err">Please enter your FEIN.</span>
-          </div>
-          <div class="field">
-            <label for="estimatedRevenue">Estimated Sales Revenue</label>
-            <input type="text" id="estimatedRevenue" name="estimatedRevenue" inputmode="numeric" required>
-            <span class="err">Please enter your estimated sales revenue.</span>
-          </div>
-          <div class="field">
-            <label for="estimatedPayroll">Estimated Payroll</label>
-            <input type="text" id="estimatedPayroll" name="estimatedPayroll" inputmode="numeric" required>
-            <span class="err">Please enter your estimated payroll.</span>
+            <label for="coverageNeeded">What do you need covered? <span class="field-optional">(optional)</span></label>
+            <textarea id="coverageNeeded" name="coverageNeeded" rows="4" placeholder="Tell us what you do and what coverage you're after — workers' comp, general liability, commercial auto, or something else."></textarea>
           </div>
           <button type="submit" class="btn btn-gold btn-arrow-static" style="width:50%; display:block; margin:0 auto; background:linear-gradient(180deg, #ffdb7a 0%, #eebc55 50%, #d19e49 100%); border-color:#ffe494; box-shadow:0 6px 18px rgba(209,158,73,.5);">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <p class="form-note">By submitting, you agree to be contacted by GL Insurance Brokers about your inquiry. We never share your information for marketing purposes. See our <a href="privacy-policy.html" style="color:var(--navy-800);">Privacy Policy</a>.</p>
@@ -191,7 +182,13 @@
   </div>
 </footer>
 
+<div class="mobile-call-bar">
+  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call GL Insurance Brokers at 239 898 2323"><svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-phone"/></svg> Call (239) 898-2323</a>
+  <a class="btn btn-outline" href="contact.html">Get a Quote</a>
+</div>
+
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="assets/js/analytics.js"></script>
 <script src="assets/js/main.min.js"></script>
 </body>
 </html>

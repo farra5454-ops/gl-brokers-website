@@ -1006,3 +1006,48 @@ section.section-compact .section-head{ margin-bottom:20px; }
   .hero-actions .btn{ width:100%; }
 }
 
+
+/* ============================================================
+   Sticky mobile call bar
+   Contractors search from job sites on their phones, and the header
+   phone number is collapsed inside the hamburger menu on mobile.
+   This keeps a tappable number on screen at all times, on every page.
+   Desktop is unaffected — the header already shows the number there.
+   z-index sits below .nav-scrim (150) so the bar dims correctly
+   behind the mobile nav drawer instead of punching through it.
+   ============================================================ */
+.mobile-call-bar{ display:none; }
+
+@media (max-width: 760px){
+  .mobile-call-bar{
+    display:flex; gap:10px; align-items:stretch;
+    position:fixed; left:0; right:0; bottom:0; z-index:140;
+    padding:10px 14px; padding-bottom:calc(10px + env(safe-area-inset-bottom, 0px));
+    background:rgba(7,21,44,.97);
+    border-top:1px solid rgba(255,255,255,.14);
+    box-shadow:0 -6px 24px rgba(7,21,44,.30);
+  }
+  .mobile-call-bar .btn{
+    flex:1 1 0; padding:13px 10px; font-size:.92rem; min-height:48px;
+  }
+  .mobile-call-bar .btn-call{ flex:1.6 1 0; }
+  .mobile-call-bar .btn-outline{ border-color:rgba(255,255,255,.5); color:#fff; }
+  .mobile-call-bar .icon-lead{ width:17px; height:17px; flex:none; }
+
+  /* Keep the bar from covering the last of the footer content. */
+  body{ padding-bottom:78px; }
+}
+
+@media (max-width: 380px){
+  .mobile-call-bar .btn{ font-size:.84rem; padding:13px 8px; }
+}
+
+@media print{
+  .mobile-call-bar{ display:none !important; }
+}
+
+/* Muted "(optional)" hint on non-required form labels. */
+.field-optional{
+  font-weight:500; font-size:.84em; color:var(--ink-faint);
+  letter-spacing:0; text-transform:none;
+}

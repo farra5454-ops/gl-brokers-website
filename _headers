@@ -1,7 +1,56 @@
+# ============================================================
+# GL Insurance Brokers — Cloudflare Pages headers
+#
+# NOTE ON THE CSP BELOW:
+# Google Analytics and Microsoft Clarity are explicitly allow-listed.
+# If you ever add another third-party script (chat widget, ad pixel,
+# call-tracking service), it will be SILENTLY BLOCKED until its domain
+# is added here. Symptom: the tool collects nothing while appearing
+# installed. Check the browser console for "Content Security Policy".
+# ============================================================
+
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=3600, stale-while-revalidate=86400
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; media-src 'self'; connect-src 'self' https://formspree.io https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+
+# ------------------------------------------------------------
+# Caching
+#
+# Cloudflare Pages purges its edge cache on every new deployment, so a
+# long s-maxage (edge) is safe — a deploy always busts it. The browser
+# max-age is kept short because filenames are not content-hashed, so a
+# returning visitor must be able to pick up CSS/JS changes quickly.
+# ------------------------------------------------------------
+
+# Images never change once published — cache hard.
+/assets/images/*
+  Cache-Control: public, max-age=2592000, s-maxage=31536000, immutable
+
+# Stylesheets — 1 hour in the browser, long at the edge.
+/assets/css/*
+  Cache-Control: public, max-age=3600, s-maxage=2592000, stale-while-revalidate=604800
+
+# Scripts — same policy. Note: after pasting your GA4/Clarity IDs into
+# analytics.js, returning visitors pick up the change within the hour.
+/assets/js/*
+  Cache-Control: public, max-age=3600, s-maxage=2592000, stale-while-revalidate=604800
+
+# Video
+/assets/video/*
+  Cache-Control: public, max-age=2592000, s-maxage=31536000, immutable
+
+# Fonts / icons
+/favicon.ico
+  Cache-Control: public, max-age=604800, s-maxage=2592000
+
+# Crawler files — keep these fresh so sitemap changes are picked up fast.
+/sitemap.xml
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=3600
+
+/robots.txt
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=3600
