@@ -379,6 +379,10 @@
   document.querySelectorAll(".veteran-link").forEach(function (link) {
     var confettiCooling = false;
     link.addEventListener("mouseenter", function () {
+      /* Desktop only. Touch devices synthesise mouseenter on tap, so on a
+         phone the confetti fired at the same moment the link navigated —
+         a 150-particle canvas animation competing with a page load. */
+      if (isTouch || isMobileWidth()) return;
       if (confettiCooling) return;
       confettiCooling = true;
       launchConfetti(link);

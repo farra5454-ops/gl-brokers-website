@@ -444,7 +444,8 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 .gl-home .photo-hero-content .divider-star::before,
 .gl-home .photo-hero-content .divider-star::after{ background:linear-gradient(90deg, transparent, rgba(217,168,53,.55), transparent); }
 .gl-home .photo-hero-content .divider-star .star{ filter:drop-shadow(0 0 6px rgba(217,168,53,.6)); }
-.gl-home .photo-hero-content p{ color:#dbe4f2; font-size:1rem; line-height:1.65; margin-bottom:30px; max-width:480px; }
+/* Pure white, matching the h1 — the old #dbe4f2 read as dim against the sunset. */
+.gl-home .photo-hero-content p{ color:#fff; font-size:1rem; line-height:1.65; margin-bottom:30px; max-width:480px; }
 .gl-home .photo-hero-content .hero-actions{ justify-content:flex-start; }
 .gl-home .photo-hero-content .btn .icon-lead{ width:16px; height:16px; }
 
@@ -598,17 +599,16 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 
 @media (max-width:760px){
   .gl-home .photo-hero{ min-height:auto; }
-  /* Mobile only: object-fit:cover crops the hero video inward on a narrow
-     viewport, which pulls the sun toward the centre — right where the text
-     sits once it centre-aligns below. This gradient darkens behind the copy
-     and stays light through the middle, so the sunset keeps its punch while
-     the white type stays readable. Desktop keeps background:none. */
-  .gl-home .photo-hero .hero-scrim{
-    background:linear-gradient(180deg,
-      rgba(7,21,44,.30) 0%,
-      rgba(7,21,44,.12) 55%,
-      rgba(7,21,44,.32) 100%);
-  }
+  /* Mobile only: reframe rather than dim.
+     The sun sits at ~62% across the source frame. With object-fit:cover on a
+     narrow viewport the visible window is only ~27% of the frame width, and
+     centred (50%) that window lands on 36-64% — putting the sun directly
+     behind the centred headline. Shifting the focal point left pushes the sun
+     off the right edge and brings up the much darker left side of the frame
+     (luminance ~55 vs ~147 at the sun), so white text reads cleanly at full
+     brightness with no overlay at all. Desktop is unaffected. */
+  .gl-home .photo-hero .hero-scrim{ background:none; }
+  .gl-home .photo-hero .hero-bg-video{ object-position:30% center; }
   .gl-home .photo-hero-content{ max-width:100%; text-align:center; }
   .gl-home .photo-hero-content p{ max-width:100%; }
   .gl-home .photo-hero-content .divider-star{ margin-left:auto; margin-right:auto; }
@@ -1069,3 +1069,23 @@ section.section-compact .section-head{ margin-bottom:20px; }
   transition:color .2s var(--ease);
 }
 .card p strong a:hover{ color:var(--gold-700); }
+
+/* ------------------------------------------------------------
+   Mobile call bar: kill all motion.
+   The bar is fixed under the user's thumb, so touch fires :hover,
+   :active and :focus spuriously while scrolling — which triggered
+   the icon slide (.btn:hover svg), the gold orbit shimmer
+   (.btn-gold::after, a blurred infinite rotation), and the
+   :active scale. Together they made the bar jitter on scroll.
+   Nothing here animates; the tel: link is its own feedback.
+   ------------------------------------------------------------ */
+.mobile-call-bar .btn,
+.mobile-call-bar .btn svg{ transition:none; }
+.mobile-call-bar .btn:hover,
+.mobile-call-bar .btn:focus,
+.mobile-call-bar .btn:active,
+.mobile-call-bar .btn:focus-visible{ transform:none; }
+.mobile-call-bar .btn:hover svg,
+.mobile-call-bar .btn:focus svg,
+.mobile-call-bar .btn:active svg{ transform:none; }
+.mobile-call-bar .btn-gold::after{ display:none; animation:none; }
