@@ -83,16 +83,19 @@
       <h1>Commercial Insurance for <span class="gold">Florida</span> Businesses</h1>
       <div class="divider-star"><span class="star"></span></div>
       <p>GL Insurance Brokers helps contractors, construction companies, and service businesses across Florida find competitive coverage for workers' compensation, general liability, commercial auto, and excess liability — often with a same-day certificate of insurance.</p>
-      <div class="hero-actions">
-        <a class="btn btn-gold btn-arrow-static" href="contact.html">
-          Get a Quote
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-outline btn-lift btn-icon-static" href="tel:+12398982323">
-          <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg>
-          Call Agent
-        </a>
-      </div>
+    </div>
+    <!-- Sibling of .photo-hero-content (not nested inside it) so the mobile
+         breakpoint can flex-order it below .hero-badges. Desktop DOM order is
+         unchanged: content -> actions -> badges. -->
+    <div class="hero-actions reveal">
+      <a class="btn btn-gold btn-arrow-static" href="contact.html">
+        Get a Quote
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-outline btn-lift btn-icon-static" href="tel:+12398982323">
+        <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg>
+        Call Agent
+      </a>
     </div>
     <div class="hero-badges reveal">
       <a class="hero-badge" href="insurance/workers-compensation.html">
@@ -307,7 +310,7 @@
 </footer>
 
 <div class="mobile-call-bar">
-  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call GL Insurance Brokers at 239 898 2323"><svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-phone"/></svg> Call (239) 898-2323</a>
+  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call GL Insurance Brokers at 239 898 2323">Call (239) 898-2323</a>
   <a class="btn btn-outline" href="contact.html">Get a Quote</a>
 </div>
 

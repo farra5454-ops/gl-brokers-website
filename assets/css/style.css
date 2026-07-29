@@ -446,18 +446,18 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 .gl-home .photo-hero-content .divider-star .star{ filter:drop-shadow(0 0 6px rgba(217,168,53,.6)); }
 /* Pure white, matching the h1 — the old #dbe4f2 read as dim against the sunset. */
 .gl-home .photo-hero-content p{ color:#fff; font-size:1rem; line-height:1.65; margin-bottom:30px; max-width:480px; }
-.gl-home .photo-hero-content .hero-actions{ justify-content:flex-start; }
-.gl-home .photo-hero-content .btn .icon-lead{ width:16px; height:16px; }
+.gl-home .photo-hero .hero-actions{ justify-content:flex-start; }
+.gl-home .photo-hero .btn .icon-lead{ width:16px; height:16px; }
 
-.gl-home .photo-hero-content .hero-actions .btn-gold{
+.gl-home .photo-hero .hero-actions .btn-gold{
   background:rgba(217,168,53,.22); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   border-color:rgba(255,224,138,.65); color:#fff; box-shadow:0 4px 18px rgba(0,0,0,.25);
 }
-.gl-home .photo-hero-content .hero-actions .btn-gold:hover{ background:rgba(217,168,53,.34); }
-.gl-home .photo-hero-content .hero-actions .btn-outline{
+.gl-home .photo-hero .hero-actions .btn-gold:hover{ background:rgba(217,168,53,.34); }
+.gl-home .photo-hero .hero-actions .btn-outline{
   background:rgba(255,255,255,.10); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
 }
-.gl-home .photo-hero-content .hero-actions .btn-outline:hover{ background:rgba(255,255,255,.18); }
+.gl-home .photo-hero .hero-actions .btn-outline:hover{ background:rgba(255,255,255,.18); }
 
 .gl-home .hero-badges{
   margin-top:44px; margin-left:-40px; width:fit-content; max-width:640px; display:flex; flex-wrap:wrap; gap:20px 12px;
@@ -639,9 +639,20 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
   .gl-home .photo-hero-content{ max-width:100%; text-align:center; }
   .gl-home .photo-hero-content p{ max-width:100%; }
   .gl-home .photo-hero-content .divider-star{ margin-left:auto; margin-right:auto; }
-  .gl-home .photo-hero-content .hero-actions{ justify-content:center; }
+  .gl-home .photo-hero .hero-actions{ justify-content:center; }
   .gl-home .hero-badges{ margin-top:32px; margin-left:0; max-width:100%; padding:20px 18px; gap:18px 10px; }
   .gl-home .hero-badge{ flex:1 1 40%; font-size:.8rem; }
+
+  /* Mobile only: the four coverage badges lead, the Get a Quote / Call Agent
+     pair follows them. Flex ordering on .wrap does the swap; the DOM order
+     (content -> actions -> badges) that desktop renders is untouched.
+     Flex items don't collapse margins, so the paragraph's 30px bottom margin
+     now sits entirely inside .photo-hero-content — .hero-badges drops its own
+     32px top margin to keep the gap below the paragraph where it was. */
+  .gl-home .photo-hero .wrap{ display:flex; flex-direction:column; }
+  .gl-home .photo-hero-content{ order:1; }
+  .gl-home .hero-badges{ order:2; margin-top:0; }
+  .gl-home .photo-hero .hero-actions{ order:3; margin-top:10px; }
   .gl-home .solution-card{ padding:28px 22px; }
   .gl-home .industry-grid{ grid-template-columns:repeat(auto-fit, minmax(96px,1fr)); gap:24px 12px; }
   .gl-home .industry-item .icon-circle{ width:48px; height:48px; }
