@@ -9,7 +9,38 @@
 # installed. Check the browser console for "Content Security Policy".
 # ============================================================
 
+# ------------------------------------------------------------
+# AGENT DISCOVERY — Link response headers (RFC 8288)
+#
+# Advertises site resources to crawlers and AI agents at the HTTP layer,
+# so they can be found without parsing HTML.
+#
+# ONLY IANA-registered relation types that point to a page that ACTUALLY
+# EXISTS are listed. Rules if you edit this:
+#
+#   1. Never advertise a relation whose target 404s. A dead relation is
+#      worse than a missing one — an agent trusts it and gets nothing.
+#   2. Deliberately OMITTED: rel="api-catalog", rel="service-doc",
+#      rel="service-desc" (RFC 9727 / RFC 8631). Automated "agent
+#      readiness" scanners will flag these as missing. They do not apply:
+#      this is a static brochure site with no API, no /.well-known/, and
+#      no /docs/. Do not add them to satisfy a scanner.
+#   3. rel="terms-of-service" is registered and would belong here, but
+#      there is no terms page yet. Add it if one is ever written.
+#   4. rel="canonical" is deliberately NOT set here. It must differ per
+#      URL, and every page already declares its own in <head>. A header
+#      canonical would either be wrong site-wide or become a second
+#      source of truth that silently drifts from the HTML.
+#   5. Kept as ONE comma-separated Link line, not several Link lines.
+#      RFC 8288 allows both, but repeating a header name in a single
+#      Cloudflare _headers block has ambiguous merge behaviour — one
+#      line is unambiguous.
+#   6. Paths are root-relative on purpose. Absolute URLs to
+#      glinsurancebrokers.com would be wrong on *.pages.dev previews.
+# ------------------------------------------------------------
+
 /*
+  Link: </sitemap.xml>; rel="sitemap", </privacy-policy.html>; rel="privacy-policy", </about.html>; rel="author", </contact.html>; rel="help"
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
