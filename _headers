@@ -20,6 +20,10 @@
 #
 #   1. Never advertise a relation whose target 404s. A dead relation is
 #      worse than a missing one — an agent trusts it and gets nothing.
+#   1b. Targets must be EXTENSIONLESS (/about, not /about.html). Cloudflare
+#      Pages 308-redirects the .html form, so advertising it hands agents
+#      and crawlers a redirect instead of the page. This was wrong in the
+#      first version of this header and caught only after deploy.
 #   2. Deliberately OMITTED: rel="api-catalog", rel="service-doc",
 #      rel="service-desc" (RFC 9727 / RFC 8631). Automated "agent
 #      readiness" scanners will flag these as missing. They do not apply:
@@ -40,14 +44,14 @@
 # ------------------------------------------------------------
 
 /*
-  Link: </sitemap.xml>; rel="sitemap", </privacy-policy.html>; rel="privacy-policy", </about.html>; rel="author", </contact.html>; rel="help"
+  Link: </sitemap.xml>; rel="sitemap", </privacy-policy>; rel="privacy-policy", </about>; rel="author", </contact>; rel="help"
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=3600, stale-while-revalidate=86400
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; media-src 'self'; connect-src 'self' https://formspree.io https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://*.clarity.ms https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; media-src 'self'; connect-src 'self' https://formspree.io https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.clarity.ms https://c.bing.com https://cloudflareinsights.com; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
 
 # ------------------------------------------------------------
 # Caching
