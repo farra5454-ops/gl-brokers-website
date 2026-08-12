@@ -477,6 +477,9 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
   display:flex; align-items:center; justify-content:center;
 }
 .gl-home .hero-badge .check-circle svg{ width:15px; height:15px; }
+/* Coverage-card icons are a mobile-only treatment — hidden here so desktop keeps
+   the check-circle badges unchanged. Shown in the 768px block below. */
+.gl-home .hero-badge picture{ display:none; }
 
 /* -- why-choose graphic (flat, informational; no links to wire up) -- */
 .gl-home .why-choose-graphic{
@@ -640,19 +643,39 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
   .gl-home .photo-hero-content p{ max-width:100%; }
   .gl-home .photo-hero-content .divider-star{ margin-left:auto; margin-right:auto; }
   .gl-home .photo-hero .hero-actions{ justify-content:center; }
-  .gl-home .hero-badges{ margin-top:32px; margin-left:0; max-width:100%; padding:20px 18px; gap:18px 10px; }
-  .gl-home .hero-badge{ flex:1 1 40%; font-size:.8rem; }
+  /* Mobile: the four coverage links become equal, tappable tiles carrying the
+     icons cropped from the coverage cards further down the page. The hero's own
+     Get a Quote / Call Agent pair is dropped here — the sticky .mobile-call-bar
+     already offers both, and stacking them was a duplicate. Homepage hero only;
+     the CTA band at the foot of every page keeps its buttons. */
+  .gl-home .photo-hero .hero-actions{ display:none; }
+  .gl-home .hero-badges{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px;
+    margin:0; padding:0; max-width:100%; width:100%;
+  }
+  .gl-home .hero-badge{
+    flex:none; margin:0; min-height:116px;
+    justify-content:center; gap:9px;
+    text-align:center; font-size:.85rem; line-height:1.3; font-weight:700;
+    border-radius:var(--radius-lg); padding:16px 10px;
+    background:rgba(255,255,255,.10);
+    border:1.5px solid rgba(255,255,255,.30);
+    color:#fff;
+    transition:transform .2s var(--ease), background .2s var(--ease);
+  }
+  .gl-home .hero-badge:active{ transform:scale(.97); background:rgba(255,255,255,.18); }
+  .gl-home .hero-badge .check-circle{ display:none; }
+  .gl-home .hero-badge picture{ display:block; }
+  .gl-home .hero-badge .badge-icon{ width:44px; height:44px; object-fit:contain; display:block; }
 
-  /* Mobile only: the four coverage badges lead, the Get a Quote / Call Agent
-     pair follows them. Flex ordering on .wrap does the swap; the DOM order
-     (content -> actions -> badges) that desktop renders is untouched.
-     Flex items don't collapse margins, so the paragraph's 30px bottom margin
-     now sits entirely inside .photo-hero-content — .hero-badges drops its own
-     32px top margin to keep the gap below the paragraph where it was. */
+  /* Hero stacks content -> badge tiles. The Get a Quote / Call Agent pair that
+     used to sit below the tiles is hidden on mobile (see .hero-actions above),
+     so the ordering that placed it third is gone with it. Flex items don't
+     collapse margins, so the paragraph's 30px bottom margin sits inside
+     .photo-hero-content and provides the gap — .hero-badges carries none. */
   .gl-home .photo-hero .wrap{ display:flex; flex-direction:column; }
   .gl-home .photo-hero-content{ order:1; }
-  .gl-home .hero-badges{ order:2; margin-top:0; }
-  .gl-home .photo-hero .hero-actions{ order:3; margin-top:10px; }
+  .gl-home .hero-badges{ order:2; }
   .gl-home .solution-card{ padding:28px 22px; }
   .gl-home .industry-grid{ grid-template-columns:repeat(auto-fit, minmax(96px,1fr)); gap:24px 12px; }
   .gl-home .industry-item .icon-circle{ width:48px; height:48px; }
@@ -900,6 +923,17 @@ section.section-compact .section-head{ margin-bottom:20px; }
   text-align:center;
 }
 .form-banner h1{ color:#fff; margin:0; font-weight:500; letter-spacing:-.015em; white-space:nowrap; font-size:clamp(.92rem, 2.6vw, 1.45rem); }
+/* Match the header's phone button exactly: navy chip + white ring. The card is
+   already navy-900, so the ring is what defines the button's edge — same
+   treatment as .nav-cta .btn-outline, kept in sync with it. */
+.contact-info-card .btn-outline{
+  background:var(--navy-900);
+  box-shadow:0 2px 8px rgba(11,33,69,.25);
+}
+.contact-info-card .btn-outline:hover{
+  background:linear-gradient(rgba(255,255,255,.12), rgba(255,255,255,.12)), var(--navy-900);
+  border-color:#fff;
+}
 .contact-info-card .divider-star{ margin:10px 0 16px; }
 .contact-details{ list-style:none; margin:0; padding:0; }
 .contact-details li{ padding:14px 0; border-top:1px solid var(--line); color:var(--navy-800); font-size:.95rem; line-height:1.55; }
