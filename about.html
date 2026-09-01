@@ -84,8 +84,7 @@
       <figure class="about-video reveal">
         <video controls playsinline preload="metadata"
                poster="assets/images/alex-intro-poster.jpg"
-               width="1280" height="720"
-               data-src-mobile="assets/video/alex-intro-mobile.mp4">
+               width="960" height="540">
           <source src="assets/video/alex-intro.mp4" type="video/mp4">
           Your browser does not support embedded video.
           <a href="assets/video/alex-intro.mp4">Download Alex's introduction</a> instead.
@@ -188,7 +187,7 @@
         <h4>Get In Touch</h4>
         <ul class="footer-links">
           <li><a href="tel:+12398982323">(239) 898-2323</a></li>
-          <li><a class="footer-address" href="https://maps.google.com/?q=7496+Garry+Rd,+Fort+Myers,+FL+33967" target="_blank" rel="noopener">7496 Garry Rd<br>Fort Myers, FL 33967</a></li>
+          <li><span class="footer-location">Serving Fort Myers &amp; Southwest Florida</span></li>
           <li><span class="footer-location">Open Daily &middot; 8am&ndash;7pm</span></li>
           <li><a href="/contact">Send us a message</a></li>
         </ul>
@@ -209,19 +208,6 @@
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script>
-/* Serve the lighter 480p cut to phones. Falls back to the 720p source if
-   anything here fails, so the video always plays. */
-(function(){
-  var v = document.querySelector('.about-video video');
-  if (!v) return;
-  var mobileSrc = v.getAttribute('data-src-mobile');
-  if (mobileSrc && window.matchMedia('(max-width: 760px)').matches) {
-    var s = v.querySelector('source');
-    if (s) { s.src = mobileSrc; v.load(); }
-  }
-})();
-</script>
 <script src="assets/js/analytics.js"></script>
 <script src="assets/js/main.min.js"></script>
 </body>
