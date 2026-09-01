@@ -105,3 +105,11 @@
 
 /robots.txt
   Cache-Control: public, max-age=0, must-revalidate, s-maxage=3600
+
+# llms.txt - plain-language site summary for AI assistants and agents.
+# Same short cache as the other crawler files: it changes whenever pages or
+# services change, and a stale copy would describe a site that no longer
+# exists. Served as text/plain so agents read it rather than downloading it.
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate, s-maxage=3600
