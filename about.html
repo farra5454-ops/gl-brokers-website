@@ -21,6 +21,7 @@
 <meta name="twitter:image" content="https://www.glinsurancebrokers.com/assets/images/alexander-farr.jpg">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Alexander Farr","jobTitle":"Owner & Commercial Insurance Broker","worksFor":{"@type":"InsuranceAgency","name":"GL Insurance Brokers"},"alumniOf":"Florida Gulf Coast University","description":"U.S. Army veteran and commercial insurance broker specializing in general liability, workers' compensation, commercial auto, and excess liability insurance for Florida businesses."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Meet Alexander Farr, Owner of GL Insurance Brokers","description":"Alexander Farr, owner of GL Insurance Brokers, introduces himself and explains how he helps Florida contractors and small businesses secure general liability, workers' compensation, and commercial auto coverage.","thumbnailUrl":"https://www.glinsurancebrokers.com/assets/images/alex-intro-poster.jpg","contentUrl":"https://www.glinsurancebrokers.com/assets/video/alex-intro.mp4","uploadDate":"2026-09-01","duration":"PT2M43S"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.glinsurancebrokers.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://www.glinsurancebrokers.com/about"}]}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,9 +81,20 @@
         <p>My name is Alexander Farr, and I am the owner of GL Insurance Brokers, a commercial insurance agency specializing in General Liability, Workers' Compensation, and Commercial Auto coverage for small businesses and contractors throughout Florida.</p>
         <p>As a longtime resident of Southwest Florida, I have proudly called the Fort Myers area home for more than 30 years. I graduated from Estero High School, after which I served four years in the United States Army as a Missile Technician. Following my military service, I attended Florida Gulf Coast University and earned a degree in Business Management.</p>
       </div>
-      <div class="about-photo reveal">
-        <picture><source srcset="assets/images/alexander-farr.webp" type="image/webp"><img src="assets/images/alexander-farr.jpg" alt="Alexander Farr, owner of GL Insurance Brokers" loading="lazy" width="900" height="1350"></picture>
-      </div>
+      <figure class="about-video reveal">
+        <video controls playsinline preload="metadata"
+               poster="assets/images/alex-intro-poster.jpg"
+               width="1280" height="720"
+               data-src-mobile="assets/video/alex-intro-mobile.mp4">
+          <source src="assets/video/alex-intro.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+          <a href="assets/video/alex-intro.mp4">Download Alex's introduction</a> instead.
+        </video>
+        <figcaption>
+          <strong>Alexander Farr</strong>
+          Owner &middot; GL Insurance Brokers
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -197,6 +209,19 @@
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+/* Serve the lighter 480p cut to phones. Falls back to the 720p source if
+   anything here fails, so the video always plays. */
+(function(){
+  var v = document.querySelector('.about-video video');
+  if (!v) return;
+  var mobileSrc = v.getAttribute('data-src-mobile');
+  if (mobileSrc && window.matchMedia('(max-width: 760px)').matches) {
+    var s = v.querySelector('source');
+    if (s) { s.src = mobileSrc; v.load(); }
+  }
+})();
+</script>
 <script src="assets/js/analytics.js"></script>
 <script src="assets/js/main.min.js"></script>
 </body>
