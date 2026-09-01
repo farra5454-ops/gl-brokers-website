@@ -1,32 +1,107 @@
-GL BROKERS - 9 FILES THAT DID NOT UPLOAD
-=========================================
+UPLOAD TO GITHUB — GL Insurance Brokers
+About Us page, owner intro video
+Prepared 09/01/2026
 
-Your last GitHub upload was missing these 9 files. Everything else
-made it fine - 32 of 40 pages, robots.txt, CSS and JS all verified
-live and correct.
+===========================================================
+WHAT IS IN THIS FOLDER
+===========================================================
 
-WHAT TO DO
-----------
-1. Go to your repo on github.com
-2. Click "Add file"  ->  "Upload files"
-3. Drag in BOTH items from this folder:
-       - the whole  gl-contractor-class-codes  FOLDER
-       - the file   sitemap.xml
-4. Commit. Cloudflare Pages redeploys on its own, about 1-2 minutes.
+Every file that needs to go to GitHub. Nothing else.
+The folder layout here MATCHES your repository, so the
+easiest method is:
 
-Drag the FOLDER itself, not the 8 loose files inside it. That is what
-keeps the /gl-contractor-class-codes/ path correct in the repo.
+  Drag the "assets" folder AND "sitemap.xml" into the
+  root of your repo on GitHub. Choose to overwrite /
+  replace when it asks.
 
+  UPLOAD TO GITHUB\
+    sitemap.xml                          -> repo root
+    assets\video\alex-intro.mp4          -> assets/video/
+    assets\video\alex-intro-mobile.mp4   -> assets/video/
+    assets\images\alex-intro-poster.jpg  -> assets/images/
+    assets\css\style.min.css             -> assets/css/
+    assets\css\style.css                 -> assets/css/
 
-WHAT THESE FILES DO
--------------------
-The 8 pages in gl-contractor-class-codes each gained a "Coverage
-Across Florida" block linking to all 8 GL city pages. That lifts every
-city page from 2-3 internal links to 11 - which is the entire point of
-the fix, because the pages Google DID index all had 11.
+Total: 33.2 MB across 6 files.
+Every file is under GitHub's 25 MB per-file web limit.
 
-sitemap.xml carries refreshed lastmod dates on the 17 pages that
-changed. That is the signal that prompts Google to recrawl them sooner.
+===========================================================
+DO NOT UPLOAD about.html
+===========================================================
 
-Right now the workers' comp half of this fix is live and working.
-The general liability half is not. These 9 files close that gap.
+about.html is ALREADY correct on the server. It uploaded
+fine last time and has been verified live. That is why it
+is not in this folder. Leave it alone.
+
+===========================================================
+WHY EACH FILE MATTERS
+===========================================================
+
+alex-intro.mp4          The video. Currently 404 on the
+                        server. Was 38.5 MB (too big to
+                        upload), now 19.48 MB.
+
+alex-intro-mobile.mp4   Lighter cut for phones. Currently
+                        404. Without it phones get a
+                        broken player.
+
+alex-intro-poster.jpg   Still frame shown before play.
+                        Currently 404. Without it the
+                        player is a black box.
+
+style.min.css           THE EASY ONE TO MISS. A file with
+                        this name already exists on the
+                        server, but it is the OLD copy
+                        without the video layout rules.
+                        If you skip this, the video will
+                        appear but squeezed into the
+                        narrow column the portrait photo
+                        used to sit in, and it will look
+                        broken for a different reason.
+
+style.css               Readable source of the stylesheet.
+                        No page loads it, so the site works
+                        without it, but keeping it in sync
+                        matters for future edits.
+
+sitemap.xml             Tells Google the About page changed
+                        today. Live copy still says 08/24.
+
+===========================================================
+AFTER YOU UPLOAD
+===========================================================
+
+1. Wait about a minute for GitHub Pages to rebuild.
+
+2. Go to glinsurancebrokers.com/about and press
+   CTRL + SHIFT + R.
+
+   This is a hard refresh. A NORMAL refresh will show you
+   the old cached stylesheet and you will think the upload
+   failed again.
+
+3. You should see Alex's face as a still image, next to
+   the text, with a play button over it.
+
+4. Press play. Confirm you hear him talking.
+
+5. Narrow the browser window until the page goes to a
+   single column. The video should drop below the text
+   and stay full width.
+
+===========================================================
+IF SOMETHING GOES WRONG
+===========================================================
+
+The originals are backed up at:
+
+  Desktop\Claude Website File\
+    backup-before-intro-video_2026-09-01_1417\
+
+That folder holds the previous about.html, both original
+stylesheets, and the original 38 MB video
+(alex-intro-ORIGINAL-38MB.mp4).
+
+For future video uploads, install GitHub Desktop. It
+pushes through git and has no 25 MB file limit, so the
+silent-drop problem cannot happen again.
