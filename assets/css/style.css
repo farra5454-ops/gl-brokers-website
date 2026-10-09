@@ -844,9 +844,12 @@ section:has(> .wrap > .disclaimer-footnote){ padding-bottom:2.25mm; }
   text-decoration:none; transition:background .2s var(--ease), color .2s var(--ease);
 }
 .cities-block .city-pill:hover{ background:var(--gold-500); color:#fff; }
-/* Equal-width pills, four per row; a short last row stays centered. */
-.cities-block > *{ flex:0 0 calc((100% - 36px) / 4); min-width:0; }
+/* Equal-width pills: five per row (9 cities = 5 + 4, both rows centered),
+   three per row on tablets (3 x 3), two on phones. */
+.cities-block{ max-width:880px; }
+.cities-block > *{ flex:0 0 calc((100% - 48px) / 5); min-width:0; }
 .cities-block .city-pill{ width:100%; justify-content:center; text-align:center; }
+@media (max-width:900px){ .cities-block{ max-width:600px; } .cities-block > *{ flex-basis:calc((100% - 24px) / 3); } }
 @media (max-width:640px){ .cities-block > *{ flex-basis:calc((100% - 12px) / 2); } }
 /* Golden-ratio top spacing, scaled down 25% site-wide — this section's own
    content is short (a heading, 7 pills, a disclaimer line), so the default
