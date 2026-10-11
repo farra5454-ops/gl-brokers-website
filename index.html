@@ -29,6 +29,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600&family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.min.css">
 <link rel="preload" as="image" href="assets/images/hero-sunset-poster.webp" type="image/webp" fetchpriority="high">
+<style>
+/* Hero badges: let "Commercial Property" stay on one line on desktop like the other three. */
+@media (min-width:761px){.gl-home .hero-badge{flex:0 0 auto;min-width:130px;white-space:nowrap}}
+/* PREVIEW v7: full-width logo band that rises out of the hero water as layered, drifting waves
+   (gold-traced crest), and the site's gold sparkle divider, enlarged, along the bottom. */
+.gl-home .photo-hero{padding-bottom:calc(42px + 64px)}
+.logo-shore{position:relative;z-index:2;background:#fff;padding:6px 0 30px;margin-top:-2px}
+.shore-waves{position:absolute;left:0;right:0;bottom:calc(100% - 3px);height:72px;overflow:hidden;pointer-events:none}
+.wave{position:absolute;left:0;bottom:0;width:200%;height:100%;display:flex;animation:wave-drift 16s linear infinite}
+.wave .w{flex:none;width:50%;height:100%;display:block}
+.wave-back path{fill:rgba(255,255,255,.28)}
+.wave-mid{animation-duration:11s;animation-direction:reverse}
+.wave-mid path{fill:rgba(250,236,196,.55)}
+.wave-front{animation-duration:20s}
+.wave-front path{fill:#fff}
+.wave-crest{animation-duration:20s}
+.wave-crest path{stroke:#d9a835;stroke-width:2;opacity:.9}
+@keyframes wave-drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.logo-band{position:relative;height:92px;display:flex;align-items:center;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%)}
+.logo-track{display:flex;align-items:center;width:max-content;animation:logo-scroll 52s linear infinite;will-change:transform}
+.logo-set{display:flex;align-items:center}
+.logo-item{flex:none;display:flex;align-items:center;justify-content:center;padding:0 30px}
+.logo-item picture{display:flex}
+.logo-item img{display:block;max-width:none}
+.logo-band:hover .logo-track{animation-play-state:paused}
+@keyframes logo-scroll{from{transform:translateX(-25%)}to{transform:translateX(0)}}
+.shore-divider{display:flex;align-items:center;gap:18px;width:100%;margin:8px 0 0;padding:0 2%}
+.shore-line{flex:1;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(217,168,53,.65) 50%,transparent 100%)}
+.shore-star{width:22px;height:34px;fill:var(--gold-500,#d9a835)}
+/* site stylesheet stops all animation when Windows "Show animations" is off; keep these moving */
+@media (prefers-reduced-motion:reduce){
+ .logo-band .logo-track{animation-duration:52s!important;animation-iteration-count:infinite!important}
+ .shore-waves .wave{animation-duration:16s!important;animation-iteration-count:infinite!important}
+ .shore-waves .wave-mid{animation-duration:11s!important}
+ .shore-waves .wave-front,.shore-waves .wave-crest{animation-duration:20s!important}
+}
+@media (max-width:700px){.logo-track{zoom:.62}.logo-band{height:80px}.shore-waves{height:52px}.gl-home .photo-hero{padding-bottom:calc(42px + 46px)}}
+
+/* PREVIEW: coverage cards rebuilt as crisp HTML: sharpened photo header + real text.
+   All five sit on one row on laptops and desktops; text scales with the card so it stays readable. */
+.cov-grid{--cov-gap:clamp(12px,1.2vw,22px);--cov-w:min(1440px,calc(100vw - 40px));display:grid;grid-template-columns:repeat(4,calc((var(--cov-w) - 4 * var(--cov-gap)) / 5));justify-content:center;gap:var(--cov-gap);width:var(--cov-w);position:relative;left:50%;transform:translateX(-50%)}
+.cov-card{display:flex;flex-direction:column;background:#fff;border:1.5px solid #bfd7ef;border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 2px rgba(8,22,48,.04);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+a.cov-card:hover{transform:translateY(-6px);box-shadow:0 18px 30px -14px rgba(8,22,48,.28);border-color:#8fb8e2}
+a.cov-card:focus-visible{outline:3px solid var(--gold-500,#d9a835);outline-offset:3px}
+.cov-photo,.cov-photo img{display:block;width:100%;height:auto}
+.cov-body{display:flex;flex-direction:column;flex:1;padding:4px clamp(14px,1.3vw,22px) clamp(16px,1.4vw,22px)}
+.cov-title{font-family:Poppins,var(--font-body,sans-serif);font-weight:700;font-size:clamp(1.02rem,1.18vw,1.32rem);line-height:1.18;color:#0d2f6e;letter-spacing:-.005em}
+.cov-rule{display:block;width:46px;height:3px;border-radius:2px;background:var(--gold-500,#d9a835);margin:clamp(10px,1vw,14px) 0}
+.cov-text{font-size:clamp(.84rem,.86vw,.95rem);line-height:1.55;color:#2b3a55;flex:1}
+.cov-cta{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-family:Poppins,var(--font-body,sans-serif);font-weight:700;font-size:clamp(.95rem,.95vw,1.05rem);color:#0d2f6e}
+.cov-cta svg{color:var(--gold-500,#d9a835);transition:transform .25s ease}
+a.cov-card:hover .cov-cta svg{transform:translateX(4px)}
+.cov-cta--soon{color:#8a97ab;font-weight:600;letter-spacing:.02em}
+@media (max-width:1023px){.cov-grid{grid-template-columns:repeat(2,minmax(0,1fr));width:min(720px,calc(100vw - 32px))}.cov-title{font-size:1.2rem}.cov-text{font-size:.93rem}}
+@media (max-width:560px){.cov-grid{grid-template-columns:minmax(0,1fr);width:min(380px,calc(100vw - 32px))}}
+
+/* PREVIEW: tagline is now the section heading; spacing balanced between the logo band and the cards */
+.cov-section{padding-top:16px}
+.cov-head{margin:0 auto 0;max-width:900px}
+.cov-head h2{margin:0}
+.cov-nowrap{white-space:nowrap}
+.cov-section .cov-grid{margin-top:46px}
+
+/* PREVIEW: quote form section on the homepage */
+.home-quote{padding-top:64px;padding-bottom:64px}
+</style>
 </head>
 <body>
 <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol></svg>
@@ -50,6 +116,7 @@
             <a href="/insurance/workers-compensation">Workers' Compensation</a>
             <a href="/insurance/general-liability">General Liability</a>
             <a href="/insurance/commercial-auto">Commercial Auto</a>
+            <a href="/insurance/commercial-property">Commercial Property</a>
             <a href="/insurance/excess-liability">Excess Liability</a>
             <a href="/insurance/">All Coverage Types</a>
           </div>
@@ -83,7 +150,7 @@
     <div class="photo-hero-content reveal">
       <h1>Insurance Coverage for <span class="gold">Florida</span> Businesses</h1>
       <div class="divider-star"><span class="star"></span></div>
-      <p>GL Insurance Brokers helps contractors, construction companies, and service businesses across Florida find competitive coverage for workers' compensation, general liability, commercial auto, and excess liability — often with a same-day certificate of insurance.</p>
+      <p>GL Brokers helps business owners find the best insurance rates for their industry. Contact us today to talk with a licensed agent. In many cases, we can issue your certificate of insurance the same day.</p>
     </div>
     <!-- Sibling of .photo-hero-content (not nested inside it) so the mobile
          breakpoint can flex-order it below .hero-badges. Desktop DOM order is
@@ -114,36 +181,115 @@
         <picture><source srcset="assets/images/badge-commercial-auto.webp" type="image/webp"><img class="badge-icon" src="assets/images/badge-commercial-auto.png" alt="" width="128" height="128" decoding="async"></picture>
         Commercial Auto
       </a>
-      <a class="hero-badge" href="/insurance/excess-liability">
+      <a class="hero-badge" href="/insurance/commercial-property">
         <span class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <picture><source srcset="assets/images/badge-commercial-umbrella.webp" type="image/webp"><img class="badge-icon" src="assets/images/badge-commercial-umbrella.png" alt="" width="128" height="128" decoding="async"></picture>
-        Excess / Umbrella
+        <picture><source srcset="assets/images/badge-commercial-property.webp" type="image/webp"><img class="badge-icon" src="assets/images/badge-commercial-property.png" alt="" width="128" height="128" decoding="async"></picture>
+        Commercial Property
       </a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Insurance Coverage for Florida Businesses</h2>
+  <!-- PREVIEW: scrolling carrier logo band (about 1 inch tall) between the hero video and the coverage section; moves left to right -->
+<div class="logo-shore" role="region" aria-label="Insurance carriers and partners we work with">
+  <div class="shore-waves" aria-hidden="true">
+    <div class="wave wave-back"><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,44 Q180,18 360,44 T720,44 T1080,44 T1440,44 V90 H0 Z"/></svg><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,44 Q180,18 360,44 T720,44 T1080,44 T1440,44 V90 H0 Z"/></svg></div>
+    <div class="wave wave-mid"><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,54 Q180,34 360,54 T720,54 T1080,54 T1440,54 V90 H0 Z"/></svg><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,54 Q180,34 360,54 T720,54 T1080,54 T1440,54 V90 H0 Z"/></svg></div>
+    <div class="wave wave-front"><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,62 Q180,46 360,62 T720,62 T1080,62 T1440,62 V90 H0 Z"/></svg><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,62 Q180,46 360,62 T720,62 T1080,62 T1440,62 V90 H0 Z"/></svg></div>
+    <div class="wave wave-crest"><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,62 Q180,46 360,62 T720,62 T1080,62 T1440,62" fill="none" vector-effect="non-scaling-stroke"/></svg><svg class="w" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0,62 Q180,46 360,62 T720,62 T1080,62 T1440,62" fill="none" vector-effect="non-scaling-stroke"/></svg></div>
+  </div>
+  <div class="logo-band">
+    <div class="logo-track">
+        <div class="logo-set">
+          <span class="logo-item"><picture><source srcset="assets/images/carriers/frankcrum.webp" type="image/webp"><img src="assets/images/carriers/frankcrum.png" alt="FrankCrum" width="208" height="36" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.6px)"><picture><source srcset="assets/images/carriers/amtrust.webp" type="image/webp"><img src="assets/images/carriers/amtrust.png" alt="AmTrust Insurance" width="196" height="46" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-10.7px)"><picture><source srcset="assets/images/carriers/hiscox.webp" type="image/webp"><img src="assets/images/carriers/hiscox.png" alt="Hiscox" width="118" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/gl-brokers.webp" type="image/webp"><img src="assets/images/carriers/gl-brokers.png" alt="GL Insurance Brokers" width="185" height="47" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/progressive.webp" type="image/webp"><img src="assets/images/carriers/progressive.png" alt="Progressive" width="225" height="27" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-5.6px)"><picture><source srcset="assets/images/carriers/southeast-personnel-leasing.webp" type="image/webp"><img src="assets/images/carriers/southeast-personnel-leasing.png" alt="SouthEast Personnel Leasing" width="88" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(1.8px)"><picture><source srcset="assets/images/carriers/normandy.webp" type="image/webp"><img src="assets/images/carriers/normandy.png" alt="Normandy Insurance Services" width="224" height="34" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-12.7px)"><picture><source srcset="assets/images/carriers/amerisafe.webp" type="image/webp"><img src="assets/images/carriers/amerisafe.png" alt="AMERISAFE" width="125" height="58" decoding="async"></picture></span>
+          <span class="logo-item"><img src="assets/images/carriers/geico.svg" alt="GEICO" width="184" height="32" decoding="async"></span>
+        </div>
+        <div class="logo-set" aria-hidden="true">
+          <span class="logo-item"><picture><source srcset="assets/images/carriers/frankcrum.webp" type="image/webp"><img src="assets/images/carriers/frankcrum.png" alt="" width="208" height="36" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.6px)"><picture><source srcset="assets/images/carriers/amtrust.webp" type="image/webp"><img src="assets/images/carriers/amtrust.png" alt="" width="196" height="46" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-10.7px)"><picture><source srcset="assets/images/carriers/hiscox.webp" type="image/webp"><img src="assets/images/carriers/hiscox.png" alt="" width="118" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/gl-brokers.webp" type="image/webp"><img src="assets/images/carriers/gl-brokers.png" alt="" width="185" height="47" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/progressive.webp" type="image/webp"><img src="assets/images/carriers/progressive.png" alt="" width="225" height="27" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-5.6px)"><picture><source srcset="assets/images/carriers/southeast-personnel-leasing.webp" type="image/webp"><img src="assets/images/carriers/southeast-personnel-leasing.png" alt="" width="88" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(1.8px)"><picture><source srcset="assets/images/carriers/normandy.webp" type="image/webp"><img src="assets/images/carriers/normandy.png" alt="" width="224" height="34" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-12.7px)"><picture><source srcset="assets/images/carriers/amerisafe.webp" type="image/webp"><img src="assets/images/carriers/amerisafe.png" alt="" width="125" height="58" decoding="async"></picture></span>
+          <span class="logo-item"><img src="assets/images/carriers/geico.svg" alt="" width="184" height="32" decoding="async"></span>
+        </div>
+        <div class="logo-set" aria-hidden="true">
+          <span class="logo-item"><picture><source srcset="assets/images/carriers/frankcrum.webp" type="image/webp"><img src="assets/images/carriers/frankcrum.png" alt="" width="208" height="36" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.6px)"><picture><source srcset="assets/images/carriers/amtrust.webp" type="image/webp"><img src="assets/images/carriers/amtrust.png" alt="" width="196" height="46" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-10.7px)"><picture><source srcset="assets/images/carriers/hiscox.webp" type="image/webp"><img src="assets/images/carriers/hiscox.png" alt="" width="118" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/gl-brokers.webp" type="image/webp"><img src="assets/images/carriers/gl-brokers.png" alt="" width="185" height="47" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/progressive.webp" type="image/webp"><img src="assets/images/carriers/progressive.png" alt="" width="225" height="27" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-5.6px)"><picture><source srcset="assets/images/carriers/southeast-personnel-leasing.webp" type="image/webp"><img src="assets/images/carriers/southeast-personnel-leasing.png" alt="" width="88" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(1.8px)"><picture><source srcset="assets/images/carriers/normandy.webp" type="image/webp"><img src="assets/images/carriers/normandy.png" alt="" width="224" height="34" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-12.7px)"><picture><source srcset="assets/images/carriers/amerisafe.webp" type="image/webp"><img src="assets/images/carriers/amerisafe.png" alt="" width="125" height="58" decoding="async"></picture></span>
+          <span class="logo-item"><img src="assets/images/carriers/geico.svg" alt="" width="184" height="32" decoding="async"></span>
+        </div>
+        <div class="logo-set" aria-hidden="true">
+          <span class="logo-item"><picture><source srcset="assets/images/carriers/frankcrum.webp" type="image/webp"><img src="assets/images/carriers/frankcrum.png" alt="" width="208" height="36" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.6px)"><picture><source srcset="assets/images/carriers/amtrust.webp" type="image/webp"><img src="assets/images/carriers/amtrust.png" alt="" width="196" height="46" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-10.7px)"><picture><source srcset="assets/images/carriers/hiscox.webp" type="image/webp"><img src="assets/images/carriers/hiscox.png" alt="" width="118" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/gl-brokers.webp" type="image/webp"><img src="assets/images/carriers/gl-brokers.png" alt="" width="185" height="47" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(0.7px)"><picture><source srcset="assets/images/carriers/progressive.webp" type="image/webp"><img src="assets/images/carriers/progressive.png" alt="" width="225" height="27" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-5.6px)"><picture><source srcset="assets/images/carriers/southeast-personnel-leasing.webp" type="image/webp"><img src="assets/images/carriers/southeast-personnel-leasing.png" alt="" width="88" height="58" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(1.8px)"><picture><source srcset="assets/images/carriers/normandy.webp" type="image/webp"><img src="assets/images/carriers/normandy.png" alt="" width="224" height="34" decoding="async"></picture></span>
+          <span class="logo-item" style="transform:translateY(-12.7px)"><picture><source srcset="assets/images/carriers/amerisafe.webp" type="image/webp"><img src="assets/images/carriers/amerisafe.png" alt="" width="125" height="58" decoding="async"></picture></span>
+          <span class="logo-item"><img src="assets/images/carriers/geico.svg" alt="" width="184" height="32" decoding="async"></span>
+        </div>
     </div>
-    <div class="grid grid-4 reveal-stagger">
-      <a class="solution-card solution-card--image" href="/insurance/workers-compensation">
-        <picture><source srcset="assets/images/card-workers-compensation.webp" type="image/webp"><img src="assets/images/card-workers-compensation.png" alt="Workers' Compensation Insurance" loading="lazy" width="940" height="1580"></picture>
-        <span class="sr-only">Workers' Compensation Insurance. Protect your employees and your business with workers' compensation insurance that meets Florida's legal requirements. We help you manage costs while ensuring your team is covered for work-related injuries and illnesses, so you can focus on running your business with confidence. Learn More.</span>
+  </div>
+  <div class="shore-divider" aria-hidden="true"><span class="shore-line"></span><svg class="shore-star" viewBox="6 0 12 19"><path d="M12 0 C12 6.5 13.5 8.5 18 9.5 C13.5 10.5 12 12.5 12 19 C12 12.5 10.5 10.5 6 9.5 C10.5 8.5 12 6.5 12 0 Z"/></svg><span class="shore-line"></span></div>
+</div>
+
+<section class="cov-section">
+  <div class="wrap">
+    <div class="section-head reveal cov-head">
+      <h2>The Right Coverage. Real Protection. <span class="cov-nowrap">A Stronger Tomorrow.</span></h2>
+    </div>
+    <div class="cov-grid">
+      <a class="cov-card" href="/insurance/workers-compensation">
+        <picture class="cov-photo"><source srcset="assets/images/coverage/workers-compensation-photo.webp" type="image/webp"><img src="assets/images/coverage/workers-compensation-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
+        <span class="cov-body">
+          <span class="cov-title">Workers’ Compensation Insurance</span>
+          <span class="cov-rule" aria-hidden="true"></span>
+          <span class="cov-text">Protect your employees and your business with workers’ compensation insurance that meets Florida’s legal requirements. We help you manage costs while keeping your team covered and productive.</span>
+          <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
       </a>
-      <a class="solution-card solution-card--image" href="/insurance/general-liability">
-        <picture><source srcset="assets/images/card-general-liability.webp" type="image/webp"><img src="assets/images/card-general-liability.png" alt="General Liability Insurance" loading="lazy" width="940" height="1580"></picture>
-        <span class="sr-only">General Liability Insurance. General liability insurance helps protect your business from third-party claims involving bodily injury, property damage, and advertising injury. It's essential coverage for Florida businesses and contractors who want to reduce financial risk and protect their reputation. Learn More.</span>
+      <a class="cov-card" href="/insurance/general-liability">
+        <picture class="cov-photo"><source srcset="assets/images/coverage/general-liability-photo.webp" type="image/webp"><img src="assets/images/coverage/general-liability-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
+        <span class="cov-body">
+          <span class="cov-title">General Liability Insurance</span>
+          <span class="cov-rule" aria-hidden="true"></span>
+          <span class="cov-text">General liability insurance helps protect your business from third-party claims involving bodily injury, property damage, and advertising injury. It’s essential coverage for Florida businesses and contractors who want to reduce financial risk and protect their reputation.</span>
+          <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
       </a>
-      <a class="solution-card solution-card--image" href="/insurance/commercial-auto">
-        <picture><source srcset="assets/images/card-commercial-auto.webp" type="image/webp"><img src="assets/images/card-commercial-auto.png" alt="Commercial Auto Insurance" loading="lazy" width="940" height="1580"></picture>
-        <span class="sr-only">Commercial Auto Insurance. From work trucks to company cars, commercial auto insurance protects your vehicles, drivers, and business from accidents, property damage, and liability claims. We offer coverage options for any size fleet, helping you stay protected on Florida's roadways. Learn More.</span>
+      <a class="cov-card" href="/insurance/commercial-auto">
+        <picture class="cov-photo"><source srcset="assets/images/coverage/commercial-auto-photo.webp" type="image/webp"><img src="assets/images/coverage/commercial-auto-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
+        <span class="cov-body">
+          <span class="cov-title">Commercial Auto Insurance</span>
+          <span class="cov-rule" aria-hidden="true"></span>
+          <span class="cov-text">From work trucks to company cars, commercial auto insurance protects your vehicles, drivers, and business from accidents, property damage, and liability claims. We offer coverage options for any size fleet, helping you stay protected on Florida’s roadways.</span>
+          <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
       </a>
-      <a class="solution-card solution-card--image" href="/insurance/excess-liability">
-        <picture><source srcset="assets/images/card-commercial-umbrella.webp" type="image/webp"><img src="assets/images/card-commercial-umbrella.png" alt="Commercial Umbrella Insurance" loading="lazy" width="940" height="1580"></picture>
-        <span class="sr-only">Commercial Umbrella Insurance. Umbrella insurance provides an extra layer of liability protection when your underlying policies reach their limits. It's an affordable way to safeguard your business assets from catastrophic claims and unexpected lawsuits. Learn More.</span>
+      <a class="cov-card" href="/insurance/commercial-property">
+        <picture class="cov-photo"><source srcset="assets/images/coverage/commercial-property-photo.webp" type="image/webp"><img src="assets/images/coverage/commercial-property-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
+        <span class="cov-body">
+          <span class="cov-title">Commercial Property Insurance</span>
+          <span class="cov-rule" aria-hidden="true"></span>
+          <span class="cov-text">Protect your physical assets with commercial property insurance. Coverage can include your building, equipment, inventory, and more, helping you recover quickly from unexpected events like fire, storms, or theft.</span>
+          <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
       </a>
     </div>
   </div>
@@ -239,9 +385,81 @@
   </div>
 </section>
 
-<section class="alt">
+<!-- PREVIEW: free quote form + contact sidebar (copied from the Contact page) -->
+<section class="home-quote alt" id="free-quote">
   <div class="wrap">
-    <div class="section-head reveal"><h2>Florida Cities We Serve</h2><p>We help contractors get insurance quotes all across Florida &mdash; from Southwest Florida to the Panhandle &mdash; including:</p></div>
+    <div class="contact-grid">
+      <div class="form-card reveal">
+        <div class="form-banner">
+          <h2>Request a Free Quote</h2>
+        </div>
+        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST">
+          <div class="field">
+            <label for="businessName">Business Name</label>
+            <input type="text" id="businessName" name="businessName" autocomplete="organization" required>
+            <span class="err">Please enter your business name.</span>
+          </div>
+          <div class="field">
+            <label for="contactName">Contact Name</label>
+            <input type="text" id="contactName" name="contactName" autocomplete="name" placeholder="Full Name" required>
+            <span class="err">Please enter a contact name.</span>
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(239) 555-0123" required>
+            <span class="err">Please enter a valid phone number.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <span class="err">Please enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <label for="coverageNeeded">What do you need covered? <span class="field-optional">(optional)</span></label>
+            <textarea id="coverageNeeded" name="coverageNeeded" rows="4" placeholder="Tell us what you do and what coverage you're after: workers' comp, general liability, commercial auto, or something else."></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-arrow-static" style="width:50%; display:block; margin:0 auto; background:linear-gradient(180deg, #ffdb7a 0%, #eebc55 50%, #d19e49 100%); border-color:#ffe494; box-shadow:0 6px 18px rgba(209,158,73,.5);">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form-note">By submitting, you agree to be contacted by GL Insurance Brokers about your inquiry. We never share your information for marketing purposes. See our <a href="/privacy-policy" style="color:var(--navy-800);">Privacy Policy</a>.</p>
+        </form>
+        <div class="form-success" id="form-success">
+          <span class="star"></span>
+          <h2 style="font-size:1.3rem;">Message sent.</h2>
+          <p>Thanks for reaching out. We will get back to you shortly. For anything urgent, call or text <a href="tel:+12398982323" style="color:var(--navy-800);font-weight:700;">(239) 898-2323</a>.</p>
+        </div>
+      </div>
+      <aside class="contact-sidebar reveal">
+        <div class="contact-info-card">
+          <h2>Prefer to Talk?</h2>
+          <p>Call us directly and speak with a licensed Florida insurance agent.</p>
+          <a class="btn btn-outline btn-sm" href="tel:+12398982323"><svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg> 239 898-2323</a>
+        </div>
+        <div class="contact-info-card card-light">
+          <h2>Hours of Operation</h2>
+          <div class="divider-star"><span class="star"></span></div>
+          <ul class="contact-details">
+            <li>
+              <span class="contact-detail-label">Monday &ndash; Sunday</span>
+              <span>8:00 AM &ndash; 7:00 PM</span>
+            </li>
+          </ul>
+        </div>
+        <div class="contact-info-card card-light">
+          <h2>What Happens Next</h2>
+          <ol class="next-steps">
+            <li>We receive your quote request and identify the best carriers for your needs.</li>
+            <li>A specialist contacts you within one business day with competitive options.</li>
+            <li>We answer your questions and help you choose the right coverage.</li>
+            <li>We bind coverage and get you protected, often same day.</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal"><h2>Florida Cities We Serve</h2><p>We help contractors get insurance quotes all across Florida, from Southwest Florida to the Panhandle, including:</p></div>
     <div class="section-head reveal"><h3 style="font-size:1.15rem;">General Liability</h3></div>
     <div class="cities-block reveal">
       <a class="city-pill" href="/hurricane-isaias/pensacola-contractor-insurance">Pensacola<span class="sr-only"> General Liability Insurance</span></a>
@@ -307,6 +525,7 @@
           <li><a href="/insurance/workers-compensation">Workers' Compensation</a></li>
           <li><a href="/insurance/general-liability">General Liability</a></li>
           <li><a href="/insurance/commercial-auto">Commercial Auto</a></li>
+          <li><a href="/insurance/commercial-property">Commercial Property</a></li>
           <li><a href="/insurance/excess-liability">Excess / Umbrella</a></li>
           <li><a href="/wc-contractor-class-codes/">Workers' Comp by Trade</a></li>
           <li><a href="/gl-contractor-class-codes/">General Liability by Trade</a></li>
