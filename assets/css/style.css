@@ -569,6 +569,17 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 }
 .gl-home .industry-photo:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); }
 .gl-home .industry-photo img{ width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; }
+.gl-home .auto-quote-card .industry-photo{ border:0; border-radius:14px; }
+.gl-home .auto-quote-card .industry-photo img{ aspect-ratio:496/572; }
+.gl-home .auto-quote-card .industry-photo:hover{ transform:none; box-shadow:var(--shadow-sm); }
+.gl-home .auto-quote-card .auto-quote-btn{
+  position:absolute; display:block; border-radius:999px;
+  box-shadow:0 6px 12px -6px rgba(8,22,48,.35);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.gl-home .auto-quote-card .auto-quote-btn img{ aspect-ratio:auto; height:auto; }
+.gl-home .auto-quote-card:hover .auto-quote-btn,
+.gl-home .auto-quote-card:focus-visible .auto-quote-btn{ transform:translateY(-5px); box-shadow:0 14px 22px -8px rgba(8,22,48,.45); }
 .gl-home .industry-photo .caption{
   position:absolute; left:0; bottom:0; z-index:2; padding:10px 14px;
   font-family:var(--font-display); font-weight:700; font-size:1.15rem; line-height:1.1;
@@ -1218,3 +1229,10 @@ section.section-compact .section-head{ margin-bottom:20px; }
 .mobile-call-bar .btn:focus svg,
 .mobile-call-bar .btn:active svg{ transform:none; }
 .mobile-call-bar .btn-gold::after{ display:none; animation:none; }
+
+/* Footer: three columns level and evenly spaced (flex space-between above); Insurance heading lines up with its links;
+   coverage types fill the first column, by-trade / by-city links the second. */
+.footer-grid.no-brand>div:nth-child(2){text-align:left}
+.footer-grid.no-brand>div:nth-child(2) .footer-links.footer-links-split{justify-content:start}
+.footer-links.footer-links-split{grid-auto-flow:column;grid-template-rows:repeat(5,auto)}
+.footer-links.footer-links-split:not(:has(>li:nth-child(9))){grid-template-rows:repeat(4,auto)}
