@@ -94,6 +94,10 @@ a.cov-card:hover .cov-cta svg{transform:translateX(4px)}
 
 /* PREVIEW: quote form section on the homepage */
 .home-quote{padding-top:64px;padding-bottom:64px}
+/* Form and sidebar share one height (tops and bottoms line up) and sit centered in the row. */
+.home-quote .contact-grid{align-items:stretch;justify-content:center}
+.home-quote .contact-sidebar{grid-template-rows:auto auto 1fr;gap:20px}
+.home-quote .contact-info-card{padding:28px 30px}
 </style>
 </head>
 <body>
@@ -166,15 +170,15 @@ a.cov-card:hover .cov-cta svg{transform:translateX(4px)}
       </a>
     </div>
     <div class="hero-badges reveal">
-      <a class="hero-badge" href="/insurance/workers-compensation">
-        <span class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <picture><source srcset="assets/images/badge-workers-compensation.webp" type="image/webp"><img class="badge-icon" src="assets/images/badge-workers-compensation.png" alt="" width="128" height="128" decoding="async"></picture>
-        Workers' Comp
-      </a>
       <a class="hero-badge" href="/insurance/general-liability">
         <span class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
         <picture><source srcset="assets/images/badge-general-liability.webp" type="image/webp"><img class="badge-icon" src="assets/images/badge-general-liability.png" alt="" width="128" height="128" decoding="async"></picture>
         General Liability
+      </a>
+      <a class="hero-badge" href="/insurance/workers-compensation">
+        <span class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <picture><source srcset="assets/images/badge-workers-compensation.webp" type="image/webp"><img class="badge-icon" src="assets/images/badge-workers-compensation.png" alt="" width="128" height="128" decoding="async"></picture>
+        Workers' Comp
       </a>
       <a class="hero-badge" href="/insurance/commercial-auto">
         <span class="check-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
@@ -255,21 +259,21 @@ a.cov-card:hover .cov-cta svg{transform:translateX(4px)}
       <h2>The Right Coverage. Real Protection. <span class="cov-nowrap">A Stronger Tomorrow.</span></h2>
     </div>
     <div class="cov-grid">
-      <a class="cov-card" href="/insurance/workers-compensation">
-        <picture class="cov-photo"><source srcset="assets/images/coverage/workers-compensation-photo.webp" type="image/webp"><img src="assets/images/coverage/workers-compensation-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
-        <span class="cov-body">
-          <span class="cov-title">Workers’ Compensation Insurance</span>
-          <span class="cov-rule" aria-hidden="true"></span>
-          <span class="cov-text">Protect your employees and your business with workers’ compensation insurance that meets Florida’s legal requirements. We help you manage costs while keeping your team covered and productive.</span>
-          <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </span>
-      </a>
       <a class="cov-card" href="/insurance/general-liability">
         <picture class="cov-photo"><source srcset="assets/images/coverage/general-liability-photo.webp" type="image/webp"><img src="assets/images/coverage/general-liability-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
         <span class="cov-body">
           <span class="cov-title">General Liability Insurance</span>
           <span class="cov-rule" aria-hidden="true"></span>
           <span class="cov-text">General liability insurance helps protect your business from third-party claims involving bodily injury, property damage, and advertising injury. It’s essential coverage for Florida businesses and contractors who want to reduce financial risk and protect their reputation.</span>
+          <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </span>
+      </a>
+      <a class="cov-card" href="/insurance/workers-compensation">
+        <picture class="cov-photo"><source srcset="assets/images/coverage/workers-compensation-photo.webp" type="image/webp"><img src="assets/images/coverage/workers-compensation-photo.jpg" alt="" width="332" height="199" loading="lazy" decoding="async"></picture>
+        <span class="cov-body">
+          <span class="cov-title">Workers’ Compensation Insurance</span>
+          <span class="cov-rule" aria-hidden="true"></span>
+          <span class="cov-text">Protect your employees and your business with workers’ compensation insurance that meets Florida’s legal requirements. We help you manage costs while keeping your team covered and productive.</span>
           <span class="cov-cta">Learn More <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </span>
       </a>
@@ -305,57 +309,57 @@ a.cov-card:hover .cov-cta svg{transform:translateX(4px)}
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-general-contractors.webp" type="image/webp"><img src="assets/images/industry-general-contractors.jpg" alt="General Contractors" loading="lazy" width="1303" height="977"></picture><span class="caption">General Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/general-contractor"><span class="sr-only">General Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/general-contractor"><span class="sr-only">General Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/general-contractor"><span class="sr-only">General Contractor </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-roofing-contractors.webp" type="image/webp"><img src="assets/images/industry-roofing-contractors.jpg" alt="Roofing Contractors" loading="lazy" width="1249" height="937"></picture><span class="caption">Roofing Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/roofing-contractor"><span class="sr-only">Roofing Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/roofing-contractor"><span class="sr-only">Roofing Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/roofing-contractor"><span class="sr-only">Roofing Contractor </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-arborist-contractors.webp" type="image/webp"><img src="assets/images/industry-arborist-contractors.jpg" alt="Arborist Contractors" loading="lazy" width="1316" height="987"></picture><span class="caption">Arborist Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/arborist-tree-service"><span class="sr-only">Tree Service &amp; Arborist </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/arborist-tree-service"><span class="sr-only">Tree Service &amp; Arborist </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/arborist-tree-service"><span class="sr-only">Tree Service &amp; Arborist </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-electrical-contractors.webp" type="image/webp"><img src="assets/images/industry-electrical-contractors.jpg" alt="Electrical Contractors" loading="lazy" width="1307" height="980"></picture><span class="caption">Electrical Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/electrical-contractor"><span class="sr-only">Electrical Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/electrical-contractor"><span class="sr-only">Electrical Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/electrical-contractor"><span class="sr-only">Electrical Contractor </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-hvac-contractors.webp" type="image/webp"><img src="assets/images/industry-hvac-contractors.jpg" alt="HVAC Contractors" loading="lazy" width="1263" height="947"></picture><span class="caption">HVAC Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/hvac-contractor"><span class="sr-only">HVAC Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/hvac-contractor"><span class="sr-only">HVAC Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/hvac-contractor"><span class="sr-only">HVAC Contractor </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-plumbing-contractors.webp" type="image/webp"><img src="assets/images/industry-plumbing-contractors.jpg" alt="Plumbing Contractors" loading="lazy" width="1283" height="962"></picture><span class="caption">Plumbing Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/plumbing-contractor"><span class="sr-only">Plumbing Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/plumbing-contractor"><span class="sr-only">Plumbing Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/plumbing-contractor"><span class="sr-only">Plumbing Contractor </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-framing-contractors.webp" type="image/webp"><img src="assets/images/industry-framing-contractors.jpg" alt="Framing Contractors" loading="lazy" width="1289" height="967"></picture><span class="caption">Framing Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/framing-contractor"><span class="sr-only">Framing Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/framing-contractor"><span class="sr-only">Framing Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/framing-contractor"><span class="sr-only">Framing Contractor </span>Workers' Compensation</a>
         </div>
       </div>
       <div class="industry-card">
         <span class="industry-photo"><picture><source srcset="assets/images/industry-concrete-contractors.webp" type="image/webp"><img src="assets/images/industry-concrete-contractors.jpg" alt="Concrete Contractors" loading="lazy" width="1287" height="965"></picture><span class="caption">Concrete Contractors</span></span>
         <div class="industry-links">
-          <a class="industry-link" href="/wc-contractor-class-codes/concrete-contractor"><span class="sr-only">Concrete Contractor </span>Workers' Compensation</a>
           <a class="industry-link" href="/gl-contractor-class-codes/concrete-contractor"><span class="sr-only">Concrete Contractor </span>General Liability</a>
+          <a class="industry-link" href="/wc-contractor-class-codes/concrete-contractor"><span class="sr-only">Concrete Contractor </span>Workers' Compensation</a>
         </div>
       </div>
     </div>
@@ -369,17 +373,17 @@ a.cov-card:hover .cov-cta svg{transform:translateX(4px)}
       <p>Comprehensive coverage for every type of commercial vehicle,<br>from light trucks to heavy rigs.</p>
     </div>
     <div class="industry-photo-grid reveal-stagger">
-      <a class="industry-card" href="/insurance/commercial-auto">
-        <span class="industry-photo"><img src="assets/images/industry-light-truck.jpg" alt="Light Truck Commercial Auto" loading="lazy" width="1303" height="977"><span class="caption">Light Truck</span></span>
+      <a class="industry-card auto-quote-card" href="/contact" aria-label="Get a quote for Light Truck commercial auto insurance">
+        <span class="industry-photo"><picture><source srcset="assets/images/auto-quote-light-truck.webp" type="image/webp"><img src="assets/images/auto-quote-light-truck.jpg" alt="Light Truck commercial auto insurance – Get a Quote" loading="lazy" width="496" height="572"></picture><span class="auto-quote-btn" style="left:12.249%;top:83.101%;width:75.301%"><picture><source srcset="assets/images/auto-quote-light-btn.webp" type="image/webp"><img src="assets/images/auto-quote-light-btn.png" alt="" loading="lazy" width="373" height="62"></picture></span></span>
       </a>
-      <a class="industry-card" href="/insurance/commercial-auto">
-        <span class="industry-photo"><img src="assets/images/industry-medium-truck.jpg" alt="Medium Truck Commercial Auto" loading="lazy" width="1303" height="977"><span class="caption">Medium Truck</span></span>
+      <a class="industry-card auto-quote-card" href="/contact" aria-label="Get a quote for Medium Truck commercial auto insurance">
+        <span class="industry-photo"><picture><source srcset="assets/images/auto-quote-medium-truck.webp" type="image/webp"><img src="assets/images/auto-quote-medium-truck.jpg" alt="Medium Truck commercial auto insurance – Get a Quote" loading="lazy" width="496" height="572"></picture><span class="auto-quote-btn" style="left:11.6%;top:83.101%;width:75.8%"><picture><source srcset="assets/images/auto-quote-medium-btn.webp" type="image/webp"><img src="assets/images/auto-quote-medium-btn.png" alt="" loading="lazy" width="376" height="62"></picture></span></span>
       </a>
-      <a class="industry-card" href="/insurance/commercial-auto">
-        <span class="industry-photo"><img src="assets/images/industry-heavy-truck.jpg" alt="Heavy Truck Commercial Auto" loading="lazy" width="1303" height="977"><span class="caption">Heavy Truck</span></span>
+      <a class="industry-card auto-quote-card" href="/contact" aria-label="Get a quote for Heavy Truck commercial auto insurance">
+        <span class="industry-photo"><picture><source srcset="assets/images/auto-quote-heavy-truck.webp" type="image/webp"><img src="assets/images/auto-quote-heavy-truck.jpg" alt="Heavy Truck commercial auto insurance – Get a Quote" loading="lazy" width="496" height="572"></picture><span class="auto-quote-btn" style="left:12.551%;top:83.275%;width:75.506%"><picture><source srcset="assets/images/auto-quote-heavy-btn.webp" type="image/webp"><img src="assets/images/auto-quote-heavy-btn.png" alt="" loading="lazy" width="375" height="61"></picture></span></span>
       </a>
-      <a class="industry-card" href="/insurance/commercial-auto">
-        <span class="industry-photo"><img src="assets/images/industry-specialty-truck.jpg" alt="Specialty Truck Commercial Auto" loading="lazy" width="1303" height="977"><span class="caption">Specialty Truck</span></span>
+      <a class="industry-card auto-quote-card" href="/contact" aria-label="Get a quote for Specialty Truck commercial auto insurance">
+        <span class="industry-photo"><picture><source srcset="assets/images/auto-quote-specialty-truck.webp" type="image/webp"><img src="assets/images/auto-quote-specialty-truck.jpg" alt="Specialty Truck commercial auto insurance – Get a Quote" loading="lazy" width="496" height="572"></picture><span class="auto-quote-btn" style="left:13.0%;top:83.275%;width:74.6%"><picture><source srcset="assets/images/auto-quote-specialty-btn.webp" type="image/webp"><img src="assets/images/auto-quote-specialty-btn.png" alt="" loading="lazy" width="370" height="62"></picture></span></span>
       </a>
     </div>
   </div>
