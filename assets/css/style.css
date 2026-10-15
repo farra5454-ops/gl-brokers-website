@@ -1328,3 +1328,76 @@ table.data-table th{ background:var(--navy-950); font-family:var(--font-mono); f
 /* Phone call bar */
 .mobile-call-bar{ background:var(--navy-950); }
 :focus-visible{ outline-color:var(--gold-500); }
+
+/* City links: same as the homepage's city row. Plain serif names separated by
+   small gold dots, no boxes. Phones get a tidy 3-up (then 2-up) grid without dots. */
+.cities-block{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:0; max-width:1000px; margin:0 auto; }
+.cities-block > *{ flex:0 0 auto; display:flex; align-items:center; min-width:0; }
+.cities-block > * + *::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--gold-500); margin:0 14px; }
+.cities-block .city-pill{
+  width:auto; padding:6px 0; background:none; border:0; border-radius:0; box-shadow:none;
+  font:400 17px/1.2 var(--font-display); letter-spacing:-.01em; font-variation-settings:"opsz" 48;
+  color:var(--ink); white-space:nowrap; text-decoration:none; transition:color .3s;
+}
+.cities-block .city-pill:hover{ background:none; color:var(--gold-700); border:0; }
+@media (max-width:900px){ .cities-block{ max-width:none; } .cities-block > *{ flex-basis:auto; } }
+@media (max-width:760px){
+  .cities-block{ display:grid; grid-template-columns:repeat(3, auto); justify-content:center; column-gap:22px; row-gap:4px; }
+  .cities-block > * + *::before{ display:none; }
+  .cities-block .city-pill{ font-size:16px; }
+}
+@media (max-width:400px){ .cities-block{ grid-template-columns:repeat(2, auto); } }
+.cities-block > .row-start::before{ display:none; }
+
+/* ==================== HEADER: homepage behavior ====================
+   Dark over the page banner at the top, turns white once you scroll
+   (main.js adds .is-solid). Uses the homepage's GL mark + wordmark. */
+:root{ --hdr:88px; }
+html{ scroll-padding-top:90px; }
+.site-header{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:transparent; border-bottom:0; box-shadow:none; color:#fff;
+  transition:background .4s var(--ease), color .4s, box-shadow .4s;
+}
+.site-header.is-solid{ background:rgba(255,255,255,.97); color:var(--ink); box-shadow:0 1px 0 var(--line), 0 10px 30px -22px rgba(7,21,44,.5); backdrop-filter:blur(12px); }
+.nav-inner{ height:var(--hdr); padding-top:0; padding-bottom:0; transition:height .4s var(--ease); }
+.site-header.is-solid .nav-inner{ height:74px; }
+
+/* Brand */
+.brand{ display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:inherit; }
+.brand-mark{ width:46px; height:46px; flex:none; }
+.brand-word{ font:600 25px/1 var(--font-display); letter-spacing:-.01em; font-variation-settings:"opsz" 72; color:inherit; white-space:nowrap; }
+
+/* Top-level nav text follows the header color */
+.site-header .nav-links, .site-header .nav-links > li > a:not(.btn), .site-header .nav-links > li > button.nav-link{ color:inherit; }
+.site-header:not(.is-solid) .nav-links > li > a:not(.btn):hover,
+.site-header:not(.is-solid) .nav-links > li > button.nav-link:hover{ background:rgba(255,255,255,.1); color:#fff; }
+.site-header:not(.is-solid) .nav-cta .btn-outline{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.38); }
+.site-header:not(.is-solid) .nav-cta .btn-outline:hover{ background:rgba(255,255,255,.12); border-color:#fff; }
+.nav-toggle span{ background:currentColor; }
+
+/* Dark banners slide up under the header; pages without one get a dark header bar */
+.page-hero{ padding-top:calc(var(--hdr) + 47px); }
+.isaias-hero{ padding-top:calc(var(--hdr) + 72px) !important; }
+main:not(:has(> .page-hero:first-child, > .isaias-hero:first-child)){ padding-top:var(--hdr); }
+body:not(:has(.page-hero, .isaias-hero)) .site-header:not(.is-solid){ background:var(--navy-950); }
+
+/* Footer brand, like the homepage */
+.footer-top{ padding-bottom:32px; margin-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1); }
+.brand--footer{ color:#fff; }
+
+@media (max-width:760px){
+  :root{ --hdr:72px; }
+  .site-header.is-solid .nav-inner{ height:64px; }
+  .brand-mark{ width:38px; height:38px; }
+  .brand-word{ font-size:21px; }
+  .isaias-hero{ padding-top:calc(var(--hdr) + 48px) !important; }
+  /* The slide-out menu is white, so its links stay dark */
+  .site-header .nav-links > li > a:not(.btn), .site-header .nav-links > li > button.nav-link{ color:var(--ink); }
+  .site-header:not(.is-solid) .nav-links > li > a:not(.btn):hover,
+  .site-header:not(.is-solid) .nav-links > li > button.nav-link:hover{ background:var(--bg-alt); color:var(--navy-900); }
+  .site-header:not(.is-solid) .nav-cta .btn-outline{ background:var(--navy-950); border-color:var(--navy-950); }
+  .nav-toggle{ position:relative; z-index:210; }
+  .nav-toggle.active{ color:var(--navy-900); }
+}
+@media (max-width:760px){ .nav-links .btn, .nav-links a, .nav-links button.nav-link{ border-radius:2px; } }

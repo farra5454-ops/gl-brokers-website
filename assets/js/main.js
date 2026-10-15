@@ -392,3 +392,32 @@
     });
   });
 })();
+
+/* City and trade link rows: when a row wraps, drop the gold dot in front of
+   the first link on each new line so no line starts with a dot. */
+(function () {
+  var blocks = document.querySelectorAll(".cities-block");
+  if (!blocks.length) return;
+  var mark = function () {
+    blocks.forEach(function (b) {
+      var top = null;
+      Array.prototype.forEach.call(b.children, function (el) {
+        el.classList.toggle("row-start", el.offsetTop !== top);
+        top = el.offsetTop;
+      });
+    });
+  };
+  mark();
+  window.addEventListener("load", mark);
+  window.addEventListener("resize", mark);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(mark);
+})();
+
+/* Header: dark over the banner at the top, white once you scroll (same as the homepage) */
+(function () {
+  var header = document.querySelector(".site-header");
+  if (!header) return;
+  var onScroll = function () { header.classList.toggle("is-solid", window.scrollY > 40); };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
