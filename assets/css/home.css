@@ -424,18 +424,18 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 /* Phones: hero copy sits up under the logo with "Fort Myers, Florida" between them,
    and the coverage rail is dropped (the same links are just below in the Coverage Index) */
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .hero { justify-content: flex-start; }
   .hero-inner { padding-top: 104px; }
   .hero-rail { display: none; }
   .hero-meta { margin-bottom: 22px; }
   .hero-meta span:first-child { display: inline; }
-  .hero-meta span:last-child { display: none; }
+  .hero-meta span:last-child, .meta-rule { display: none; }
 }
 
 /* Phones: shorter footer. Company and Get In Touch side by side,
    Insurance below in two columns (main coverages left, by-trade/by-city right) */
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .site-footer { padding-top: 52px; }
   .footer-top { padding-bottom: 28px; }
   .footer-grid { grid-template-columns: 1fr 1.25fr; column-gap: 20px; row-gap: 32px; padding: 36px 0; }
@@ -447,6 +447,22 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 }
 
 /* Phones: the hero buttons repeat the sticky Call Agent / Get a Quote bar, so drop them */
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .hero-actions { display: none; }
+}
+
+/* The sticky Call Agent / Get a Quote bar shows on every phone size the hero buttons are hidden on */
+@media (max-width: 760px) {
+  body { padding-bottom: 76px; }
+  .mobile-call-bar {
+    display: grid; grid-template-columns: 1.3fr 1fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(7, 21, 44, .96); backdrop-filter: blur(10px);
+  }
+  .mobile-call-bar .btn { padding: 15px 10px; font-size: 14.5px; }
+}
+
+/* Phones: "Protect Your Business" copy sits near the top of the crane photo instead of mid-image */
+@media (max-width: 760px) {
+  .cta-band { align-items: flex-start; min-height: 520px; }
+  .cta-inner { padding-top: 56px; padding-bottom: 56px; }
 }
