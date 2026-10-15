@@ -415,7 +415,7 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 /* ==================== HOMEPAGE (photo-mockup match) ====================
    Scoped to .gl-home so the Poppins headline font used here never leaks
    into the Fraunces headings used on every other page. */
-.gl-home h1, .gl-home h2, .gl-home h3{ font-family:'Poppins', var(--font-body); font-weight:700; letter-spacing:-.005em; }
+.gl-home h1, .gl-home h2, .gl-home h3{ font-family:var(--font-body); font-weight:700; letter-spacing:-.005em; }
 .gl-home .section-head h2{ font-weight:800; }
 .gl-home .accent-rule{ display:inline-block; width:52px; height:4px; background:var(--gold-500); border-radius:2px; }
 
@@ -544,7 +544,7 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
   color:var(--navy-800);
 }
 .gl-home .industry-item .icon-circle svg{ width:24px; height:24px; }
-.gl-home .industry-item span{ font-family:'Poppins', var(--font-body); font-weight:600; font-size:.86rem; color:var(--navy-900); line-height:1.3; }
+.gl-home .industry-item span{ font-family:var(--font-body); font-weight:600; font-size:.86rem; color:var(--navy-900); line-height:1.3; }
 
 /* -- industry photo grid (real photos, caption baked into the art) -- */
 .gl-home .industry-photo-grid{
@@ -601,7 +601,7 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 .gl-home .map-label{
   position:absolute; left:44%; top:56%; transform:translate(6px,-6px);
   background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 14px;
-  font-family:'Poppins', var(--font-body); font-weight:700; font-size:.8rem; color:var(--navy-900);
+  font-family:var(--font-body); font-weight:700; font-size:.8rem; color:var(--navy-900);
   box-shadow:var(--shadow-md); white-space:nowrap;
 }
 
@@ -1236,3 +1236,95 @@ section.section-compact .section-head{ margin-bottom:20px; }
 .footer-grid.no-brand>div:nth-child(2) .footer-links.footer-links-split{justify-content:start}
 .footer-links.footer-links-split{grid-auto-flow:column;grid-template-rows:repeat(5,auto)}
 .footer-links.footer-links-split:not(:has(>li:nth-child(9))){grid-template-rows:repeat(4,auto)}
+
+/* ==================== HOMEPAGE THEME (Oct 2026) ====================
+   Brings every interior page onto the new homepage's type and palette:
+   Fraunces (editorial serif) + Manrope (body) + IBM Plex Mono (labels),
+   midnight navy, gold, and warm sand. Overrides only; layouts are untouched. */
+:root{
+  --navy-950:#07152C; --navy-900:#0B2145; --navy-800:#123262;
+  --navy-700:#123262; --navy-600:#1E4A86;
+  --gold-700:#A97A1E; --gold-600:#C99429; --gold-500:#D9A835; --gold-400:#D9A835; --gold-300:#F0D38F;
+  --ink:#14203A; --ink-soft:#56607A; --ink-faint:#7A8299;
+  --line:#E4DED1; --line-soft:#EEE9DF;
+  --bg:#FFFFFF; --bg-alt:#F6F2EA; --bg-navy-tint:#F6F2EA;
+  --font-display:"Fraunces", Georgia, serif;
+  --font-body:"Manrope", system-ui, sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+  --radius-sm:2px; --radius-md:4px; --radius-lg:4px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+body{ font-family:var(--font-body); color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased; }
+p, li{ color:inherit; }
+
+/* Headings: light editorial serif with the gold italic accent */
+h1,h2{ font-family:var(--font-display); font-weight:400; font-optical-sizing:auto; letter-spacing:-.01em; color:var(--navy-900); }
+h3,h4{ font-family:var(--font-display); font-weight:500; letter-spacing:-.01em; color:var(--navy-900); }
+h1 em, h2 em{ font-style:italic; color:var(--gold-500); }
+.page-hero h1, .about-copy h1, .section-head h2, .cta-band h2{ font-weight:400; }
+
+/* Labels and eyebrows: mono caps in gold, like the homepage */
+.eyebrow, .section-eyebrow, .about-copy .kicker, .contact-detail-label, .legal-notice h4{
+  font-family:var(--font-mono); font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+}
+.eyebrow{ background:none; border:0; padding:0; border-radius:0; color:var(--gold-300); font-size:12px; gap:14px; }
+.eyebrow::before{ content:""; width:34px; height:1px; background:currentColor; }
+.section-eyebrow, .about-copy .kicker{ color:var(--gold-700); font-size:12px; }
+.breadcrumbs{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(240,211,143,.75); }
+.breadcrumbs a{ color:#F0D38F; }
+
+/* Header */
+.site-header{ background:rgba(255,255,255,.97); box-shadow:0 1px 0 var(--line), 0 10px 30px -22px rgba(7,21,44,.5); }
+.nav-links a:not(.btn), .nav-links button.nav-link{ font-family:var(--font-body); font-size:14.5px; font-weight:600; color:var(--ink); border-radius:2px; }
+.nav-links a:not(.btn):hover, .nav-links button.nav-link:hover{ background:var(--bg-alt); color:var(--navy-900); }
+.dropdown{ border:0; border-top:2px solid var(--gold-500); border-radius:0; box-shadow:0 30px 60px -20px rgba(7,21,44,.45); }
+.dropdown a{ font-family:var(--font-body); font-weight:600; border-radius:2px; }
+.dropdown a:hover{ background:var(--bg-alt); color:var(--navy-900); }
+
+/* Buttons: squared, gold gradient, Manrope */
+.btn{ font-family:var(--font-body); font-weight:700; letter-spacing:.02em; border-radius:2px; border-width:1px; }
+.btn-gold, .nav-cta .btn-gold{ background:linear-gradient(180deg,#E8C163,var(--gold-500)); border-color:transparent; color:var(--navy-950); box-shadow:none; }
+.btn-gold:hover, .nav-cta .btn-gold:hover{ background:linear-gradient(180deg,#F2CF78,#E2B347); box-shadow:0 14px 30px -14px rgba(217,168,53,.85); transform:none; }
+.btn-gold::after{ display:none; }
+.btn-outline{ border-color:rgba(255,255,255,.38); background:rgba(255,255,255,.06); }
+.btn-outline:hover{ border-color:#fff; background:rgba(255,255,255,.12); transform:none; }
+.nav-cta .btn-outline, .contact-info-card .btn-outline{ background:var(--navy-950); border-color:var(--navy-950); box-shadow:none; }
+.nav-cta .btn-outline:hover, .contact-info-card .btn-outline:hover{ background:var(--navy-800); border-color:var(--navy-800); }
+.nav-cta .btn-outline svg, .contact-info-card .btn-outline svg{ color:var(--gold-500); }
+.btn-navy{ background:var(--navy-950); }
+.btn-outline-navy{ border-color:var(--navy-950); color:var(--navy-950); }
+
+/* Dark bands: flat midnight with a soft harbor glow instead of the bright blue */
+.page-hero, .form-banner{ background:radial-gradient(120% 160% at 15% 0%, #123262 0%, #0B2145 40%, #07152C 75%); }
+.cta-band{ background:radial-gradient(120% 140% at 15% 0%, #123262 0%, #0B2145 45%, #07152C 100%); }
+.cta-band::before{ background-image:none; border-top:1px solid rgba(240,211,143,.25); }
+.page-hero .lede, .hero .lede, .cta-band p{ color:rgba(255,255,255,.82); }
+section.navy{ background:var(--navy-950); }
+section.navy p{ color:rgba(255,255,255,.72); }
+
+/* Cards, pills, FAQ */
+.card{ border-color:var(--line); box-shadow:none; }
+.card:hover{ box-shadow:0 30px 60px -30px rgba(7,21,44,.35); border-color:var(--line); }
+.cities-block .city-pill, .pill{ background:var(--bg-alt); color:var(--navy-900); border:1px solid var(--line); border-radius:2px; font-family:var(--font-body); }
+.cities-block .city-pill:hover{ background:var(--navy-950); color:var(--gold-300); border-color:var(--navy-950); }
+.faq-q{ font-family:var(--font-display); font-weight:500; color:var(--navy-900); }
+.faq-q .plus{ border-color:var(--gold-500); }
+table.data-table th{ background:var(--navy-950); font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-300); }
+.legal-notice{ background:#FBF6EA; border-color:#EADBB5; border-left-color:var(--gold-500); }
+.stat-block .num, .hero-stat .num, .about-photo .badge strong{ font-weight:400; }
+
+/* Forms */
+.field input, .field select, .field textarea{ font-family:var(--font-body); background:#fff; border-radius:2px; }
+.field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--gold-500); box-shadow:0 0 0 3px rgba(217,168,53,.18); }
+
+/* Footer */
+.site-footer{ background:var(--navy-950); color:rgba(255,255,255,.7); }
+.site-footer h4{ font-family:var(--font-mono); font-weight:500; font-size:11.5px; letter-spacing:.2em; color:var(--gold-500); margin-bottom:18px; }
+.footer-links a, .footer-veteran, .footer-location{ color:rgba(255,255,255,.7); }
+.footer-links a:hover, .footer-bottom a:hover{ color:#fff; }
+.footer-veteran{ color:var(--gold-300); }
+.footer-bottom, .footer-bottom a{ color:rgba(255,255,255,.55); }
+
+/* Phone call bar */
+.mobile-call-bar{ background:var(--navy-950); }
+:focus-visible{ outline-color:var(--gold-500); }
