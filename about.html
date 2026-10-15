@@ -21,7 +21,6 @@
 <meta name="twitter:image" content="https://www.glinsurancebrokers.com/assets/images/alexander-farr.jpg">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Alexander Farr","jobTitle":"Owner & Commercial Insurance Broker","worksFor":{"@type":"InsuranceAgency","name":"GL Insurance Brokers"},"alumniOf":"Florida Gulf Coast University","description":"U.S. Army veteran and commercial insurance broker specializing in general liability, workers' compensation, commercial auto, and excess liability insurance for Florida businesses."}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Meet Alexander Farr, Owner of GL Insurance Brokers","description":"Alexander Farr, owner of GL Insurance Brokers, introduces himself and explains how he helps Florida contractors and small businesses secure general liability, workers' compensation, and commercial auto coverage.","thumbnailUrl":"https://www.glinsurancebrokers.com/assets/images/alex-intro-poster.jpg","contentUrl":"https://www.glinsurancebrokers.com/assets/video/alex-intro.mp4","uploadDate":"2026-09-01","duration":"PT2M43S"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.glinsurancebrokers.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://www.glinsurancebrokers.com/about"}]}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +29,7 @@
 <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol></svg>
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="gl-mark" viewBox="0 0 64 64"><path d="M6 41c3.5 9.5 12.5 16.5 24 17 9 .4 17-3.6 22-10.5-5.5 5-13 7.6-21 7C20 53.8 11 48.5 6 41Z" fill="#D9A835"/><circle cx="33" cy="30" r="24" fill="#0B2145" stroke="#D9A835" stroke-width="2.4"/><circle cx="33" cy="30" r="20" fill="none" stroke="#F0D38F" stroke-width=".8" opacity=".6"/><text x="33" y="37.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="20" fill="#FFFDFA">GL</text></symbol><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol></svg>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -38,7 +37,8 @@
 <header class="site-header">
   <div class="nav-inner">
     <a class="brand" href="/" aria-label="GL Insurance Brokers home">
-      <picture><source srcset="assets/images/logo.webp" type="image/webp"><img src="assets/images/logo.png" alt="GL Insurance Brokers logo" width="360" height="203"></picture>
+      <svg class="brand-mark" aria-hidden="true"><use href="#gl-mark"/></svg>
+      <span class="brand-word">GL Brokers</span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="nav-links">
@@ -82,19 +82,9 @@
         <p>My name is Alexander Farr, and I am the owner of GL Insurance Brokers, a commercial insurance agency specializing in General Liability, Workers' Compensation, and Commercial Auto coverage for small businesses and contractors throughout Florida.</p>
         <p>As a longtime resident of Southwest Florida, I have proudly called the Fort Myers area home for more than 30 years. I graduated from Estero High School, after which I served four years in the United States Army as a Missile Technician. Following my military service, I attended Florida Gulf Coast University and earned a degree in Business Management.</p>
       </div>
-      <figure class="about-video reveal">
-        <video controls playsinline preload="metadata"
-               poster="assets/images/alex-intro-poster.jpg"
-               width="960" height="540">
-          <source src="assets/video/alex-intro.mp4" type="video/mp4">
-          Your browser does not support embedded video.
-          <a href="assets/video/alex-intro.mp4">Download Alex's introduction</a> instead.
-        </video>
-        <figcaption>
-          <strong>Alexander Farr</strong>
-          Owner &middot; GL Insurance Brokers
-        </figcaption>
-      </figure>
+      <div class="about-photo reveal">
+        <picture><source srcset="assets/images/alexander-farr.webp" type="image/webp"><img src="assets/images/alexander-farr.jpg" alt="Alexander Farr, owner of GL Insurance Brokers" width="900" height="1350"></picture>
+      </div>
     </div>
   </div>
 </section>
@@ -161,6 +151,12 @@
 
 <footer class="site-footer">
   <div class="wrap">
+    <div class="footer-top">
+      <a class="brand brand--footer" href="/" aria-label="GL Insurance Brokers home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#gl-mark"/></svg>
+        <span class="brand-word">GL Brokers</span>
+      </a>
+    </div>
     <div class="footer-grid no-brand">
       <div>
         <h4>Company</h4>
@@ -205,7 +201,7 @@
 </footer>
 
 <div class="mobile-call-bar">
-  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call GL Insurance Brokers at 239 898 2323">Call (239) 898-2323</a>
+  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call Agent at GL Insurance Brokers, 239 898 2323">Call Agent</a>
   <a class="btn btn-outline" href="/contact">Get a Quote</a>
 </div>
 
