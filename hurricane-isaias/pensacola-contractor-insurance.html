@@ -91,9 +91,10 @@
 @media (max-width:640px){.ready-list{columns:1}}
 .review-note{background:#fff7e0;border:1px dashed var(--gold-600);border-radius:var(--radius-md);padding:12px 16px;font-size:.9rem;color:var(--ink-soft);}
 </style>
+<style>/* The storm ticker sits above the header here, so the header sticks instead of floating over the banner */.site-header{position:sticky}.site-header:not(.is-solid){background:var(--navy-950)}.isaias-hero{padding-top:72px!important}@media (max-width:760px){.isaias-hero{padding-top:48px!important}}</style>
 </head>
 <body>
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol></svg>
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="gl-mark" viewBox="0 0 64 64"><path d="M6 41c3.5 9.5 12.5 16.5 24 17 9 .4 17-3.6 22-10.5-5.5 5-13 7.6-21 7C20 53.8 11 48.5 6 41Z" fill="#D9A835"/><circle cx="33" cy="30" r="24" fill="#0B2145" stroke="#D9A835" stroke-width="2.4"/><circle cx="33" cy="30" r="20" fill="none" stroke="#F0D38F" stroke-width=".8" opacity=".6"/><text x="33" y="37.5" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="20" fill="#FFFDFA">GL</text></symbol><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol></svg>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -108,7 +109,8 @@
 <header class="site-header">
   <div class="nav-inner">
     <a class="brand" href="/" aria-label="GL Insurance Brokers home">
-      <picture><source srcset="../assets/images/logo.webp" type="image/webp"><img src="../assets/images/logo.png" alt="GL Insurance Brokers logo" width="360" height="203"></picture>
+      <svg class="brand-mark" aria-hidden="true"><use href="#gl-mark"/></svg>
+      <span class="brand-word">GL Brokers</span>
     </a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="nav-links">
@@ -151,12 +153,12 @@
     <p class="lede">After Hurricane Isaias, homes and businesses across Pensacola, Escambia County and Santa Rosa County will need roof repairs, framing repairs, tree removal and storm debris pickup. If you're a roofer, framer, tree service or debris removal contractor taking on hurricane repair work, you'll need <strong>workers' compensation, general liability and commercial auto insurance</strong> before the job starts. General contractors, property managers and HOAs will ask for proof of all three. We get Pensacola storm contractors covered fast and send certificates of insurance the same day whenever the carrier allows.</p>
     <div class="hero-actions">
       <a class="btn btn-gold btn-arrow-static" href="/contact">
-        Get Covered for Isaias Work
+        Get a Quote
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="btn btn-outline btn-lift btn-icon-static" href="tel:+12398982323" data-call-source="isaias_pensacola_hero">
         <svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg>
-        Call (239) 898-2323
+        Call Agent
       </a>
     </div>
     <div class="hero-facts">
@@ -418,6 +420,12 @@
 
 <footer class="site-footer">
   <div class="wrap">
+    <div class="footer-top">
+      <a class="brand brand--footer" href="/" aria-label="GL Insurance Brokers home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#gl-mark"/></svg>
+        <span class="brand-word">GL Brokers</span>
+      </a>
+    </div>
     <div class="footer-grid no-brand">
       <div>
         <h4>Company</h4>
@@ -462,7 +470,7 @@
 </footer>
 
 <div class="mobile-call-bar">
-  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call GL Insurance Brokers at 239 898 2323">Call (239) 898-2323</a>
+  <a class="btn btn-gold btn-call" href="tel:+12398982323" data-call-source="mobile_call_bar" aria-label="Call Agent at GL Insurance Brokers, 239 898 2323">Call Agent</a>
   <a class="btn btn-outline" href="/contact">Get a Quote</a>
 </div>
 
