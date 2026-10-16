@@ -1553,3 +1553,13 @@ body:not(:has(.page-hero, .isaias-hero)) .site-header:not(.is-solid){ background
   .page-hero .hero-actions:not(:has(a[href="/"])), .isaias-hero .hero-actions{ display:none; }
 }
 @media (max-width: 760px){ .site-header .brand{ position:relative; z-index:2; } .nav-links{ z-index:1; } }
+
+/* Readability (contrast): small labels and fine print a shade darker */
+:root{ --ink-faint:#5F6880; }
+.section-eyebrow, .about-copy .kicker{ color:#84600F; }
+section.navy .section-eyebrow{ color:var(--gold-400); }
+
+/* About page: the intro heading keeps its look as an h2 under the new banner;
+   the "Working directly with GL" section uses the brand blue like the page banners */
+.about-copy .about-title{ font-size:clamp(1.9rem,3.6vw,2.7rem); margin-bottom:18px; }
+section.navy.about-why{ background:radial-gradient(120% 160% at 15% 0%, #123262 0%, #0B2145 40%, #07152C 75%); }

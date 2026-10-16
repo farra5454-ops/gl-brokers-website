@@ -80,6 +80,13 @@
     dates.forEach(function (d) { if (d.textContent !== text) d.textContent = text; });
   }
 
+  // Older phones without :has() support: hide the bottom call bar while a form field is focused
+  var isField = function (el) { return el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName); };
+  document.addEventListener("focusin", function (e) { if (isField(e.target)) document.body.classList.add("typing"); });
+  document.addEventListener("focusout", function () {
+    setTimeout(function () { if (!isField(document.activeElement)) document.body.classList.remove("typing"); }, 150);
+  });
+
   render();
   renderDate();
   setInterval(function () { render(); renderDate(); }, 1000);

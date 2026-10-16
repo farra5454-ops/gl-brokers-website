@@ -153,3 +153,25 @@
   html[data-office="evening"] .mobile-call-bar .btn-call::before { animation: callWiggle 4s ease-in-out infinite !important; }
 }
 
+
+/* Reserve the date line's space before the script fills it in, so nothing jumps on load */
+.live-date:empty { display: block; visibility: hidden; }
+.live-date:empty::before { content: "Wednesday, September 30th, 2026"; }
+
+/* Inner pages: the date sits above the clock box, centered */
+.page-hero .live-date { margin: 4px 0 12px; text-align: center; }
+.page-hero .live-status { margin: 0 auto 28px; }
+.isaias-hero .live-date { margin: 22px 0 10px; }
+.isaias-hero .live-status { margin-top: 0; margin-bottom: 24px; }
+@media (max-width: 760px) {
+  .page-hero .live-date, .isaias-hero .live-date { margin: 4px 0 10px; text-align: center; }
+  .page-hero .live-status, .isaias-hero .live-status { margin: 0 0 24px; }
+}
+
+/* Phones: while someone is typing in a form, hide the Call Agent / Get a Quote bar.
+   Otherwise the phone keyboard pushes the fixed bar up so it floats over the form,
+   and the page jumps when the keyboard closes. */
+@media (max-width: 760px) {
+  body:has(input:focus, textarea:focus, select:focus) .mobile-call-bar { display: none !important; }
+  body.typing .mobile-call-bar { display: none !important; }
+}

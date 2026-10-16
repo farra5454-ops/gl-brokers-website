@@ -666,3 +666,10 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .cta-inner { padding-top: 82.5px; padding-bottom: 82.5px; }
   .site-footer { padding-top: 54px; }
 }
+
+/* Readability (contrast) for small gold labels and gold italic words on white/sand sections */
+.eyebrow { color: #84600F; }
+.eyebrow--gold, .hero .eyebrow, .cta-band .eyebrow { color: var(--gold); }
+.coverage h2 em, .industries h2 em, .auto h2 em, .quote h2 em, .cities h2 em { color: var(--gold-dk); }
+/* Dimmed coverage names stay readable (contrast) */
+.cindex-item:not(.is-active) .cindex-name { color: #7D869A; }
