@@ -1494,3 +1494,33 @@ body:not(:has(.page-hero, .isaias-hero)) .site-header:not(.is-solid){ background
   .footer-rule::before{ grid-column:1; margin-right:16px; background:linear-gradient(90deg, rgba(240,211,143,0), rgba(240,211,143,.55) 75%, rgba(240,211,143,.3)); }
   .footer-rule::after{ grid-column:3; margin-left:16px; background:linear-gradient(90deg, rgba(240,211,143,.3), rgba(240,211,143,.55) 25%, rgba(240,211,143,0)); }
 }
+
+/* Desktop footer: the "B" in Brokers sits centered over the "C" in COMPANY (the logo hangs left
+   into the margin; on narrower screens it stops short of the window edge). The gold line starts
+   just after the wordmark; the star stays at the page center. */
+@media (min-width: 981px){
+  .footer-top{ --shift:max(-99px, calc(12px - ((100vw - min(100vw, 1180px)) / 2 + 24px))); }
+  .footer-top .brand{ grid-column:1; grid-row:1; justify-self:start; margin-left:var(--shift); }
+  .footer-rule::before{ grid-column:1 / 3; grid-row:1; margin-left:calc(184px + var(--shift) + 18px); }
+  .footer-star, .footer-rule::after{ grid-row:1; }
+}
+
+/* Desktop footer: symmetric columns so the star is always at the exact page center */
+@media (min-width: 981px){
+  .footer-top{ grid-template-columns:1fr 40px 1fr; }
+  .footer-top .brand{ grid-column:1; }
+  .footer-rule::before{ grid-column:1; }
+  .footer-star{ grid-column:2; }
+  .footer-rule::after{ grid-column:3; }
+}
+
+/* Phones: footer spacing identical to the homepage (52px above the logo row, 44px below it) */
+@media (max-width: 760px){
+  .site-footer{ padding-top:52px; }
+  .footer-top{ margin-bottom:44px; }
+}
+
+/* Phones: "Prefer to Talk?" and the cards below sit half as far under the quote form */
+@media (max-width: 760px){
+  .contact-grid{ row-gap:40px; }
+}
