@@ -1524,3 +1524,8 @@ body:not(:has(.page-hero, .isaias-hero)) .site-header:not(.is-solid){ background
 @media (max-width: 760px){
   .contact-grid{ row-gap:40px; }
 }
+
+/* Desktop footer: the "G" in GL Brokers lines up with the "C" in COMPANY (logo hangs into the margin) */
+@media (min-width: 981px){
+  .footer-top{ --shift:max(-58px, calc(12px - ((100vw - min(100vw, 1180px)) / 2 + 24px))); }
+}

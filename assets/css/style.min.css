@@ -24,3 +24,4 @@
  @media (min-width: 981px){.footer-top{grid-template-columns:1fr 40px 1fr;}.footer-top .brand{grid-column:1;}.footer-rule::before{grid-column:1;}.footer-star{grid-column:2;}.footer-rule::after{grid-column:3;}}
  @media (max-width: 760px){.site-footer{padding-top:52px;}.footer-top{margin-bottom:44px;}}
  @media (max-width: 760px){.contact-grid{row-gap:40px;}}
+ @media (min-width: 981px){.footer-top{--shift:max(-58px, calc(12px - ((100vw - min(100vw, 1180px)) / 2 + 24px)));}}
