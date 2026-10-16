@@ -153,10 +153,3 @@
   html[data-office="evening"] .mobile-call-bar .btn-call::before { animation: callWiggle 4s ease-in-out infinite !important; }
 }
 
-/* Homepage phones: date + clock sit right under the paragraph (no big empty stretch of video),
-   and the banner is only as tall as its content so the next section follows right after */
-@media (max-width: 760px) {
-  .hero.photo-hero { min-height: 0; }
-  .hero .hero-inner { padding-bottom: 0; }
-  .hero .hero-status-phone { margin-top: 0; padding-top: 26px; padding-bottom: 40px; }
-}
