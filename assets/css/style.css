@@ -1401,3 +1401,58 @@ body:not(:has(.page-hero, .isaias-hero)) .site-header:not(.is-solid){ background
   .nav-toggle.active{ color:var(--navy-900); }
 }
 @media (max-width:760px){ .nav-links .btn, .nav-links a, .nav-links button.nav-link{ border-radius:2px; } }
+/* Phones: Call Agent and Get a Quote are the same size, text centered */
+@media (max-width: 760px){ .mobile-call-bar .btn, .mobile-call-bar .btn-call{ flex:1 1 0; justify-content:center; text-align:center; } }
+
+/* Phones: trade link lists in two equal columns, names allowed to wrap so they never collide */
+@media (max-width: 760px){
+  .cities-block:has(a[href*="class-codes/"]){ grid-template-columns:1fr 1fr; justify-content:stretch; column-gap:16px; row-gap:10px; max-width:420px; }
+  .cities-block:has(a[href*="class-codes/"]) .city-pill{ white-space:normal; text-align:center; justify-content:center; width:100%; font-size:15.5px; line-height:1.25; }
+  .cities-block:has(a[href*="class-codes/"]) > *{ justify-content:center; }
+  /* Headings that break onto a second line on phones only */
+  .phone-line{ display:block; }
+  .phone-hide{ display:none; }
+}
+
+/* Phones: clean-up from the overlap audit */
+@media (max-width: 760px){
+  /* Long source links wrap instead of running off the screen */
+  .citation{ white-space:normal; overflow-wrap:anywhere; }
+  /* Any link list that isn't a city list (trades, coverage types) uses two equal columns that wrap */
+  .cities-block:not(:has(a[href*="-cities/"])){ grid-template-columns:1fr 1fr; justify-content:stretch; column-gap:16px; row-gap:10px; max-width:420px; }
+  .cities-block:not(:has(a[href*="-cities/"])) .city-pill{ white-space:normal; text-align:center; justify-content:center; width:100%; font-size:15.5px; line-height:1.25; }
+  .cities-block:not(:has(a[href*="-cities/"])) > *{ justify-content:center; }
+  /* Rates table fits the screen: codes may wrap, tighter cells */
+  table[style*="460px"]{ min-width:0 !important; font-size:14px; }
+  table[style*="460px"] th, table[style*="460px"] td{ padding:10px 8px !important; white-space:normal !important; }
+  /* Never let a card or long word push the page sideways */
+  .card, .prose, .faq-a-inner{ overflow-wrap:anywhere; }
+}
+
+/* Menu bars: white over the dark top, brand navy once the header turns white */
+.site-header .nav-toggle{ color:#fff; }
+.site-header.is-solid .nav-toggle, .site-header .nav-toggle.active{ color:var(--navy-900); }
+/* "Prefer to Talk?" phone: plain gold icon + number, no box */
+.talk-phone{ display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; margin-top:4px; color:#fff; font:700 1.15rem/1.2 var(--font-body); letter-spacing:.01em; text-decoration:none; }
+.talk-phone .icon-lead{ width:20px; height:20px; color:var(--gold-500); flex:none; }
+.talk-phone:hover{ color:var(--gold-300); }
+/* Send Message: words and arrow centered together */
+.contact-grid button[type="submit"] svg, form button[type="submit"].btn svg{ margin:0; }
+
+/* Phones: Send Message wide enough for its words and arrow, centered */
+@media (max-width: 760px){
+  form button[type="submit"].btn{ width:auto !important; min-width:66%; padding:15px 28px; gap:10px; }
+  form button[type="submit"].btn svg{ width:18px; height:18px; flex:none; }
+}
+
+/* Footer brand row: GL Brokers on the left, a thin gold rule running from the end of the
+   wordmark across the page with the signature star in the middle; no separate line below */
+.footer-top{ display:flex; align-items:center; gap:22px; flex-wrap:nowrap; padding-bottom:0; margin-bottom:8px; border-bottom:0; }
+.footer-rule{ flex:1; display:flex; align-items:center; gap:14px; color:var(--gold-500); min-width:60px; }
+.footer-rule::before, .footer-rule::after{ content:""; flex:1; height:1px; background:rgba(240,211,143,.35); }
+.footer-star{ width:18px; height:18px; flex:none; filter:drop-shadow(0 0 6px rgba(217,168,53,.45)); }
+
+.footer-top{ margin-bottom:36px; }
+.footer-star{ width:24px; height:24px; }
+.footer-rule::before, .footer-rule::after{ background:rgba(240,211,143,.45); }
+@media (max-width:760px){ .footer-top{ margin-bottom:28px; } }

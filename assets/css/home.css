@@ -489,3 +489,91 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .rail-inner a svg:first-child { width: 26px; height: 26px; }
   .rail-inner a:active { background: rgba(217, 168, 53, .14); }
 }
+
+/* Phones: coverage links as plain see-through text with the icon in front of each name,
+   no boxes or dividers. Bottom row keeps its spot; top row sits half as far above it. */
+@media (max-width: 760px) {
+  .hero-rail { border-top: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .rail-inner a, .rail-inner a + a {
+    flex-direction: row; align-items: center; justify-content: flex-start; gap: 10px;
+    min-height: 0; padding: 13px var(--pad); border: 0;
+    text-shadow: 0 1px 12px rgba(7, 21, 44, .7);
+  }
+  .rail-inner a:nth-child(odd) { border-right: 0; }
+  .rail-inner a:nth-child(n+3) { padding-bottom: 22px; }
+  .rail-inner a svg:first-child { width: 24px; height: 24px; filter: drop-shadow(0 1px 6px rgba(7, 21, 44, .7)); }
+}
+@media (max-width: 760px) {
+  .rail-inner a, .rail-inner a + a { gap: 8px; font-size: 14.5px; white-space: nowrap; }
+  .rail-inner a:nth-child(odd) { padding-right: 6px; }
+  .rail-inner a:nth-child(even) { padding-left: 6px; }
+  .rail-inner a svg:first-child { width: 21px; height: 21px; }
+}
+@media (max-width: 380px) {
+  .rail-inner a, .rail-inner a + a { font-size: 13.5px; gap: 7px; }
+  .rail-inner a svg:first-child { width: 19px; height: 19px; }
+}
+/* Phones: nothing behind the coverage links. The hero's bottom darkening and the
+   text shadows are removed so the video shows through untouched. */
+@media (max-width: 760px) {
+  .hero-veil {
+    background: linear-gradient(180deg, rgba(7, 21, 44, .78) 0%, rgba(7, 21, 44, .5) 50%, rgba(7, 21, 44, 0) 78%);
+  }
+  .rail-inner a, .rail-inner a + a { text-shadow: none; background: none; }
+  .rail-inner a svg:first-child { filter: none; }
+}
+/* Phones: Call Agent and Get a Quote are the same size, text centered */
+@media (max-width: 760px) {
+  .mobile-call-bar { grid-template-columns: 1fr 1fr; }
+  .mobile-call-bar .btn { justify-content: center; text-align: center; }
+}
+
+/* Phones: carriers label on one line with less space above the logos;
+   Coverage heading centered and pulled up closer to the carriers strip */
+@media (max-width: 760px) {
+  .carriers-inner { gap: 12px; padding-top: 24px; padding-bottom: 24px; }
+  .carriers-label { white-space: nowrap; }
+  .carriers-label br { display: none; }
+  .coverage { padding-top: 48px; }
+  .coverage-head { text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 40px; }
+  .coverage-head .eyebrow { justify-content: center; }
+  .coverage-head .eyebrow::after { content: ""; width: 34px; height: 1px; background: currentColor; }
+}
+
+/* Phones: Industries heading centered like Coverage; half the empty space
+   between Business Auto and Request a Quote, and between the quote section and Service Area */
+@media (max-width: 760px) {
+  .industries .split-head { text-align: center; }
+  .industries .split-head .eyebrow { justify-content: center; }
+  .industries .split-head .eyebrow::after { content: ""; width: 34px; height: 1px; background: currentColor; }
+  .auto { padding-bottom: 32px; }
+  .quote { padding-top: 48px; padding-bottom: 40px; }
+  .cities { padding-top: 36px; }
+}
+@media (max-width: 352px) {
+  .rail-inner a, .rail-inner a + a { font-size: 12.5px; gap: 6px; }
+  .rail-inner a svg:first-child { width: 17px; height: 17px; }
+}
+
+/* Menu bars turn brand navy once the header goes white */
+.site-header.is-solid .nav-toggle { color: var(--navy); }
+
+/* Footer brand row: GL Brokers on the left, a thin gold rule running from the end of the
+   wordmark across the page with the signature star in the middle; no separate line below */
+.footer-top{ display:flex; align-items:center; gap:22px; flex-wrap:nowrap; padding-bottom:0; margin-bottom:8px; border-bottom:0; }
+.footer-rule{ flex:1; display:flex; align-items:center; gap:14px; color:var(--gold); min-width:60px; }
+.footer-rule::before, .footer-rule::after{ content:""; flex:1; height:1px; background:rgba(240,211,143,.35); }
+.footer-star{ width:18px; height:18px; flex:none; filter:drop-shadow(0 0 6px rgba(217,168,53,.45)); }
+
+/* Desktop hero rail: see-through, no boxes; arrows sit right after each name */
+@media (min-width: 761px) {
+  .hero-rail { border-top: 0; background: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .rail-inner a, .rail-inner a + a { border-right: 0; padding-left: 0; padding-right: 0; text-shadow: 0 1px 14px rgba(7, 21, 44, .55); }
+  .rail-arrow { margin-left: 10px; opacity: .8; }
+  .rail-inner a:hover { background: none; }
+  .rail-inner a:hover span { color: var(--gold-lt); }
+}
+@media (max-width: 760px) { .footer-top { gap: 16px; } .footer-rule { gap: 10px; } }
+
+.footer-star { width: 24px; height: 24px; }
+.footer-rule::before, .footer-rule::after { background: rgba(240, 211, 143, .45); }
