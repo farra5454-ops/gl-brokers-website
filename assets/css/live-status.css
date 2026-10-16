@@ -91,3 +91,17 @@
 /* Pensacola banner is left-aligned */
 .isaias-hero .live-status { margin-top: 22px; }
 .isaias-hero .live-date { margin: 12px 0 24px; }
+
+/* Desktop homepage (v2): no Get a Quote / Call Agent under the paragraph, a bigger headline,
+   and the date sitting above the clock box, set a little lower */
+@media (min-width: 761px) {
+  .hero .hero-inner .hero-actions { display: none; }
+  .hero.photo-hero h1 { font-size: clamp(52px, min(7.6vw, 12vh), 118px); }
+  .hero .hero-status-desk { display: flex; flex-direction: column; align-items: flex-start; margin-top: 44px; }
+  .hero .hero-status-desk .live-date { order: -1; margin: 0 0 10px; }
+  .hero .hero-status-desk .live-status { margin-top: 0; }
+}
+/* Desktop homepage: clock section sits closer to the coverage links (gap cut by about 25%) */
+@media (min-width: 761px) {
+  .hero .hero-inner { padding-bottom: clamp(16px, 2.1vh, 38px); }
+}

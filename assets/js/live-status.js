@@ -51,7 +51,8 @@
       } else {
         label.textContent = "Closed now";
         var quote = box.getAttribute("data-quote") || "/contact";
-        sub.innerHTML = "Opens <strong>8 AM</strong> &middot; <a href=\"" + quote + "\">Request a quote</a> and we'll call you first thing";
+        var when = t.h >= CLOSE ? "tomorrow at " : "at ";
+        sub.innerHTML = "Opens " + when + "<strong>8 AM</strong> &middot; <a href=\"" + quote + "\">Request a quote</a> and we'll call you first thing";
       }
     });
     lastState = state;
