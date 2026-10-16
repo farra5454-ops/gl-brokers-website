@@ -29,3 +29,4 @@
 @media (max-width:760px){.site-header .brand{position:relative;z-index:2}.nav-links{z-index:1}}
  :root{--ink-faint:#5F6880;}.section-eyebrow, .about-copy .kicker{color:#84600F;}section.navy .section-eyebrow{color:var(--gold-400);}
  .about-copy .about-title{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:18px;}section.navy.about-why{background:radial-gradient(120% 160% at 15% 0%,#123262 0%,#0B2145 40%,#07152C 75%);}
+ @media (min-width: 981px){.contact-grid{align-items:stretch;}.contact-grid .form-card{display:flex;flex-direction:column;}.contact-grid #contact-form{flex:1;display:flex;flex-direction:column;}.contact-grid #contact-form .field:has(textarea){flex:1;display:flex;flex-direction:column;}.contact-grid #contact-form textarea{flex:1;min-height:140px;resize:vertical;}}
