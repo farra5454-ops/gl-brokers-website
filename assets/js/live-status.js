@@ -38,13 +38,13 @@
     var label, msg;
     if (state === "open") {
       label = "Open now";
-      msg = "Licensed agents answering until <strong>7 PM</strong>";
+      msg = "Licensed agents answering until &ndash; <strong>7 PM</strong>";
     } else if (state === "evening") {
       label = "Open tonight";
-      msg = "Agents still answering &middot; <strong>" + leftToday(t) + "</strong> left to call today";
+      msg = "Call now &ndash; <strong>" + leftToday(t) + "</strong> left today";
     } else {
       label = "Closed now";
-      msg = "Opens " + (t.h >= CLOSE ? "tomorrow at " : "at ") + "<strong>8 AM</strong> &middot; <a href=\"QUOTE\">Request a quote</a> and we'll call you first thing";
+      msg = "Opens " + (t.h >= CLOSE ? "tomorrow" : "today") + " &ndash; <strong>8 AM</strong> &middot; <a href=\"QUOTE\">Get a quote</a>";
     }
     var timeChanged = time + c.ap !== lastTime, msgChanged = state + msg !== lastMsg;
     if (!timeChanged && !msgChanged) return;

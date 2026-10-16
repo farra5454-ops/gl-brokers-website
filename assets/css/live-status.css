@@ -175,3 +175,102 @@
   body:has(input:focus, textarea:focus, select:focus) .mobile-call-bar { display: none !important; }
   body.typing .mobile-call-bar { display: none !important; }
 }
+
+/* ===== Clock style #2 "Editorial": no box; thin serif numbers like the headline,
+   gold italic AM/PM, small ET, and a thin gold rule above the message ===== */
+.live-status, .live-status[data-state="evening"], .live-status[data-state="closed"] {
+  display: inline-grid; grid-template-columns: auto; justify-items: start; gap: 8px;
+  padding: 0; background: none; border: 0; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+.live-status .ls-head { flex: none; }
+.live-status .ls-clock {
+  display: inline-flex; align-items: baseline; gap: 12px; padding: 0; background: none; border: 0;
+  font: 300 68px/1 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -.02em; color: #fff;
+}
+.live-status .ls-colon { animation: none; }
+.live-status .ls-ampm { font: italic 400 28px/1 "Fraunces", Georgia, serif; letter-spacing: 0; color: #D9A835; }
+.live-status .ls-zone { font: 500 11.5px/1 "IBM Plex Mono", monospace; letter-spacing: .2em; color: rgba(240, 211, 143, .7); }
+.live-status .ls-sub {
+  flex-basis: auto; padding-top: 12px; margin-top: 2px;
+  background: linear-gradient(90deg, #D9A835, rgba(217, 168, 53, 0)) top left / 240px 1px no-repeat;
+}
+/* centered banners on inner pages */
+.page-hero .live-status { justify-items: center; text-align: center; }
+.page-hero .live-status .ls-sub { background: linear-gradient(90deg, rgba(217,168,53,0), #D9A835, rgba(217,168,53,0)) top center / 260px 1px no-repeat; }
+@media (max-width: 760px) {
+  .live-status, .live-status[data-state] { display: grid; width: auto; }
+  .live-status .ls-clock { font-size: 58px; }
+  .live-status .ls-ampm { font-size: 24px; }
+  .isaias-hero .live-status { justify-items: center; text-align: center; }
+  .isaias-hero .live-status .ls-sub { background-position: top center; }
+}
+
+/* ===== Hybrid: the current layout (status on the left, time on the right, message below)
+   with no box anywhere, serif headline numbers, big gold italic PM and a small ET ===== */
+.live-status, .live-status[data-state="evening"], .live-status[data-state="closed"] {
+  display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 6px 22px;
+  padding: 0; background: none; border: 0; box-shadow: none;
+}
+.live-status .ls-clock { font-size: 46px; gap: 8px; }
+.live-status .ls-ampm { font-size: 24px; }
+.live-status .ls-sub { flex-basis: 100%; padding-top: 0; margin-top: 2px; background: none; }
+.page-hero .live-status { justify-content: center; }
+.page-hero .live-status .ls-sub { background: none; }
+@media (max-width: 760px) {
+  .live-status, .live-status[data-state] { display: flex; width: 100%; justify-content: space-between; }
+  .live-status .ls-head { flex: none; }
+  .live-status .ls-clock { font-size: 44px; }
+  .live-status .ls-ampm { font-size: 22px; }
+  .page-hero .live-status, .isaias-hero .live-status { justify-content: center; gap: 4px 20px; }
+}
+/* Hybrid at the current clock size (20px time, small AM/PM and ET) */
+.live-status .ls-clock { font-size: 20px; font-weight: 400; letter-spacing: 0; gap: 5px; font-variation-settings: "opsz" 24; }
+.live-status .ls-ampm { font-size: 13px; }
+.live-status .ls-zone { font-size: 10.5px; letter-spacing: .16em; }
+.live-status, .live-status[data-state] { gap: 6px 14px; }
+@media (max-width: 760px) {
+  .live-status .ls-clock { font-size: 20px; }
+  .live-status .ls-ampm { font-size: 13px; }
+}
+
+/* Box layout: the date sets the width; "OPEN NOW" lines up under its first letter and the
+   time lines up under its last digit; the message sits underneath within the same width */
+.ls-block { display: inline-block; text-align: left; vertical-align: top; }
+.ls-block .live-date { margin: 0 0 8px !important; text-align: left !important; white-space: nowrap; }
+.ls-block .live-status, .ls-block .live-status[data-state] {
+  display: flex !important; width: 0; min-width: 100%; justify-content: space-between !important;
+  flex-wrap: wrap; gap: 6px 10px; margin: 0 !important;
+}
+.ls-block .live-status .ls-sub { flex-basis: 100%; text-align: left; }
+.hero .hero-status-desk .ls-block { margin-top: 0; }
+.page-hero .ls-block { margin-bottom: 28px; }
+.isaias-hero .ls-block { margin: 22px 0 24px; }
+@media (max-width: 760px) {
+  .page-hero .ls-block, .isaias-hero .ls-block { margin: 4px auto 24px; }
+  .isaias-hero .wrap { text-align: left; }
+}
+/* The date is sized so the message fits on one line inside the same width */
+.ls-block .live-date { font-size: 22.5px !important; }
+.ls-block .live-status .ls-sub { white-space: nowrap; }
+@media (max-width: 760px) { .ls-block .live-date { font-size: 21.5px !important; } }
+/* Time centered in the space between "NOW" and the right edge of the box */
+.ls-block .live-status .ls-clock { flex: 1; justify-content: center; }
+/* Longer evening / after-hours messages wrap inside the box instead of running past it */
+.ls-block .live-status .ls-sub { white-space: normal; }
+
+/* Phones: the Call Agent / Get a Quote bar keeps one fixed height while scrolling.
+   Its bottom padding used to follow the browser's safe-area value, which changes as the
+   address/tool bar slides in and out, so the bar grew and shrank. Now it is constant. */
+@media (max-width: 760px) {
+  .mobile-call-bar {
+    height: 68px !important; box-sizing: border-box !important;
+    padding: 10px 12px !important; align-items: stretch !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+    background: rgba(7, 21, 44, .98) !important;
+    transform: translateZ(0); will-change: transform;
+  }
+  .mobile-call-bar .btn { min-height: 0 !important; height: 48px; padding-top: 0 !important; padding-bottom: 0 !important; }
+  body { padding-bottom: 68px !important; }
+  /* homepage banner fills the screen down to the bar using the stable small-viewport height */
+  .hero.photo-hero { min-height: calc(100svh - 68px) !important; }
+}
