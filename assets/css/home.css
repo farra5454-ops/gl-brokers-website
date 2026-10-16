@@ -466,18 +466,26 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .cta-inner { padding-top: 56px; padding-bottom: 56px; }
 }
 
-/* Phones: the four coverage links as 2 x 2 blocks under the hero paragraph */
+/* Phones: the four coverage links as one connected 2 x 2 panel along the bottom of the
+   hero video, edge to edge, see-through like the desktop rail. The hero stops just above
+   the sticky Call Agent / Get a Quote bar so the panel sits right on top of it. */
 @media (max-width: 760px) {
-  .hero-inner { padding-bottom: 26px; }
-  .hero-rail { border-top: 0; background: none; backdrop-filter: none; }
-  .rail-inner { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero { min-height: calc(100svh - 66px - env(safe-area-inset-bottom)); }
+  .hero-inner { padding-bottom: 32px; }
+  .hero-rail {
+    margin-top: auto; border-top: 1px solid rgba(240, 211, 143, .28);
+    background: linear-gradient(180deg, rgba(7, 21, 44, .12), rgba(7, 21, 44, .42));
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  }
+  .rail-inner { grid-template-columns: 1fr 1fr; gap: 0; padding: 0; max-width: none; }
   .rail-inner a, .rail-inner a + a {
     flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 14px;
-    min-height: 104px; padding: 16px; font: 600 15px/1.25 var(--sans);
-    background: rgba(7, 21, 44, .55); border: 1px solid rgba(240, 211, 143, .35); border-radius: 2px;
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    min-height: 104px; padding: 18px var(--pad); font: 600 15px/1.25 var(--sans);
+    background: none; border: 0; border-radius: 0; backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
   }
-  .rail-inner a:nth-child(odd) { border-right: 1px solid rgba(240, 211, 143, .35); }
+  .rail-inner a:nth-child(odd) { border-right: 1px solid rgba(255, 255, 255, .12); }
+  .rail-inner a:nth-child(n+3) { border-bottom: 0; }
   .rail-inner a svg:first-child { width: 26px; height: 26px; }
-  .rail-inner a:active { background: rgba(217, 168, 53, .18); }
+  .rail-inner a:active { background: rgba(217, 168, 53, .14); }
 }
