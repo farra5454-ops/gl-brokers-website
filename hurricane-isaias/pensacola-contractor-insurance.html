@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.min.css">
+<link rel="stylesheet" href="../assets/css/style.min.css?v=20261016o">
 
 <style>
 /* ---- Page-specific: Hurricane Isaias / Pensacola ---- */
@@ -351,7 +351,7 @@
     <div class="contact-grid">
       <div class="form-card reveal">
         <div class="form-banner">
-          <h2>Request a Free Quote</h2>
+          <h2>Request a Quote</h2>
         </div>
         <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST">
           <input type="hidden" name="sourcePage" value="Hurricane Isaias - Pensacola">
@@ -362,12 +362,12 @@
           </div>
           <div class="field">
             <label for="contactName">Contact Name</label>
-            <input type="text" id="contactName" name="contactName" autocomplete="name" placeholder="Full Name" required>
+            <input type="text" id="contactName" name="contactName" autocomplete="name" required>
             <span class="err">Please enter a contact name.</span>
           </div>
           <div class="field">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(239) 555-0123" required>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
             <span class="err">Please enter a valid phone number.</span>
           </div>
           <div class="field">
@@ -379,7 +379,7 @@
             <label for="coverageNeeded">What do you need covered? <span class="field-optional">(optional)</span></label>
             <textarea id="coverageNeeded" name="coverageNeeded" rows="4" placeholder="Tell us what you do and what coverage you're after: workers' comp, general liability, commercial auto, or something else."></textarea>
           </div>
-          <button type="submit" class="btn btn-gold btn-arrow-static" style="width:50%; display:block; margin:0 auto; background:linear-gradient(180deg, #ffdb7a 0%, #eebc55 50%, #d19e49 100%); border-color:#ffe494; box-shadow:0 6px 18px rgba(209,158,73,.5);">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button type="submit" class="btn btn-gold btn-arrow-static" style="width:50%; display:flex; justify-content:center; align-items:center; gap:10px; margin:0 auto; background:linear-gradient(180deg, #ffdb7a 0%, #eebc55 50%, #d19e49 100%); border-color:#ffe494; box-shadow:0 6px 18px rgba(209,158,73,.5);">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <p class="form-note">By submitting, you agree to be contacted by GL Insurance Brokers about your inquiry. We never share your information for marketing purposes. See our <a href="/privacy-policy" style="color:var(--navy-800);">Privacy Policy</a>.</p>
         </form>
         <div class="form-success" id="form-success">
@@ -392,7 +392,7 @@
         <div class="contact-info-card">
           <h2>Prefer to Talk?</h2>
           <p>Call us directly and speak with a licensed Florida insurance agent.</p>
-          <a class="btn btn-outline btn-sm" href="tel:+12398982323"><svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#icon-phone"/></svg> 239 898-2323</a>
+          <a class="talk-phone" href="tel:+12398982323"><svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-phone"/></svg>239-898-2323</a>
         </div>
         <div class="contact-info-card card-light">
           <h2>Hours of Operation</h2>
@@ -425,6 +425,7 @@
         <svg class="brand-mark" aria-hidden="true"><use href="#gl-mark"/></svg>
         <span class="brand-word">GL Brokers</span>
       </a>
+      <span class="footer-rule" aria-hidden="true"><svg class="footer-star" viewBox="0 0 24 24"><path d="M12 2C12 8.5 13.5 10.5 18 11.5C13.5 12.5 12 14.5 12 21C12 14.5 10.5 12.5 6 11.5C10.5 10.5 12 8.5 12 2Z" fill="currentColor"/></svg></span>
     </div>
     <div class="footer-grid no-brand">
       <div>
@@ -475,7 +476,7 @@
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="../assets/js/analytics.js"></script>
-<script src="../assets/js/main.min.js"></script>
+<script src="../assets/js/analytics.js?v=20261015b"></script>
+<script src="../assets/js/main.min.js?v=20261015b"></script>
 </body>
 </html>
