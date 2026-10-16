@@ -653,3 +653,16 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 @media (min-width: 981px){
   .footer-top{ --shift:max(-58px, calc(12px - ((100vw - min(100vw, 1320px)) / 2 + var(--pad)))); }
 }
+
+/* Desktop: 25% less space between homepage sections */
+@media (min-width: 761px) {
+  .carriers-inner { padding-top: 25.5px; padding-bottom: 25.5px; }
+  .coverage { padding: clamp(54px, 6.19vw, 90px) 0 clamp(72px, 8.25vw, 120px); }
+  .industries { padding: clamp(72px, 8.25vw, 112.5px) 0; }
+  .auto { padding: clamp(48px, 5.25vw, 72px) 0; }
+  .quote { padding: clamp(72px, 8.25vw, 112.5px) 0; }
+  .cities { padding: clamp(42px, 4.5vw, 63px) 0; }
+  .cta-band { min-height: 420px; }
+  .cta-inner { padding-top: 82.5px; padding-bottom: 82.5px; }
+  .site-footer { padding-top: 54px; }
+}

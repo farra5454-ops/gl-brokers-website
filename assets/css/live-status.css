@@ -105,3 +105,58 @@
 @media (min-width: 761px) {
   .hero .hero-inner { padding-bottom: clamp(16px, 2.1vh, 38px); }
 }
+
+/* Phones: while the office is open, the Call Agent button gives a gentle "heartbeat" every few
+   seconds (a soft double pulse with a gold ring and a little phone wiggle). Stops after hours. */
+@media (max-width: 760px) {
+  .mobile-call-bar .btn-call { position: relative; overflow: visible; gap: 9px; }
+  .mobile-call-bar .btn-call::before {
+    content: ""; width: 17px; height: 17px; flex: none; background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .mobile-call-bar .btn-call::after {
+    content: ""; position: absolute; inset: 0; border: 2px solid rgba(240, 211, 143, .9); border-radius: inherit;
+    opacity: 0; pointer-events: none;
+  }
+  html[data-office="open"] .mobile-call-bar .btn-call,
+  html[data-office="evening"] .mobile-call-bar .btn-call { animation: callBeat 4s ease-in-out infinite; }
+  html[data-office="open"] .mobile-call-bar .btn-call::after,
+  html[data-office="evening"] .mobile-call-bar .btn-call::after { animation: callRing 4s ease-out infinite; }
+  html[data-office="open"] .mobile-call-bar .btn-call::before,
+  html[data-office="evening"] .mobile-call-bar .btn-call::before { animation: callWiggle 4s ease-in-out infinite; }
+}
+@keyframes callBeat {
+  0%, 68%, 100% { transform: scale(1); }
+  72% { transform: scale(1.06); }
+  76% { transform: scale(1); }
+  80% { transform: scale(1.045); }
+  86% { transform: scale(1); }
+}
+@keyframes callRing {
+  0%, 68% { opacity: 0; transform: scale(1); }
+  70% { opacity: .9; transform: scale(1); }
+  92%, 100% { opacity: 0; transform: scale(1.18, 1.45); }
+}
+@keyframes callWiggle {
+  0%, 68%, 88%, 100% { transform: rotate(0); }
+  71% { transform: rotate(-14deg); } 74% { transform: rotate(12deg); }
+  77% { transform: rotate(-10deg); } 80% { transform: rotate(8deg); } 84% { transform: rotate(0); }
+}
+/* Keep the gentle Call Agent heartbeat even when the device asks for reduced motion (it is small and slow) */
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  html[data-office="open"] .mobile-call-bar .btn-call,
+  html[data-office="evening"] .mobile-call-bar .btn-call { animation: callBeat 4s ease-in-out infinite !important; }
+  html[data-office="open"] .mobile-call-bar .btn-call::after,
+  html[data-office="evening"] .mobile-call-bar .btn-call::after { animation: callRing 4s ease-out infinite !important; }
+  html[data-office="open"] .mobile-call-bar .btn-call::before,
+  html[data-office="evening"] .mobile-call-bar .btn-call::before { animation: callWiggle 4s ease-in-out infinite !important; }
+}
+
+/* Homepage phones: date + clock sit right under the paragraph (no big empty stretch of video),
+   and the banner is only as tall as its content so the next section follows right after */
+@media (max-width: 760px) {
+  .hero.photo-hero { min-height: 0; }
+  .hero .hero-inner { padding-bottom: 0; }
+  .hero .hero-status-phone { margin-top: 0; padding-top: 26px; padding-bottom: 40px; }
+}

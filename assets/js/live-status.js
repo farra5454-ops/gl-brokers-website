@@ -4,7 +4,6 @@
   "use strict";
 
   var boxes = document.querySelectorAll("[data-live-status]");
-  if (!boxes.length) return;
 
   var OPEN = 8, EVENING = 17, CLOSE = 19; // 8 AM, 5 PM, 7 PM Eastern
 
@@ -55,6 +54,7 @@
         sub.innerHTML = "Opens " + when + "<strong>8 AM</strong> &middot; <a href=\"" + quote + "\">Request a quote</a> and we'll call you first thing";
       }
     });
+    document.documentElement.setAttribute("data-office", state);
     lastState = state;
   }
 
