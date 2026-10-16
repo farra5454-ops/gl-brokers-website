@@ -423,11 +423,10 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .trade-links a { padding: 8px 0; font-size: 11.5px; letter-spacing: 0; }
 }
 /* Phones: hero copy sits up under the logo with "Fort Myers, Florida" between them,
-   and the coverage rail is dropped (the same links are just below in the Coverage Index) */
+   and the coverage rail becomes four tappable blocks, two by two, right under the paragraph */
 @media (max-width: 760px) {
   .hero { justify-content: flex-start; }
   .hero-inner { padding-top: 104px; }
-  .hero-rail { display: none; }
   .hero-meta { margin-bottom: 22px; }
   .hero-meta span:first-child { display: inline; }
   .hero-meta span:last-child, .meta-rule { display: none; }
@@ -465,4 +464,20 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 @media (max-width: 760px) {
   .cta-band { align-items: flex-start; min-height: 520px; }
   .cta-inner { padding-top: 56px; padding-bottom: 56px; }
+}
+
+/* Phones: the four coverage links as 2 x 2 blocks under the hero paragraph */
+@media (max-width: 760px) {
+  .hero-inner { padding-bottom: 26px; }
+  .hero-rail { border-top: 0; background: none; backdrop-filter: none; }
+  .rail-inner { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .rail-inner a, .rail-inner a + a {
+    flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 14px;
+    min-height: 104px; padding: 16px; font: 600 15px/1.25 var(--sans);
+    background: rgba(7, 21, 44, .55); border: 1px solid rgba(240, 211, 143, .35); border-radius: 2px;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .rail-inner a:nth-child(odd) { border-right: 1px solid rgba(240, 211, 143, .35); }
+  .rail-inner a svg:first-child { width: 26px; height: 26px; }
+  .rail-inner a:active { background: rgba(217, 168, 53, .18); }
 }
