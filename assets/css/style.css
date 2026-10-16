@@ -1529,3 +1529,27 @@ body:not(:has(.page-hero, .isaias-hero)) .site-header:not(.is-solid){ background
 @media (min-width: 981px){
   .footer-top{ --shift:max(-58px, calc(12px - ((100vw - min(100vw, 1180px)) / 2 + 24px))); }
 }
+
+/* Phones: the menu opens as the same full-screen navy panel as the homepage */
+@media (max-width: 760px){
+  .nav-links{ inset:0; width:100%; height:100vh; height:100dvh; background:var(--navy-950); padding:104px 24px 40px;
+    box-shadow:none; transform:none; opacity:0; visibility:hidden; transition:opacity .35s, visibility .35s; gap:0; }
+  .nav-links.open{ transform:none; opacity:1; visibility:visible; }
+  .nav-links > li{ border-bottom:1px solid rgba(255,255,255,.12); }
+  .nav-links > li.nav-cta{ border-bottom:0; }
+  .site-header .nav-links > li > a:not(.btn), .site-header .nav-links > li > button.nav-link{
+    color:#fff; background:none; font:400 30px/1 var(--font-display); letter-spacing:-.01em;
+    padding:22px 0; border-radius:0; justify-content:space-between; }
+  .site-header .nav-links > li > a:not(.btn):hover, .site-header .nav-links > li > button.nav-link:hover{ background:none; color:var(--gold-300); }
+  .nav-links .chev{ width:10px; height:10px; }
+  .nav-links .nav-item.open .dropdown{ background:transparent; margin:0; padding:0 0 16px; }
+  .nav-links .dropdown a{ color:rgba(255,255,255,.8); background:none; font:600 16px/1.3 var(--font-body); padding:10px 0; }
+  .nav-links .dropdown a:hover{ color:var(--gold-300); background:none; }
+  .nav-scrim.show{ opacity:0; }
+  /* while the menu is open, the header goes see-through so the logo and X sit on the navy panel */
+  .site-header:has(.nav-links.open){ background:transparent; box-shadow:none; color:#fff; -webkit-backdrop-filter:none; backdrop-filter:none; }
+  .site-header .nav-toggle.active{ color:#fff; }
+  /* Top-of-page Get a Quote / Call Agent buttons are hidden; the bar at the bottom has them */
+  .page-hero .hero-actions:not(:has(a[href="/"])), .isaias-hero .hero-actions{ display:none; }
+}
+@media (max-width: 760px){ .site-header .brand{ position:relative; z-index:2; } .nav-links{ z-index:1; } }

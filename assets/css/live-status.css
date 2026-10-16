@@ -1,0 +1,93 @@
+/* Live "open now" status + Fort Myers digital clock (used on dark hero banners) */
+.live-status {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px 14px;
+  margin-top: 26px; padding: 12px 18px;
+  color: #fff; font: 500 14.5px/1.35 "Manrope", system-ui, sans-serif;
+  background: rgba(7, 21, 44, .45); border: 1px solid rgba(240, 211, 143, .35); border-radius: 2px;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.ls-head { display: inline-flex; align-items: center; gap: 10px; }
+.ls-dot { width: 9px; height: 9px; border-radius: 50%; background: #3DDC84; box-shadow: 0 0 0 0 rgba(61, 220, 132, .6); animation: lsPulse 2s infinite; flex: none; }
+.ls-label { font: 700 12px/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .18em; text-transform: uppercase; color: #3DDC84; }
+.ls-clock {
+  display: inline-flex; align-items: baseline; gap: 5px; padding: 5px 10px;
+  font: 500 20px/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .04em; color: #F0D38F;
+  background: rgba(0, 0, 0, .28); border: 1px solid rgba(240, 211, 143, .2); border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.ls-ampm { font-size: 12px; letter-spacing: .12em; }
+.ls-zone { font-size: 10.5px; letter-spacing: .16em; color: rgba(240, 211, 143, .65); }
+.ls-colon { animation: lsBlink 1s steps(1) infinite; }
+.ls-sub { color: rgba(255, 255, 255, .86); }
+.ls-sub strong { color: #fff; font-weight: 700; }
+.ls-sub a { color: #F0D38F; font-weight: 700; }
+
+/* Evening (5–7 PM): gold, a little louder */
+.live-status[data-state="evening"] { border-color: rgba(217, 168, 53, .75); background: rgba(7, 21, 44, .55); box-shadow: 0 0 0 1px rgba(217, 168, 53, .15), 0 10px 30px -12px rgba(217, 168, 53, .45); }
+.live-status[data-state="evening"] .ls-dot { background: #D9A835; animation-name: lsPulseGold; }
+.live-status[data-state="evening"] .ls-label { color: #F0D38F; }
+
+/* After hours: calm grey */
+.live-status[data-state="closed"] .ls-dot { background: #9AA3B5; animation: none; }
+.live-status[data-state="closed"] .ls-label { color: #C9CFDA; }
+
+@keyframes lsPulse { 0% { box-shadow: 0 0 0 0 rgba(61, 220, 132, .55); } 70% { box-shadow: 0 0 0 9px rgba(61, 220, 132, 0); } 100% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); } }
+@keyframes lsPulseGold { 0% { box-shadow: 0 0 0 0 rgba(217, 168, 53, .6); } 70% { box-shadow: 0 0 0 9px rgba(217, 168, 53, 0); } 100% { box-shadow: 0 0 0 0 rgba(217, 168, 53, 0); } }
+@keyframes lsBlink { 50% { opacity: .25; } }
+
+/* Inner pages: banner text is centered */
+.page-hero .live-status { margin: 0 auto 28px; justify-content: center; text-align: left; }
+
+/* Phones */
+@media (max-width: 760px) {
+  .live-status { display: flex; width: 100%; gap: 8px 12px; padding: 12px 14px; font-size: 14px; margin-top: 22px; }
+  .ls-head { flex: 1; }
+  .ls-sub { flex-basis: 100%; }
+  .page-hero .live-status { margin-bottom: 24px; }
+}
+
+/* Today's date in words, under the status box */
+.live-date { margin: 14px 0 0; font: italic 400 19px/1.3 "Fraunces", Georgia, serif; letter-spacing: .005em; color: #F0D38F; }
+.live-date:empty { display: none; }
+.page-hero .live-date { margin: -12px 0 26px; text-align: center; }
+@media (max-width: 760px) {
+  .live-date { font-size: 17px; margin-top: 12px; }
+  .page-hero .live-date { margin: -8px 0 22px; }
+}
+
+/* Homepage: on phones the date + status sit just above the coverage links at the bottom of the video */
+.hero-status-phone { display: none; }
+@media (max-width: 760px) {
+  .hero-status-desk { display: none; }
+  .hero .hero-status-phone { display: block; margin-top: auto; padding-bottom: 6px; }
+  .hero-status-phone + .hero-rail { margin-top: 0; }
+  .hero-status-phone .live-date { margin: 0 0 10px; }
+  .hero-status-phone .live-status { margin-top: 0; }
+}
+
+/* Homepage phones (version A): the four coverage links are dropped from the video;
+   the date + clock sit a short way above the Call Agent / Get a Quote bar */
+@media (max-width: 760px) {
+  .hero .hero-rail { display: none; }
+  .hero .hero-status-phone { padding-bottom: 48px; }
+}
+
+/* Desktop homepage: tighter opening section so the coverage links stay on the first screen
+   now that the clock box and date sit under the paragraph */
+@media (min-width: 761px) {
+  .hero .hero-inner { padding-top: 124px; padding-bottom: clamp(28px, 4vh, 56px); }
+  .hero .hero-meta { margin-bottom: 22px; }
+  .hero .hero-lede { margin-top: 22px; }
+  .hero .hero-status-desk .live-status { margin-top: 20px; }
+  .hero .hero-status-desk .live-date { margin-top: 10px; }
+  .hero .hero-actions { margin-top: 22px; }
+}
+@media (min-width: 761px) {
+  .hero .hero-inner { padding-top: 112px; }
+  /* On shorter laptop screens the headline scales with screen height so everything fits */
+  .hero.photo-hero h1 { font-size: clamp(52px, min(7.6vw, 10vh), 118px); }
+}
+
+/* Pensacola banner is left-aligned */
+.isaias-hero .live-status { margin-top: 22px; }
+.isaias-hero .live-date { margin: 12px 0 24px; }

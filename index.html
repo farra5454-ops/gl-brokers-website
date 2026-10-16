@@ -108,6 +108,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/media/hero-poster-mobile.webp" media="(max-width: 760px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/media/hero-poster.webp" media="(min-width: 761px)" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/live-status.css">
 <link rel="stylesheet" href="assets/css/home.css?v=20261016u">
 </head>
 <body>
@@ -176,9 +177,25 @@
       <p class="hero-meta"><span>Fort Myers, Florida</span><span class="meta-rule" aria-hidden="true"></span><span>26.64&deg; N &middot; 81.87&deg; W</span></p>
       <h1 id="hero-title">Insurance Coverage for <em>Florida</em> Businesses</h1>
       <p class="hero-lede">GL Brokers helps business owners find the best insurance rates for their industry. Contact us today to talk with a licensed agent. In many cases, we can issue your certificate of insurance the same day.</p>
+      <div class="hero-status-desk">
+      <div class="live-status" data-live-status data-quote="#free-quote">
+        <span class="ls-head"><span class="ls-dot" aria-hidden="true"></span><span class="ls-label">Open daily</span></span>
+        <span class="ls-clock" aria-hidden="true"><span class="ls-time">8<span class="ls-colon">:</span>00</span><span class="ls-ampm">AM</span><span class="ls-zone">ET</span></span>
+        <span class="ls-sub" aria-live="polite">Licensed agents answering 8 AM &ndash; 7 PM, 7 days a week</span>
+      </div>
+      <p class="live-date" data-live-date></p>
+      </div>
       <div class="hero-actions">
         <a class="btn btn-gold" href="/contact">Get a Quote <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-glass" href="tel:+12398982323"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call Agent</a>
+      </div>
+    </div>
+    <div class="shell hero-status-phone">
+      <p class="live-date" data-live-date></p>
+      <div class="live-status" data-live-status data-quote="#free-quote">
+        <span class="ls-head"><span class="ls-dot" aria-hidden="true"></span><span class="ls-label">Open daily</span></span>
+        <span class="ls-clock" aria-hidden="true"><span class="ls-time">8<span class="ls-colon">:</span>00</span><span class="ls-ampm">AM</span><span class="ls-zone">ET</span></span>
+        <span class="ls-sub" aria-live="polite">Licensed agents answering 8 AM &ndash; 7 PM, 7 days a week</span>
       </div>
     </div>
     <nav class="hero-rail" aria-label="Coverage types">
@@ -557,5 +574,6 @@
     var a = document.createElement("script"); a.src = "assets/js/analytics.js"; document.body.appendChild(a);
   }
 </script>
+<script src="assets/js/live-status.js" defer></script>
 </body>
 </html>
