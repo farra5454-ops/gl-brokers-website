@@ -7,7 +7,6 @@
 
   var OPEN = 8, EVENING = 17, CLOSE = 19; // 8 AM, 5 PM, 7 PM Eastern
 
-
   // Current hour/minute/second in Fort Myers
   var fmt = new Intl.DateTimeFormat("en-US", {
     timeZone: "America/New_York", hour: "numeric", minute: "numeric", second: "numeric", hour12: false
@@ -28,34 +27,42 @@
     return rem + " min";
   }
 
-  var lastState = "";
+  // Only touch the page when something actually changes, so screen readers aren't
+  // re-announcing the message every second and the blinking colon keeps its rhythm.
+  var lastTime = "", lastMsg = "";
   function render() {
     var t = nowET();
     var state = t.h >= OPEN && t.h < EVENING ? "open" : (t.h >= EVENING && t.h < CLOSE ? "evening" : "closed");
     var c = twelve(t.h);
     var time = c.hr + "<span class=\"ls-colon\">:</span>" + (t.m < 10 ? "0" : "") + t.m;
+    var label, msg;
+    if (state === "open") {
+      label = "Open now";
+      msg = "Licensed agents answering until <strong>7 PM</strong>";
+    } else if (state === "evening") {
+      label = "Open tonight";
+      msg = "Agents still answering &middot; <strong>" + leftToday(t) + "</strong> left to call today";
+    } else {
+      label = "Closed now";
+      msg = "Opens " + (t.h >= CLOSE ? "tomorrow at " : "at ") + "<strong>8 AM</strong> &middot; <a href=\"QUOTE\">Request a quote</a> and we'll call you first thing";
+    }
+    var timeChanged = time + c.ap !== lastTime, msgChanged = state + msg !== lastMsg;
+    if (!timeChanged && !msgChanged) return;
 
     boxes.forEach(function (box) {
-      box.querySelector(".ls-time").innerHTML = time;
-      box.querySelector(".ls-ampm").textContent = c.ap;
-      if (state === lastState && state !== "evening") return;
-      box.setAttribute("data-state", state);
-      var label = box.querySelector(".ls-label"), sub = box.querySelector(".ls-sub");
-      if (state === "open") {
-        label.textContent = "Open now";
-        sub.innerHTML = "Licensed agents answering until <strong>7 PM</strong>";
-      } else if (state === "evening") {
-        label.textContent = "Open tonight";
-        sub.innerHTML = "Agents still answering &middot; <strong>" + leftToday(t) + "</strong> left to call today";
-      } else {
-        label.textContent = "Closed now";
-        var quote = box.getAttribute("data-quote") || "/contact";
-        var when = t.h >= CLOSE ? "tomorrow at " : "at ";
-        sub.innerHTML = "Opens " + when + "<strong>8 AM</strong> &middot; <a href=\"" + quote + "\">Request a quote</a> and we'll call you first thing";
+      if (timeChanged) {
+        box.querySelector(".ls-time").innerHTML = time;
+        box.querySelector(".ls-ampm").textContent = c.ap;
+      }
+      if (msgChanged) {
+        box.setAttribute("data-state", state);
+        box.querySelector(".ls-label").textContent = label;
+        box.querySelector(".ls-sub").innerHTML = msg.replace("QUOTE", box.getAttribute("data-quote") || "/contact");
       }
     });
     document.documentElement.setAttribute("data-office", state);
-    lastState = state;
+    lastTime = time + c.ap;
+    lastMsg = state + msg;
   }
 
   // Today's date in words, Fort Myers time, e.g. "Thursday, October 16th, 2026"
@@ -70,7 +77,7 @@
     var p = {};
     dfmt.formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
     var text = p.weekday + ", " + p.month + " " + ordinal(+p.day) + ", " + p.year;
-    dates.forEach(function (d) { d.textContent = text; });
+    dates.forEach(function (d) { if (d.textContent !== text) d.textContent = text; });
   }
 
   render();
