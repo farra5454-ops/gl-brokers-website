@@ -274,3 +274,100 @@
   /* homepage banner fills the screen down to the bar using the stable small-viewport height */
   .hero.photo-hero { min-height: calc(100svh - 68px) !important; }
 }
+
+/* Desktop homepage: an EKG heartbeat line between "OPEN NOW" and the time; the time's
+   "ET" lines up with the last digit of the date */
+.ls-ekg { display: none; }
+@media (min-width: 761px) {
+  .hero-status-desk .live-status { flex-wrap: wrap; }
+  .hero-status-desk .ls-ekg { display: block; flex: 1; height: 26px; margin: 0 14px; min-width: 60px; }
+  .hero-status-desk .ls-ekg svg { width: 100%; height: 100%; overflow: visible; }
+  .hero-status-desk .ls-ekg path { fill: none; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+  .hero-status-desk .ekg-base { stroke: rgba(61, 220, 132, .22); stroke-width: 1.4; }
+  .hero-status-desk .ekg-trace {
+    stroke: #3DDC84; stroke-width: 2; stroke-dasharray: 22 78;
+    filter: drop-shadow(0 0 3px rgba(61, 220, 132, .9));
+    animation: ekgSweep 4.2s linear infinite;
+  }
+  .hero-status-desk .ls-block .live-status .ls-clock { flex: none; justify-content: flex-end; }
+  html[data-office="evening"] .hero-status-desk .ekg-trace { stroke: #D9A835; filter: drop-shadow(0 0 3px rgba(217, 168, 53, .9)); }
+  html[data-office="evening"] .hero-status-desk .ekg-base { stroke: rgba(217, 168, 53, .25); }
+  html[data-office="closed"] .hero-status-desk .ls-ekg { opacity: .35; }
+  html[data-office="closed"] .hero-status-desk .ekg-trace { animation: none; stroke-dasharray: none; stroke: #9AA3B5; filter: none; }
+}
+@keyframes ekgSweep { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@media (min-width: 761px) and (prefers-reduced-motion: reduce) {
+  .hero-status-desk .ekg-trace { animation: ekgSweep 4.2s linear infinite !important; }
+}
+@media (min-width: 761px) {
+  .hero-status-desk .ls-ekg { flex: 1 1 0; min-width: 0; margin: 0 12px; }
+  .hero-status-desk .ls-block .live-status { flex-wrap: wrap; column-gap: 0; }
+  .hero-status-desk .ls-block .live-status .ls-head, .hero-status-desk .ls-block .live-status .ls-clock { flex: none; }
+}
+
+/* EKG v2: no line sitting there - the trace draws itself left to right like a heart monitor,
+   with a bright tip leading it, holds a moment, fades, and draws the next beat */
+@media (min-width: 761px) {
+  .hero-status-desk .ekg-base { display: none; }
+  .hero-status-desk .ekg-trace {
+    stroke: #3DDC84; stroke-width: 1.8; stroke-dasharray: 100 100; stroke-dashoffset: 100;
+    filter: drop-shadow(0 0 2px rgba(61, 220, 132, .7));
+    animation: ekgDraw 3.2s linear infinite;
+  }
+  .hero-status-desk .ekg-head {
+    fill: none; stroke: #CFFFE3; stroke-width: 2.6; stroke-dasharray: 5 300; stroke-dashoffset: 5;
+    filter: drop-shadow(0 0 4px #3DDC84) drop-shadow(0 0 2px #3DDC84);
+    animation: ekgHead 3.2s linear infinite;
+  }
+  html[data-office="evening"] .hero-status-desk .ekg-trace { stroke: #D9A835; filter: drop-shadow(0 0 2px rgba(217, 168, 53, .7)); }
+  html[data-office="evening"] .hero-status-desk .ekg-head { stroke: #FFF1C9; filter: drop-shadow(0 0 4px #D9A835); }
+  html[data-office="closed"] .hero-status-desk .ls-ekg { opacity: .35; }
+  html[data-office="closed"] .hero-status-desk .ekg-trace { animation: none; stroke-dashoffset: 0; stroke: #9AA3B5; filter: none; }
+  html[data-office="closed"] .hero-status-desk .ekg-head { display: none; }
+}
+@keyframes ekgDraw {
+  0% { stroke-dashoffset: 100; opacity: 1; }
+  72% { stroke-dashoffset: 0; opacity: 1; }
+  84% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes ekgHead {
+  0% { stroke-dashoffset: 5; opacity: 1; }
+  72% { stroke-dashoffset: -95; opacity: 1; }
+  73%, 100% { stroke-dashoffset: -95; opacity: 0; }
+}
+@media (min-width: 761px) and (prefers-reduced-motion: reduce) {
+  .hero-status-desk .ekg-trace { animation: ekgDraw 3.2s linear infinite !important; }
+  .hero-status-desk .ekg-head { animation: ekgHead 3.2s linear infinite !important; }
+}
+
+/* EKG while closed: hidden for now; the time sits centered as before */
+@media (min-width: 761px) {
+  html[data-office="closed"] .hero-status-desk .ls-ekg { display: none; }
+  html[data-office="closed"] .hero-status-desk .ls-block .live-status .ls-clock { flex: 1; justify-content: center; }
+}
+
+/* EKG heartbeat on every clock (all pages, desktop and phone): green while open,
+   gold 5-7 PM, hidden after hours with the time centered as before */
+.ls-block .ls-ekg { display: block; flex: 1 1 0; min-width: 0; height: 24px; margin: 0 10px; }
+.ls-block .ls-ekg svg { width: 100%; height: 100%; overflow: visible; }
+.ls-block .ls-ekg path { fill: none; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
+.ls-block .ekg-trace {
+  stroke: #3DDC84; stroke-width: 1.8; stroke-dasharray: 100 100; stroke-dashoffset: 100;
+  filter: drop-shadow(0 0 2px rgba(61, 220, 132, .7)); animation: ekgDraw 3.2s linear infinite;
+}
+.ls-block .ekg-head {
+  stroke: #CFFFE3; stroke-width: 2.6; stroke-dasharray: 5 300; stroke-dashoffset: 5;
+  filter: drop-shadow(0 0 4px #3DDC84) drop-shadow(0 0 2px #3DDC84); animation: ekgHead 3.2s linear infinite;
+}
+html[data-office="evening"] .ls-block .ekg-trace { stroke: #D9A835; filter: drop-shadow(0 0 2px rgba(217, 168, 53, .7)); }
+html[data-office="evening"] .ls-block .ekg-head { stroke: #FFF1C9; filter: drop-shadow(0 0 4px #D9A835); }
+.ls-block .live-status .ls-head, .ls-block .live-status .ls-clock { flex: none; }
+.ls-block .live-status .ls-clock { justify-content: flex-end; }
+.ls-block .live-status, .ls-block .live-status[data-state] { column-gap: 0; }
+html[data-office="closed"] .ls-block .ls-ekg { display: none; }
+html[data-office="closed"] .ls-block .live-status .ls-clock { flex: 1; justify-content: center; }
+@media (prefers-reduced-motion: reduce) {
+  .ls-block .ekg-trace { animation: ekgDraw 3.2s linear infinite !important; }
+  .ls-block .ekg-head { animation: ekgHead 3.2s linear infinite !important; }
+}
