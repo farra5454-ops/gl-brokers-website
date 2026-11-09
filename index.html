@@ -112,6 +112,7 @@
 <link rel="preload" as="image" href="assets/media/hero-poster.webp" media="(min-width: 761px)" fetchpriority="high">
 <link rel="stylesheet" href="assets/css/live-status.css?v=20261109">
 <link rel="stylesheet" href="assets/css/home.css?v=20261109b">
+<link rel="stylesheet" href="assets/css/sent-card.css?v=20261109">
 </head>
 <body>
 
@@ -449,9 +450,22 @@
           <p class="form-note">By submitting, you agree to be contacted by GL Insurance Brokers about your inquiry. We never share your information for marketing purposes. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
         </form>
         <div class="form-success" id="form-success" tabindex="-1">
-          <svg class="success-mark" aria-hidden="true"><use href="#i-shield"/></svg>
-          <h2>Message sent.</h2>
-          <p>Thanks for reaching out. We will get back to you shortly. For anything urgent, call or text <a href="tel:+12398982323">(239) 898-2323</a>.</p>
+          <div class="sent-card">
+            <div class="sc-top">
+              <img class="sc-photo" src="assets/images/alexander-farr-card.webp" width="132" height="176" alt="Alexander Farr, licensed Florida insurance agent" loading="lazy" decoding="async">
+              <div>
+                <span class="sc-pill"><i aria-hidden="true"></i>Assigned to your request</span>
+                <h2 class="sc-name">Alexander Farr</h2>
+                <span class="sc-role">Licensed Agent · GL Brokers</span>
+                <p class="sc-msg"><span data-sc-thanks>Thank you.</span> Agent Alexander Farr has been assigned to your request. <strong>You’ll receive a reply within 24 hours.</strong></p>
+              </div>
+            </div>
+            <ol class="sc-steps" aria-label="Request status">
+              <li><span class="sc-mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg></span><b>Request received</b><small data-sc-time>Just now</small></li>
+              <li><span class="sc-mk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 12.5l4.2 4.2L18.5 7.8"/></svg></span><b>Agent assigned</b><small>Alexander Farr</small></li>
+              <li class="sc-next"><span class="sc-mk" aria-hidden="true"></span><b>Reply to you</b><small>Within 24 hours</small></li>
+            </ol>
+          </div>
         </div>
       </div>
 
@@ -574,6 +588,7 @@
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 <script src="assets/js/form-guard.js?v=20261109" defer></script>
 <script src="assets/js/home.js?v=20261015c" defer></script>
+<script src="assets/js/sent-card.js?v=20261109" defer></script>
 <script>
   /* Analytics (GA4 + call/lead tracking) only on the live site, so local previews don't count as visits. */
   if (location.protocol === "https:") {
