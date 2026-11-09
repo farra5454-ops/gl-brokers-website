@@ -116,7 +116,7 @@
 </head>
 <body>
 
-<svg class="sprite" aria-hidden="true" focusable="false">
+<svg class="sprite" aria-hidden="true" focusable="false"><symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-shield" viewBox="0 0 32 32"><path d="M16 3.5 5.5 7.5v7.8c0 6.6 4.4 11.4 10.5 13.2 6.1-1.8 10.5-6.6 10.5-13.2V7.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m11.2 16.2 3.4 3.4 6.4-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -408,48 +408,45 @@
   </section>
 
   <!-- QUOTE -->
-  <section class="quote" id="free-quote" aria-labelledby="quote-title">
-    <div class="shell quote-grid">
+  <section class="quote-contact" id="free-quote" aria-labelledby="quote-title">
+  <div class="wrap">
+    <div class="contact-grid">
       <div class="form-card reveal">
         <div class="form-banner">
           <h2 id="quote-title">Request a Quote</h2>
         </div>
-        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST" data-turnstile-sitekey="0x4AAAAAAF5_4mPUavsTRISu" novalidate>
+        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST" data-turnstile-sitekey="0x4AAAAAAF5_4mPUavsTRISu">
           <!-- Hidden spam trap (Formspree "honeypot"): people never see it, bots fill it in and Formspree drops them -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="field-pair">
-            <div class="field">
-              <label for="businessName">Business Name</label>
-              <input type="text" id="businessName" name="businessName" autocomplete="organization" required>
-              <span class="err">Please enter your business name.</span>
-            </div>
-            <div class="field">
-              <label for="contactName">Contact Name</label>
-              <input type="text" id="contactName" name="contactName" autocomplete="name" required>
-              <span class="err">Please enter a contact name.</span>
-            </div>
+          <div class="field">
+            <label for="businessName">Business Name</label>
+            <input type="text" id="businessName" name="businessName" autocomplete="organization" required>
+            <span class="err">Please enter your business name.</span>
           </div>
-          <div class="field-pair">
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-              <span class="err">Please enter a valid phone number.</span>
-            </div>
-            <div class="field">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
-              <span class="err">Please enter a valid email address.</span>
-            </div>
+          <div class="field">
+            <label for="contactName">Contact Name</label>
+            <input type="text" id="contactName" name="contactName" autocomplete="name" required>
+            <span class="err">Please enter a contact name.</span>
           </div>
-          <div class="field field--grow">
+          <div class="field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+            <span class="err">Please enter a valid phone number.</span>
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <span class="err">Please enter a valid email address.</span>
+          </div>
+          <div class="field">
             <label for="coverageNeeded">What do you need covered? <span class="field-optional">(optional)</span></label>
-            <textarea id="coverageNeeded" name="coverageNeeded" rows="4" placeholder="Tell us what you do and what coverage you're after: workers' comp, general liability, commercial auto, or something else."></textarea>
+            <textarea id="coverageNeeded" name="coverageNeeded" rows="4" placeholder="Tell us what you do and what coverage you're after — workers' comp, general liability, commercial auto, or something else."></textarea>
           </div>
-          <button type="submit" class="btn btn-gold btn-submit">Send Message <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button type="submit" class="btn btn-gold btn-arrow-static" style="width:50%; display:flex; justify-content:center; align-items:center; gap:10px; margin:0 auto; background:linear-gradient(180deg, #ffdb7a 0%, #eebc55 50%, #d19e49 100%); border-color:#ffe494; box-shadow:0 6px 18px rgba(209,158,73,.5);">Send Message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           <p class="form-status" role="status" aria-live="polite"></p>
-          <p class="form-note">By submitting, you agree to be contacted by GL Insurance Brokers about your inquiry. We never share your information for marketing purposes. See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+          <p class="form-note">By submitting, you agree to be contacted by GL Insurance Brokers about your inquiry. We never share your information for marketing purposes. See our <a href="/privacy-policy" style="color:var(--navy-800);">Privacy Policy</a>.</p>
         </form>
-        <div class="form-success" id="form-success" tabindex="-1">
+        <div class="form-success" id="form-success">
           <div class="sent-card">
             <div class="sc-top">
               <img class="sc-photo" src="assets/images/alexander-farr-card.webp" width="132" height="176" alt="Alexander Farr, licensed Florida insurance agent" loading="lazy" decoding="async">
@@ -468,29 +465,35 @@
           </div>
         </div>
       </div>
-
       <aside class="contact-sidebar reveal">
-        <div class="side-card side-card--navy">
+        <div class="contact-info-card">
           <h2>Prefer to Talk?</h2>
           <p>Call us directly and speak with a licensed Florida insurance agent.</p>
-          <a class="side-phone" href="tel:+12398982323"><svg aria-hidden="true"><use href="#i-phone"/></svg>239 898-2323</a>
+          <a class="talk-phone" href="tel:+12398982323"><svg class="icon-lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><use href="#icon-phone"/></svg>239-898-2323</a>
         </div>
-        <div class="side-card">
+        <div class="contact-info-card card-light">
           <h2>Hours of Operation</h2>
-          <div class="hours"><span>Monday &ndash; Sunday</span><span>8:00 AM &ndash; 7:00 PM</span></div>
+          <div class="divider-star"><span class="star"></span></div>
+          <ul class="contact-details">
+            <li>
+              <span class="contact-detail-label">Monday &ndash; Sunday</span>
+              <span>8:00 AM &ndash; 7:00 PM</span>
+            </li>
+          </ul>
         </div>
-        <div class="side-card">
+        <div class="contact-info-card card-light">
           <h2>What Happens Next</h2>
-          <ol class="steps">
+          <ol class="next-steps">
             <li>We receive your quote request and identify the best carriers for your needs.</li>
             <li>A specialist contacts you within one business day with competitive options.</li>
             <li>We answer your questions and help you choose the right coverage.</li>
-            <li>We bind coverage and get you protected, often same day.</li>
+            <li>We bind coverage and get you protected &mdash; often same day.</li>
           </ol>
         </div>
       </aside>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- CITIES -->
   <section class="cities" aria-labelledby="cities-title">
@@ -498,7 +501,7 @@
       <div class="cities-copy">
       <p class="eyebrow">Service area</p>
       <h2 id="cities-title">Florida Cities We Serve</h2>
-      <p class="cities-lede">We help contractors get insurance quotes all across Florida, from Southwest Florida to the Panhandle, including:</p>
+      <p class="cities-lede">We help contractors get insurance quotes across Southwest Florida, including:</p>
       <ul class="city-grid">
         <li><a href="/gl-contractor-cities/fort-myers">Fort Myers<span class="sr-only"> contractor insurance</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/gl-contractor-cities/cape-coral">Cape Coral<span class="sr-only"> contractor insurance</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
