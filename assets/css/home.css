@@ -673,3 +673,11 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 .coverage h2 em, .industries h2 em, .auto h2 em, .quote h2 em, .cities h2 em { color: var(--gold-dk); }
 /* Dimmed coverage names stay readable (contrast) */
 .cindex-item:not(.is-active) .cindex-name { color: #7D869A; }
+
+/* Home header on computers (approved by Alex 2026-11-09): menu centred on the page; Get a Quote the same
+   distance from the right edge as from the top (21px), phone number beside it. Logo and banner unchanged. */
+@media (min-width: 981px) {
+  .site-header .header-inner { position: static; }
+  .site-header .primary-nav { position: absolute; left: 50%; top: 0; bottom: 0; margin: 0; display: flex; align-items: center; transform: translateX(-50%); }
+  .site-header .header-actions { position: absolute; right: 21px; top: 0; bottom: 0; margin: 0; display: flex; align-items: center; }
+}
