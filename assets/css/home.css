@@ -681,3 +681,160 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .site-header .primary-nav { position: absolute; left: 50%; top: 0; bottom: 0; margin: 0; display: flex; align-items: center; transform: translateX(-50%); }
   .site-header .header-actions { position: absolute; right: 21px; top: 0; bottom: 0; margin: 0; display: flex; align-items: center; }
 }
+
+/* Home page (approved by Alex 2026-11-09): these three sections 5% smaller on computers, same place, same shapes. Nothing else changed. */
+@media (min-width: 981px) {
+  .hero .hero-inner, .hero .hero-rail { zoom: .95; }
+  section.coverage, section.industries { zoom: .95; }
+}
+/* Home page (approved by Alex 2026-11-09): the top banner's text block and its coverage links 25% closer to the left edge.
+   Their distance from the left edge is (screen width - 1148px) / 2, so they move left by a quarter of that. */
+@media (min-width: 1148px) {
+  .hero .hero-inner, .hero .hero-rail { position: relative; left: calc((1148px - 100vw) / 8); }
+}
+/* Home page (approved by Alex 2026-11-09): a quarter inch (24px on screen) more space between "Licensed agents answering..." and the coverage row
+   (General Liability, Workers' Comp...). The row is drawn at 95%, so 24 / .95 gives 24px on screen. */
+@media (min-width: 981px) { .hero .hero-rail { margin-top: calc(24px / .95); } }
+/* Home page (approved by Alex 2026-11-09): GL Brokers logo and name in the left corner, mirroring Get a Quote on the right:
+   the same 21px from the left edge as from the top. */
+@media (min-width: 981px) {
+  .site-header .brand { position: absolute; left: 21px; top: 0; bottom: 0; display: flex; align-items: center; }
+}
+
+/* Home page (approved by Alex 2026-11-09): the Contact page's quote form on the Home page. Its own styles (toolbox prune_css.py),
+   limited to this section only. */
+#free-quote {--navy-950:#07152c;--navy-900:#0b2145;--navy-800:#123262;--navy-700:#1a4283;--navy-600:#2857a8;--gold-700:#a97a1e;--gold-600:#c99429;--gold-500:#d9a835;--gold-400:#e6bd5c;--gold-300:#f0d38f;--ink:#1a2130;--ink-soft:#4b5568;--ink-faint:#7a8496;--line:#e7e1d5;--line-soft:#f0ebe0;--bg:#fffdfa;--bg-alt:#f8f3ea;--bg-navy-tint:#eef2f9;--font-display:'Fraunces',Georgia,'Times New Roman',serif;--font-body:'Open Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--radius-sm:8px;--radius-md:14px;--radius-lg:22px;--shadow-sm:0 1px 2px rgba(11,33,69,0.06),0 1px 1px rgba(11,33,69,0.04);--shadow-md:0 8px 24px rgba(11,33,69,0.08),0 2px 6px rgba(11,33,69,0.05);--shadow-lg:0 24px 60px rgba(11,33,69,0.14),0 8px 20px rgba(11,33,69,0.08);--wrap:1180px;--ease:cubic-bezier(.22,.8,.28,1)--navy-950:#07152C;--navy-900:#0B2145;--navy-800:#123262;--navy-700:#123262;--navy-600:#1E4A86;--gold-700:#A97A1E;--gold-600:#C99429;--gold-500:#D9A835;--gold-400:#D9A835;--gold-300:#F0D38F;--ink:#14203A;--ink-soft:#56607A;--ink-faint:#7A8299;--line:#E4DED1;--line-soft:#EEE9DF;--bg:#FFFFFF;--bg-alt:#F6F2EA;--bg-navy-tint:#F6F2EA;--font-display:"Fraunces",Georgia,serif;--font-body:"Manrope",system-ui,sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,monospace;--radius-sm:2px;--radius-md:4px;--radius-lg:4px;--ease:cubic-bezier(.22,1,.36,1);--hdr:88px;--ink-faint:#5F6880;}
+#free-quote *, #free-quote ::after, #free-quote ::before {box-sizing:border-box}
+@media (prefers-reduced-motion:reduce) {
+#free-quote *, #free-quote ::after, #free-quote ::before {animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}
+}
+#free-quote img {max-width:100%;display:block}
+#free-quote a {color:inherit}
+#free-quote h1, #free-quote h2, #free-quote h3, #free-quote h4 {font-family:var(--font-display);color:var(--navy-900);line-height:1.15;margin:0 0 .5em;font-weight:600;letter-spacing:-.01em}
+#free-quote p {margin:0 0 1em;color:var(--ink-soft)}
+#free-quote ol, #free-quote ul {color:var(--ink-soft)}
+#free-quote .wrap {max-width:var(--wrap);margin:0 auto;padding:0 24px}
+#free-quote .star {display:inline-block;width:1em;height:1em;background:currentColor;clip-path:path('M12 0 C12 6.5 13.5 8.5 18 9.5 C13.5 10.5 12 12.5 12 19 C12 12.5 10.5 10.5 6 9.5 C10.5 8.5 12 6.5 12 0 Z')}
+#free-quote .divider-star {display:flex;align-items:center;gap:14px;color:var(--gold-500)}
+#free-quote .divider-star::after, #free-quote .divider-star::before {content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+#free-quote .btn {position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-body);font-weight:700;font-size:.98rem;padding:14px 26px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);white-space:nowrap}
+#free-quote .btn:active {transform:scale(.97)}
+#free-quote .btn-gold {background:linear-gradient(180deg,#ffcf4d 0,#e8a51c 50%,#c17d0c 100%);border-color:#ffdb70;color:var(--navy-950);box-shadow:0 6px 18px rgba(193,125,12,.5)}
+#free-quote .btn-gold:hover {box-shadow:0 10px 26px rgba(193,125,12,.65);transform:translateY(-2px)}
+#free-quote .btn-gold::after {content:"";position:absolute;inset:-6px;border-radius:inherit;padding:3px;background:conic-gradient(from 0deg,transparent 0 80%,var(--gold-200) 88%,#fff 92%,var(--gold-200) 96%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:blur(1.5px);opacity:0;pointer-events:none;transition:opacity .3s ease;animation:btn-orbit 2.2s linear infinite;animation-play-state:paused}
+#free-quote .btn-gold:active::after, #free-quote .btn-gold:focus-visible::after, #free-quote .btn-gold:hover::after {opacity:1;animation-play-state:running}
+@keyframes btn-orbit{to{transform:rotate(360deg)}}
+#free-quote .btn svg {width:16px;height:16px;transition:transform .25s var(--ease)}
+#free-quote .btn:hover svg {transform:translateX(3px)}
+#free-quote .btn-arrow-static svg {transition:none}
+#free-quote .btn-arrow-static:hover svg {transform:none}
+#free-quote section {padding:66px 0}
+#free-quote .contact-section-top {padding-top:56px}
+#free-quote .contact-grid {display:grid;grid-template-columns:minmax(0,640px) 360px;gap:81px;align-items:start}
+#free-quote .contact-grid .form-card {width:100%;max-width:640px}
+#free-quote .contact-sidebar {display:grid;gap:24px}
+#free-quote .contact-info-card>p {color:#dfe6f2;font-size:.95rem;margin-bottom:18px}
+#free-quote .contact-info-card.card-light {background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-md)}
+#free-quote .contact-info-card.card-light h2 {color:var(--navy-900)}
+#free-quote .contact-info-card.card-light .next-steps li {color:var(--navy-800);border-top-color:var(--line)}
+#free-quote .form-banner {background:radial-gradient(120% 160% at 20% 0,var(--navy-700),var(--navy-950) 65%);margin:-38px -38px 30px;padding:22px 24px;border-radius:var(--radius-lg) var(--radius-lg) 0 0;text-align:center}
+#free-quote .form-banner h1, #free-quote .form-banner h2 {color:#fff;margin:0;font-weight:500;letter-spacing:-.015em;white-space:nowrap;font-size:clamp(.92rem, 2.6vw, 1.45rem)}
+#free-quote .contact-info-card .divider-star {margin:10px 0 16px}
+#free-quote .contact-details {list-style:none;margin:0;padding:0}
+#free-quote .contact-details li {padding:14px 0;border-top:1px solid var(--line);color:var(--navy-800);font-size:.95rem;line-height:1.55}
+#free-quote .contact-details li:first-child {border-top:none;padding-top:0}
+#free-quote .contact-details li:last-child {padding-bottom:0}
+#free-quote .contact-detail-label {display:block;font-family:var(--font-body);font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+#free-quote .next-steps {list-style:none;margin:0;padding:0;counter-reset:step}
+#free-quote .next-steps li {counter-increment:step;position:relative;padding:12px 0 12px 44px;border-top:1px solid rgba(255,255,255,.12);color:#dfe6f2;font-size:.93rem;line-height:1.5}
+#free-quote .next-steps li:first-child {border-top:none}
+#free-quote .next-steps li::before {content:counter(step);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:rgba(217,168,53,.16);color:var(--gold-400);font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+#free-quote .contact-info-card {background:var(--navy-900);color:#fff;border-radius:var(--radius-lg);padding:38px 34px}
+#free-quote .contact-info-card h2 {color:#fff;font-size:1.2rem}
+#free-quote .form-card {background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:38px;box-shadow:var(--shadow-md)}
+#free-quote .field {margin-bottom:18px}
+#free-quote .field label {display:block;font-size:.86rem;font-weight:600;color:var(--navy-900);margin-bottom:7px}
+#free-quote .field input, #free-quote .field select, #free-quote .field textarea {width:100%;padding:13px 15px;border-radius:10px;border:1.5px solid var(--line);font-family:var(--font-body);font-size:.96rem;color:var(--ink);background:#fbfcfe;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+#free-quote .field input:focus, #free-quote .field select:focus, #free-quote .field textarea:focus {outline:0;border-color:var(--gold-500);box-shadow:0 0 0 4px rgba(217,168,53,.16)}
+#free-quote .field textarea {resize:vertical;min-height:130px}
+#free-quote .field .err {display:none;color:#c0392b;font-size:.78rem;margin-top:6px}
+#free-quote .form-note {font-size:.8rem;color:var(--ink-faint);margin-top:14px}
+#free-quote .form-success {display:none;text-align:center;padding:40px 20px}
+#free-quote .reveal {opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+#free-quote .reveal.in-view {opacity:1;transform:none}
+@media (max-width:980px) {
+#free-quote .contact-grid {grid-template-columns:1fr}
+#free-quote .contact-grid .form-card {max-width:none}
+}
+@media (max-width:760px) {
+#free-quote section {padding:60px 0}
+}
+@media (max-width:480px) {
+#free-quote .wrap {padding:0 18px}
+#free-quote section {padding:48px 0}
+}
+#free-quote .field-optional {font-weight:500;font-size:.84em;color:var(--ink-faint);letter-spacing:0;text-transform:none}
+#free-quote p, #free-quote li {color:inherit;}
+#free-quote h1, #free-quote h2 {font-family:var(--font-display);font-weight:400;font-optical-sizing:auto;letter-spacing:-.01em;color:var(--navy-900);}
+#free-quote .eyebrow, #free-quote .section-eyebrow, #free-quote .about-copy .kicker, #free-quote .contact-detail-label, #free-quote .legal-notice h4 {font-family:var(--font-mono);font-weight:500;letter-spacing:.2em;text-transform:uppercase;}
+#free-quote .btn {font-family:var(--font-body);font-weight:700;letter-spacing:.02em;border-radius:2px;border-width:1px;}
+#free-quote .btn-gold, #free-quote .nav-cta .btn-gold {background:linear-gradient(180deg,#E8C163,var(--gold-500));border-color:transparent;color:var(--navy-950);box-shadow:none;}
+#free-quote .btn-gold:hover, #free-quote .nav-cta .btn-gold:hover {background:linear-gradient(180deg,#F2CF78,#E2B347);box-shadow:0 14px 30px -14px rgba(217,168,53,.85);transform:none;}
+#free-quote .btn-gold::after {display:none;}
+#free-quote .page-hero, #free-quote .form-banner {background:radial-gradient(120% 160% at 15% 0%,#123262 0%,#0B2145 40%,#07152C 75%);}
+#free-quote .field input, #free-quote .field select, #free-quote .field textarea {font-family:var(--font-body);background:#fff;border-radius:2px;}
+#free-quote .field input:focus, #free-quote .field select:focus, #free-quote .field textarea:focus {border-color:var(--gold-500);box-shadow:0 0 0 3px rgba(217,168,53,.18);}
+#free-quote .talk-phone {display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:4px;color:#fff;font:700 1.15rem/1.2 var(--font-body);letter-spacing:.01em;text-decoration:none;}
+#free-quote .talk-phone .icon-lead {width:20px;height:20px;color:var(--gold-500);flex:none;}
+#free-quote .talk-phone:hover {color:var(--gold-300);}
+#free-quote .contact-grid button[type="submit"] svg, #free-quote form button[type="submit"].btn svg {margin:0;}
+@media (max-width: 760px) {
+#free-quote form button[type="submit"].btn {width:auto !important;min-width:66%;padding:15px 28px;gap:10px;}
+#free-quote form button[type="submit"].btn svg {width:18px;height:18px;flex:none;}
+}
+@media (max-width: 760px) {
+#free-quote .contact-grid {row-gap:40px;}
+}
+@media (min-width: 981px) {
+#free-quote .contact-grid {align-items:stretch;}
+#free-quote .contact-grid .form-card {display:flex;flex-direction:column;}
+#free-quote .contact-grid #contact-form {flex:1;display:flex;flex-direction:column;}
+#free-quote .contact-grid #contact-form .field:has(textarea) {flex:1;display:flex;flex-direction:column;}
+#free-quote .contact-grid #contact-form textarea {flex:1;min-height:140px;resize:vertical;}
+}
+/* CQ-OVERRIDES: Contact page values where the Home page's own styles differ */
+#free-quote .contact-grid div.form-card { position: static; font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid div.form-banner { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid form:not([class]) { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid div.field { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid label:not([class]) { line-height: 22.016px; }
+#free-quote .contact-grid input:not([class]) { font-weight: 400; line-height: normal; }
+#free-quote .contact-grid span.err { font-weight: 400; line-height: 19.968px; }
+#free-quote .contact-grid span.field-optional { line-height: 18.4934px; }
+#free-quote .contact-grid textarea:not([class]) { font-weight: 400; line-height: normal; }
+#free-quote .contact-grid button.btn.btn-gold.btn-arrow-static { line-height: normal; }
+#free-quote .contact-grid p.form-status.cf-note { color: rgb(180, 35, 24); font-weight: 400; line-height: 22.4px; margin-top: 10px; margin-bottom: 0px; border-top-color: rgb(180, 35, 24); text-align: center; }
+#free-quote .contact-grid a:not([class]) { display: inline; font-weight: 400; margin-top: 0px; margin-bottom: 0px; padding-top: 0px; }
+#free-quote .contact-grid aside.contact-sidebar { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid div.contact-info-card { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid p:not([class]) { line-height: 24.32px; }
+#free-quote .contact-grid div.contact-info-card.card-light { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid div.divider-star { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid span.star { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid ul.contact-details { font-size: 16px; line-height: 25.6px; }
+#free-quote .contact-grid ol.next-steps { font-size: 16px; line-height: 25.6px; }
+/* the Home page's scroll-in signal (is-in) finishes the form's slide-in, like in-view does on the Contact page */
+#free-quote .reveal.is-in { opacity: 1; transform: none; }
+#free-quote .contact-grid label { text-transform: none; letter-spacing: normal; }
+#free-quote .contact-grid p.form-status { color: #b42318; font-weight: 400; line-height: 22.4px; margin: 10px 0 0; text-align: center; }
+#free-quote .contact-grid p.form-status:empty { display: none; }
+#free-quote .contact-grid h2:not([class]) { font-variation-settings: normal; }
+#free-quote .contact-grid a:not([class]) { padding-bottom: 0; }
+#free-quote .contact-grid .contact-sidebar { grid-template-rows: none; }
+/* space above and below the quote section, the same as the Business Auto section uses */
+#free-quote { padding: clamp(48px, 5.25vw, 72px) 0; }
+/* the form's after-send and error states (only switched on after someone types or sends) */
+#free-quote .form-success.show { display: block; }
+#free-quote .field.invalid input, #free-quote .field.invalid select, #free-quote .field.invalid textarea { border-color: #c0392b; }
+#free-quote .field.invalid .err { display: block; }
+/* /CQ-OVERRIDES */
