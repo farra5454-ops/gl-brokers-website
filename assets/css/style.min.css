@@ -44,3 +44,7 @@
 .cf-check{min-height:65px;margin:6px 0 16px}
 .cf-note{margin:10px 0 0;text-align:center;font-size:14px;color:#b42318}
 .cf-note:empty{display:none}
+
+/* Scrolled header (2026-11-09): the phone button uses the company navy (same as the "Prefer to Talk?" box), not the near-black navy-950 */
+.site-header.is-solid .nav-cta .btn-outline{background:var(--navy-900);border-color:var(--navy-900)}
+.site-header.is-solid .nav-cta .btn-outline:hover{background:var(--navy-800);border-color:var(--navy-800)}
