@@ -2,7 +2,7 @@
 .live-status {
   display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px 14px;
   margin-top: 26px; padding: 12px 18px;
-  color: #fff; font: 500 14.5px/1.35 "Manrope", "Manrope Fallback", system-ui, sans-serif;
+  color: #fff; font: 500 14.5px/1.35 "Manrope", system-ui, sans-serif;
   background: rgba(7, 21, 44, .45); border: 1px solid rgba(240, 211, 143, .35); border-radius: 2px;
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
@@ -47,7 +47,7 @@
 }
 
 /* Today's date in words, under the status box */
-.live-date { margin: 14px 0 0; font: italic 400 19px/1.3 "Fraunces", "Fraunces Fallback", Georgia, serif; letter-spacing: .005em; color: #F0D38F; }
+.live-date { margin: 14px 0 0; font: italic 400 19px/1.3 "Fraunces", Georgia, serif; letter-spacing: .005em; color: #F0D38F; }
 .live-date:empty { display: none; }
 .page-hero .live-date { margin: -12px 0 26px; text-align: center; }
 @media (max-width: 760px) {
@@ -168,10 +168,11 @@
   .page-hero .live-status, .isaias-hero .live-status { margin: 0 0 24px; }
 }
 
-/* Phones: while the keyboard is open, hide the Call Agent / Get a Quote bar so the keyboard can't push
-   it up over the form. live-status.js sets "typing" only while the keyboard is really on screen, not
-   just because a box has the cursor (that hid the bar after Get a Quote and kept it hidden on scroll). */
+/* Phones: while someone is typing in a form, hide the Call Agent / Get a Quote bar.
+   Otherwise the phone keyboard pushes the fixed bar up so it floats over the form,
+   and the page jumps when the keyboard closes. */
 @media (max-width: 760px) {
+  body:has(input:focus, textarea:focus, select:focus) .mobile-call-bar { display: none !important; }
   body.typing .mobile-call-bar { display: none !important; }
 }
 
@@ -184,10 +185,10 @@
 .live-status .ls-head { flex: none; }
 .live-status .ls-clock {
   display: inline-flex; align-items: baseline; gap: 12px; padding: 0; background: none; border: 0;
-  font: 300 68px/1 "Fraunces", "Fraunces Fallback", Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -.02em; color: #fff;
+  font: 300 68px/1 "Fraunces", Georgia, serif; font-variation-settings: "opsz" 144; letter-spacing: -.02em; color: #fff;
 }
 .live-status .ls-colon { animation: none; }
-.live-status .ls-ampm { font: italic 400 28px/1 "Fraunces", "Fraunces Fallback", Georgia, serif; letter-spacing: 0; color: #D9A835; }
+.live-status .ls-ampm { font: italic 400 28px/1 "Fraunces", Georgia, serif; letter-spacing: 0; color: #D9A835; }
 .live-status .ls-zone { font: 500 11.5px/1 "IBM Plex Mono", monospace; letter-spacing: .2em; color: rgba(240, 211, 143, .7); }
 .live-status .ls-sub {
   flex-basis: auto; padding-top: 12px; margin-top: 2px;
@@ -257,19 +258,19 @@
 /* Longer evening / after-hours messages wrap inside the box instead of running past it */
 .ls-block .live-status .ls-sub { white-space: normal; }
 
-/* Phones: the Call Agent / Get a Quote bar, pinned to the bottom of the screen */
+/* Phones: the Call Agent / Get a Quote bar keeps one fixed height while scrolling.
+   Its bottom padding used to follow the browser's safe-area value, which changes as the
+   address/tool bar slides in and out, so the bar grew and shrank. Now it is constant. */
 @media (max-width: 760px) {
-  /* The buttons stand above Safari's own bottom toolbar (back / forward / share): the bar's background
-     reaches down under that toolbar by the phone's safe-area amount, and the buttons sit on top. */
   .mobile-call-bar {
-    height: auto !important; box-sizing: border-box !important;
-    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)) !important; align-items: stretch !important;
+    height: 68px !important; box-sizing: border-box !important;
+    padding: 10px 12px !important; align-items: stretch !important;
     -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
     background: rgba(7, 21, 44, .98) !important;
     transform: translateZ(0); will-change: transform;
   }
   .mobile-call-bar .btn { min-height: 0 !important; height: 48px; padding-top: 0 !important; padding-bottom: 0 !important; }
-  body { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)) !important; }
+  body { padding-bottom: 68px !important; }
   /* homepage banner fills the screen down to the bar using the stable small-viewport height */
   .hero.photo-hero { min-height: calc(100svh - 68px) !important; }
 }
@@ -370,8 +371,3 @@ html[data-office="closed"] .ls-block .live-status .ls-clock { flex: 1; justify-c
   .ls-block .ekg-trace { animation: ekgDraw 3.2s linear infinite !important; }
   .ls-block .ekg-head { animation: ekgHead 3.2s linear infinite !important; }
 }
-
-/* Stop the page jumping while it loads (2026-11-09): the date line starts as a hidden placeholder and is then
-   filled with today's date, which is usually shorter, so the box used to narrow and slide sideways.
-   Reserving room for the longest date ("Wednesday, September 30th, 2026") keeps the box the same size. */
-.ls-block .live-date { min-width: 15.5em; }

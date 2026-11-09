@@ -71,3 +71,14 @@
   .sent-card .sc-steps li:nth-child(2)::after { background: repeating-linear-gradient(180deg, var(--sc-gold-500) 0 4px, transparent 4px 8px); opacity: .8; }
 }
 @media (prefers-reduced-motion: reduce) { .sent-card .sc-next .sc-mk::after { animation: none; } }
+
+/* Cloudflare Turnstile spam check above the quote form's Send button (form-guard.js).
+   Height reserved so the page doesn't jump when it appears. */
+.cf-check { min-height: 65px; margin: 6px 0 16px; }
+.cf-note { margin: 10px 0 0; text-align: center; font-size: 14px; color: #b42318; }
+.cf-note:empty { display: none; }
+
+/* Contact page, scrolled header: the phone button uses the company navy (same as the "Prefer to Talk?" box)
+   instead of the near-black navy (Alex, 2026-11-09). */
+.site-header.is-solid .nav-cta .btn-outline { background: var(--navy-900); border-color: var(--navy-900); }
+.site-header.is-solid .nav-cta .btn-outline:hover { background: var(--navy-800); border-color: var(--navy-800); }
