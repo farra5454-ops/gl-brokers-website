@@ -80,12 +80,19 @@
     dates.forEach(function (d) { if (d.textContent !== text) d.textContent = text; });
   }
 
-  // Older phones without :has() support: hide the bottom call bar while a form field is focused
+  // Phones: hide the bottom call bar only while the keyboard is actually on screen (the visible part of
+  // the page shrinks), not just because a box has the cursor; the short delay stops it flashing between boxes
   var isField = function (el) { return el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName); };
-  document.addEventListener("focusin", function (e) { if (isField(e.target)) document.body.classList.add("typing"); });
-  document.addEventListener("focusout", function () {
-    setTimeout(function () { if (!isField(document.activeElement)) document.body.classList.remove("typing"); }, 150);
-  });
+  var vv = window.visualViewport, typingTimer;
+  var keyboardUp = function () { return isField(document.activeElement) && (vv ? window.innerHeight - vv.height > 150 : true); };
+  var syncTyping = function () {
+    clearTimeout(typingTimer);
+    if (keyboardUp()) document.body.classList.add("typing");
+    else typingTimer = setTimeout(function () { if (!keyboardUp()) document.body.classList.remove("typing"); }, 150);
+  };
+  document.addEventListener("focusin", syncTyping);
+  document.addEventListener("focusout", syncTyping);
+  if (vv) vv.addEventListener("resize", syncTyping);
 
   render();
   renderDate();
