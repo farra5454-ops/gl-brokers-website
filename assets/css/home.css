@@ -900,3 +900,9 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
     height: calc(100% - var(--sc-m) + 14px); width: 1px; transform: translateX(-50%); background: var(--sc-gold-500); }
   #free-quote .sent-card .sc-steps li:nth-child(2)::after { background: repeating-linear-gradient(180deg, var(--sc-gold-500) 0 4px, transparent 4px 8px); opacity: .8; }
 }
+
+/* Home bottom block "Protect Your Business" (Alex, 2026-11-09): on computers the text moves up 50% of its
+   distance from the top edge, giving more room above the dark footer line. Phones unchanged. */
+@media (min-width: 981px) {
+  .cta-band .cta-inner { position: relative; top: -54px; }
+}
