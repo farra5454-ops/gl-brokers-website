@@ -1592,3 +1592,11 @@ section.navy.about-why{ background:radial-gradient(120% 160% at 15% 0%, #123262 
 @media (min-width: 981px) and (max-width: 1180px) {
   .site-header .nav-cta .btn-outline { display: none; }
 }
+
+/* Bottom blue section on every page (Alex, 2026-11-09): phone number first (white, gold icon), then the gold
+   Get a Quote button, like the top-right corner of the header. */
+.cta-band .cta-phone { display: inline-flex; align-items: center; gap: 9px; font: 700 17px/1 var(--font-body); color: #fff; text-decoration: none; white-space: nowrap; }
+.cta-band .cta-phone:hover { color: var(--gold-300); }
+.cta-band .cta-phone .icon-lead { width: 19px; height: 19px; color: var(--gold-500); flex: none; }
+.cta-band .hero-actions { gap: 28px; }
+@media (max-width: 760px) { .cta-band .hero-actions { gap: 18px; } }

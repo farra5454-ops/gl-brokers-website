@@ -906,3 +906,11 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
 @media (min-width: 981px) {
   .cta-band .cta-inner { position: relative; top: -54px; }
 }
+
+/* Bottom block (Alex, 2026-11-09): phone number first (white, gold icon), then the gold Get a Quote button,
+   like the header's top-right corner. Shown on phones too. */
+.cta-band .cta-phone { display: inline-flex; align-items: center; gap: 9px; font: 700 17px/1 var(--sans); color: #fff; text-decoration: none; white-space: nowrap; }
+.cta-band .cta-phone:hover { color: var(--gold-300, #f0d38f); }
+.cta-band .cta-phone svg { width: 19px; height: 19px; color: var(--gold); flex: none; }
+.cta-band .hero-actions { align-items: center; gap: 28px; }
+@media (max-width: 760px) { .cta-band .hero-actions { display: flex; gap: 18px; margin-top: 28px; } }
