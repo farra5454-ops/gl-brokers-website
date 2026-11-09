@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>GL Insurance Brokers | Fort Myers, FL Commercial Insurance</title>
 <meta name="description" content="GL Insurance Brokers — Fort Myers, FL commercial insurance broker, open 7 days, 8am–7pm. Workers' comp, general liability, commercial auto & excess liability, fast quotes.">
 <meta name="robots" content="index, follow">
@@ -70,7 +70,6 @@
         { "@type": "City", "name": "Lehigh Acres, FL" },
         { "@type": "City", "name": "Punta Gorda, FL" },
         { "@type": "City", "name": "Sanibel, FL" },
-        { "@type": "City", "name": "Pensacola, FL" },
         { "@type": "State", "name": "Florida" }
       ],
       "knowsAbout": [
@@ -111,8 +110,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/media/hero-poster-mobile.webp" media="(max-width: 760px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/media/hero-poster.webp" media="(min-width: 761px)" fetchpriority="high">
-<link rel="stylesheet" href="assets/css/live-status.css?v=20261016x">
-<link rel="stylesheet" href="assets/css/home.css?v=20261016n">
+<link rel="stylesheet" href="assets/css/live-status.css?v=20261109">
+<link rel="stylesheet" href="assets/css/home.css?v=20261109b">
 </head>
 <body>
 
@@ -171,7 +170,7 @@
   <section class="hero photo-hero" aria-labelledby="hero-title">
     <picture class="hero-still" aria-hidden="true">
       <source srcset="assets/media/hero-poster-mobile.webp" media="(max-width: 760px)">
-      <img src="assets/media/hero-poster.webp" alt="" fetchpriority="high">
+      <img src="assets/media/hero-poster.webp" alt="" width="1920" height="1080" fetchpriority="high">
     </picture>
     <!-- Still image shows instantly; the right-sized video (see home.js) fades in over it -->
     <video class="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true" data-desktop="assets/media/hero-desktop.mp4" data-mobile="assets/media/hero-mobile.mp4"></video>
@@ -185,7 +184,7 @@
         <span class="ls-head"><span class="ls-dot" aria-hidden="true"></span><span class="ls-label">Open daily</span></span>
         <span class="ls-ekg" aria-hidden="true"><svg viewBox="0 0 100 24" preserveAspectRatio="none"><path class="ekg-trace" pathLength="100" d="M0 12 H26 L30 10 L34 12 H40 L44 16 L50 1 L56 22 L60 12 H68 Q76 6 84 12 H100"/><path class="ekg-head" pathLength="100" d="M0 12 H26 L30 10 L34 12 H40 L44 16 L50 1 L56 22 L60 12 H68 Q76 6 84 12 H100"/></svg></span>
         <span class="ls-clock" aria-hidden="true"><span class="ls-time">8<span class="ls-colon">:</span>00</span><span class="ls-ampm">AM</span><span class="ls-zone">ET</span></span>
-        <span class="ls-sub" aria-live="polite">Licensed agents answering 8 AM &ndash; 7 PM, 7 days a week</span>
+        <span class="ls-sub" aria-live="polite">Licensed agents answering 8 AM &ndash; 7 PM</span>
       </div></div>
       </div>
       <div class="hero-actions">
@@ -198,7 +197,7 @@
         <span class="ls-head"><span class="ls-dot" aria-hidden="true"></span><span class="ls-label">Open daily</span></span>
         <span class="ls-ekg" aria-hidden="true"><svg viewBox="0 0 100 24" preserveAspectRatio="none"><path class="ekg-trace" pathLength="100" d="M0 12 H26 L30 10 L34 12 H40 L44 16 L50 1 L56 22 L60 12 H68 Q76 6 84 12 H100"/><path class="ekg-head" pathLength="100" d="M0 12 H26 L30 10 L34 12 H40 L44 16 L50 1 L56 22 L60 12 H68 Q76 6 84 12 H100"/></svg></span>
         <span class="ls-clock" aria-hidden="true"><span class="ls-time">8<span class="ls-colon">:</span>00</span><span class="ls-ampm">AM</span><span class="ls-zone">ET</span></span>
-        <span class="ls-sub" aria-live="polite">Licensed agents answering 8 AM &ndash; 7 PM, 7 days a week</span>
+        <span class="ls-sub" aria-live="polite">Licensed agents answering 8 AM &ndash; 7 PM</span>
       </div></div>
     </div>
     <nav class="hero-rail" aria-label="Coverage types">
@@ -390,7 +389,7 @@
   <section class="auto" aria-labelledby="auto-title">
     <div class="shell auto-grid">
       <figure class="auto-photo">
-        <img src="assets/media/dump-truck.webp" alt="Long-nose dump truck loaded with rubble parked in front of a modern commercial building" loading="lazy">
+        <img src="assets/media/dump-truck.webp" width="1200" height="800" alt="Long-nose dump truck loaded with rubble parked in front of a modern commercial building" loading="lazy">
       </figure>
       <div class="auto-copy reveal">
         <p class="eyebrow">Business Auto</p>
@@ -414,7 +413,9 @@
         <div class="form-banner">
           <h2 id="quote-title">Request a Quote</h2>
         </div>
-        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST" novalidate>
+        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST" data-turnstile-sitekey="0x4AAAAAAF5_4mPUavsTRISu" novalidate>
+          <!-- Hidden spam trap (Formspree "honeypot"): people never see it, bots fill it in and Formspree drops them -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field-pair">
             <div class="field">
               <label for="businessName">Business Name</label>
@@ -493,7 +494,6 @@
         <li><a href="/gl-contractor-cities/lehigh-acres">Lehigh Acres<span class="sr-only"> contractor insurance</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/gl-contractor-cities/punta-gorda">Punta Gorda<span class="sr-only"> contractor insurance</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/gl-contractor-cities/sanibel">Sanibel<span class="sr-only"> contractor insurance</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="/hurricane-isaias/pensacola-contractor-insurance">Pensacola<span class="sr-only"> contractor insurance</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
       </ul>
       </div>
     </div>
@@ -501,7 +501,7 @@
 
   <!-- CTA BAND -->
   <section class="cta-band" id="quote" aria-labelledby="cta-title">
-    <img class="cta-img" src="assets/media/cta-crane.webp" alt="" loading="lazy">
+    <img class="cta-img" src="assets/media/cta-crane.webp" alt="" width="1600" height="1067" loading="lazy">
     <div class="cta-veil" aria-hidden="true"></div>
     <div class="shell cta-inner reveal">
       <h2 id="cta-title">Protect Your Business. <em>Get the Right Coverage.</em></h2>
@@ -526,7 +526,7 @@
     </div>
     <div class="footer-grid">
       <div>
-        <h4 aria-level="3">Company</h4>
+        <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About Us</a></li>
@@ -535,7 +535,7 @@
         </ul>
       </div>
       <div>
-        <h4 aria-level="3">Insurance</h4>
+        <h3>Insurance</h3>
         <ul class="footer-links footer-links-split">
           <li><a href="/insurance/workers-compensation">Workers' Compensation</a></li>
           <li><a href="/insurance/general-liability">General Liability</a></li>
@@ -549,7 +549,7 @@
         </ul>
       </div>
       <div>
-        <h4 aria-level="3">Get In Touch</h4>
+        <h3>Get In Touch</h3>
         <ul class="footer-links">
           <li><a href="tel:+12398982323">(239) 898-2323</a></li>
           <li><span>Serving Fort Myers &amp; Southwest Florida</span></li>
@@ -570,6 +570,9 @@
   <a class="btn btn-glass" href="/contact">Get a Quote</a>
 </div>
 
+<!-- Cloudflare Turnstile: the "Success!" spam check above the Send button (form-guard.js draws it; Formspree verifies it) -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+<script src="assets/js/form-guard.js?v=20261109" defer></script>
 <script src="assets/js/home.js?v=20261015c" defer></script>
 <script>
   /* Analytics (GA4 + call/lead tracking) only on the live site, so local previews don't count as visits. */
@@ -577,6 +580,6 @@
     var a = document.createElement("script"); a.src = "assets/js/analytics.js"; document.body.appendChild(a);
   }
 </script>
-<script src="assets/js/live-status.js?v=20261016x" defer></script>
+<script src="assets/js/live-status.js?v=20261109" defer></script>
 </body>
 </html>
