@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "caib-main",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8787", "--directory", "C:/Users/Achilles/Desktop/Commercial Auto Insurance Brokers - Main Website File 1"],
+      "port": 8787
+    },
+    {
+      "name": "caib-demo",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8788", "--directory", "C:/Users/Achilles/Desktop/Commercial Auto - Quote Form Demo"],
+      "port": 8788
+    },
+    {
+      "name": "gl-local",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["C:/Users/Achilles/Desktop/Claude Tools Box/Website Tools/serve404.py", "C:/Users/Achilles/Desktop/GL Brokers Claude Webpage and logos/GL Brokers Website files 1", "8795"],
+      "port": 8795
+    }
+  ]
+}
