@@ -85,7 +85,7 @@
 @media (min-width: 761px) {
   .hero .hero-inner { padding-top: 112px; }
   /* On shorter laptop screens the headline scales with screen height so everything fits */
-  .hero.photo-hero h1 { font-size: clamp(52px, min(7.6vw, 10vh), 118px); }
+  .hero.photo-hero h1 { font-size: clamp(40px, min(5vw, 8vh), 72px); }
 }
 
 /* Pensacola banner is left-aligned */
@@ -96,7 +96,7 @@
    and the date sitting above the clock box, set a little lower */
 @media (min-width: 761px) {
   .hero .hero-inner .hero-actions { display: none; }
-  .hero.photo-hero h1 { font-size: clamp(52px, min(7.6vw, 12vh), 118px); }
+  .hero.photo-hero h1 { font-size: clamp(40px, min(5vw, 8vh), 72px); }
   .hero .hero-status-desk { display: flex; flex-direction: column; align-items: flex-start; margin-top: 44px; }
   .hero .hero-status-desk .live-date { order: -1; margin: 0 0 10px; }
   .hero .hero-status-desk .live-status { margin-top: 0; }
@@ -189,7 +189,7 @@
 }
 .live-status .ls-colon { animation: none; }
 .live-status .ls-ampm { font: italic 400 28px/1 "Fraunces", Georgia, serif; letter-spacing: 0; color: #D9A835; }
-.live-status .ls-zone { font: 500 11.5px/1 "IBM Plex Mono", monospace; letter-spacing: .2em; color: rgba(240, 211, 143, .7); }
+.live-status .ls-zone { font: 500 12px/1 "IBM Plex Mono", monospace; letter-spacing: .2em; color: rgba(240, 211, 143, .7); }
 .live-status .ls-sub {
   flex-basis: auto; padding-top: 12px; margin-top: 2px;
   background: linear-gradient(90deg, #D9A835, rgba(217, 168, 53, 0)) top left / 240px 1px no-repeat;

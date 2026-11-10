@@ -342,16 +342,12 @@ section.navy .section-eyebrow{ color:var(--gold-400); }
 .section-head .prose p:last-child{ margin-bottom:0; }
 .section-head.wide{ max-width:none; }
 .section-head.wide .prose{ max-width:none; }
-#wc-what-is{ padding-top:59px; }
 #wc-what-is .section-head h2{ margin-bottom:44px; }
 #wc-what-is .section-head .prose{ margin-top:0; }
-#gl-what-is{ padding-top:59px; }
 #gl-what-is .section-head h2{ margin-bottom:44px; }
 #gl-what-is .section-head .prose{ margin-top:0; }
-#el-explained{ padding-top:59px; }
 #el-explained .section-head h2{ margin-bottom:44px; }
 #el-explained .section-head .prose{ margin-top:0; }
-#ca-what-is{ padding-top:59px; }
 #ca-what-is .section-head h2{ margin-bottom:44px; }
 #ca-what-is .section-head .prose{ margin-top:0; }
 
@@ -831,7 +827,7 @@ table.data-table tr:hover td{ background:var(--bg-alt); }
 .sources-block a{ color:var(--navy-800); }
 
 .disclaimer-footnote{
-  margin:18px 0 0; font-size:.5625rem; line-height:1.6; color:var(--ink-faint);
+  margin:18px 0 0; font-size:.75rem; line-height:1.6; color:var(--ink-faint);
 }
 .disclaimer-footnote strong{ color:var(--ink-soft); }
 /* pull the section housing the footnote in tight against the CTA band below it */
@@ -971,7 +967,7 @@ section.section-compact .section-head{ margin-bottom:20px; }
 .contact-details li{ padding:14px 0; border-top:1px solid var(--line); color:var(--navy-800); font-size:.95rem; line-height:1.55; }
 .contact-details li:first-child{ border-top:none; padding-top:0; }
 .contact-details li:last-child{ padding-bottom:0; }
-.contact-detail-label{ display:block; font-family:var(--font-body); font-size:.74rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px; }
+.contact-detail-label{ display:block; font-family:var(--font-body); font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px; }
 .contact-details a{ color:var(--navy-800); font-weight:600; text-decoration:none; transition:color .2s var(--ease); }
 .contact-details a:hover{ color:var(--gold-600); }
 
@@ -1015,7 +1011,7 @@ section.section-compact .section-head{ margin-bottom:20px; }
 /* ==================== FOOTER ==================== */
 .site-footer{ background:var(--navy-950); color:#c3ceE1; padding:40px 0 18px; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:44px; padding-bottom:26px; border-bottom:1px solid rgba(255,255,255,.09); }
-.site-footer h4{ color:#fff; font-family:var(--font-body); font-size:.86rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px; }
+.site-footer h3{ color:#fff; font-family:var(--font-body); font-size:.86rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px; }
 .footer-links{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
 .footer-links a{ color:#a9b7d0; text-decoration:none; font-size:.92rem; transition:color .2s var(--ease); }
 .footer-links a:hover{ color:var(--gold-400); }
@@ -1196,7 +1192,7 @@ section.section-compact .section-head{ margin-bottom:20px; }
 
 /* Muted "(optional)" hint on non-required form labels. */
 .field-optional{
-  font-weight:500; font-size:.84em; color:var(--ink-faint);
+  font-weight:500; font-size:.9em; color:var(--ink-faint);
   letter-spacing:0; text-transform:none;
 }
 
@@ -1270,7 +1266,7 @@ h1 em, h2 em{ font-style:italic; color:var(--gold-500); }
 .eyebrow{ background:none; border:0; padding:0; border-radius:0; color:var(--gold-300); font-size:12px; gap:14px; }
 .eyebrow::before{ content:""; width:34px; height:1px; background:currentColor; }
 .section-eyebrow, .about-copy .kicker{ color:var(--gold-700); font-size:12px; }
-.breadcrumbs{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:rgba(240,211,143,.75); }
+.breadcrumbs{ font-family:var(--font-mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:rgba(240,211,143,.75); }
 .breadcrumbs a{ color:#F0D38F; }
 
 /* Header */
@@ -1319,7 +1315,7 @@ table.data-table th{ background:var(--navy-950); font-family:var(--font-mono); f
 
 /* Footer */
 .site-footer{ background:var(--navy-950); color:rgba(255,255,255,.7); }
-.site-footer h4{ font-family:var(--font-mono); font-weight:500; font-size:11.5px; letter-spacing:.2em; color:var(--gold-500); margin-bottom:18px; }
+.site-footer h3{ font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:.2em; color:var(--gold-500); margin-bottom:18px; }
 .footer-links a, .footer-veteran, .footer-location{ color:rgba(255,255,255,.7); }
 .footer-links a:hover, .footer-bottom a:hover{ color:#fff; }
 .footer-veteran{ color:var(--gold-300); }
@@ -1600,3 +1596,22 @@ section.navy.about-why{ background:radial-gradient(120% 160% at 15% 0%, #123262 
 .cta-band .cta-phone .icon-lead { width: 19px; height: 19px; color: var(--gold-500); flex: none; }
 .cta-band .hero-actions { gap: 28px; }
 @media (max-width: 760px) { .cta-band .hero-actions { gap: 18px; } }
+
+/* Fable Fixes B1 (2026-11-10): on small phones the 300px Cloudflare check did not fit inside the card padding, which pushed the page sideways. Narrower side padding gives it room. */
+@media (max-width: 480px) { .form-card { padding: 28px 18px; } .form-banner { margin: -28px -18px 24px; } }
+
+/* Fable Fixes round 2 (2026-11-10): shorter top block on phones, 40px+ tap targets (padding only, text sizes unchanged) */
+@media (max-width: 760px) {
+  .page-hero { padding-top: calc(var(--hdr) + 24px); padding-bottom: 24px; }
+  .page-hero h1 { margin-bottom: 16px; }
+  .page-hero .lede { margin-bottom: 24px; font-size: 1rem; }
+  .breadcrumbs { margin-bottom: 12px; }
+  .breadcrumbs a, .footer-bottom a { display: inline-block; padding: 12px 0; margin: -12px 0; }
+  .footer-links { gap: 0; }
+  .footer-links a { display: block; padding: 11px 0; }
+  .cities-block .city-pill { padding: 12px 0; }
+  .cta-band .cta-phone, .talk-phone { min-height: 44px; }
+  td > a { display: inline-block; padding: 11px 0; margin: -11px 0; }
+  table.data-table:not(:has(th:nth-child(3))) { min-width: 0; }
+  table.data-table:not(:has(th:nth-child(3))) th, table.data-table:not(:has(th:nth-child(3))) td { padding: 12px; }
+}
