@@ -72,6 +72,17 @@
 }
 @media (prefers-reduced-motion: reduce) { .sent-card .sc-next .sc-mk::after { animation: none; } }
 
+/* Phones (Alex, 2026-11-10): the line reads "Licensed Agent - GL Brokers" (dash instead of the dot), a little
+   smaller, and the top of the photo is level with that line (74px = pill + name above it).
+   #free-quote copies so the Home page's scoped rules in home.css don't win. */
+@media (max-width: 560px) {
+  .sent-card .sc-dot, #free-quote .sent-card .sc-dot { font-size: 0; }
+  .sent-card .sc-dot::before, #free-quote .sent-card .sc-dot::before { content: "-"; font-size: 9.5px; }
+  .sent-card .sc-role, #free-quote .sent-card .sc-role { font-size: 9.5px; letter-spacing: .06em; }
+  .sent-card .sc-top, #free-quote .sent-card .sc-top { align-items: start; }
+  .sent-card .sc-photo, #free-quote .sent-card .sc-photo { margin-top: 74px; }
+}
+
 /* Cloudflare Turnstile spam check above the quote form's Send button (form-guard.js).
    Height reserved so the page doesn't jump when it appears. */
 .cf-check { min-height: 65px; margin: 6px 0 16px; }

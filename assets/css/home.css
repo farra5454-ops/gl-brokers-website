@@ -937,3 +937,6 @@ h2 em, h1 em { font-style: italic; color: var(--gold); }
   .cta-band .cta-inner { top: 0; padding-top: 29px; }
   .cta-band .hero-actions { margin-bottom: max(24px, calc(126.5px - 7.046cqw)); }
 }
+
+/* Phones (Alex, 2026-11-10): no phone number / Get a Quote row in this block; the pinned call bar covers it. */
+@media (max-width: 760px) { .cta-band .hero-actions { display: none; } }
