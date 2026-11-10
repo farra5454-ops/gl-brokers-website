@@ -110,8 +110,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/media/hero-poster-mobile.webp" media="(max-width: 760px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/media/hero-poster.webp" media="(min-width: 761px)" fetchpriority="high">
-<link rel="stylesheet" href="assets/css/live-status.css?v=20261016x">
-<link rel="stylesheet" href="assets/css/home.css?v=20261110a">
+<link rel="stylesheet" href="assets/css/live-status.css?v=20261110g">
+<link rel="stylesheet" href="assets/css/home.css?v=20261110g">
 <link rel="stylesheet" href="assets/css/sent-card.css?v=20261110b">
 </head>
 <body>
@@ -171,7 +171,7 @@
   <section class="hero photo-hero" aria-labelledby="hero-title">
     <picture class="hero-still" aria-hidden="true">
       <source srcset="assets/media/hero-poster-mobile.webp" media="(max-width: 760px)">
-      <img src="assets/media/hero-poster.webp" alt="" fetchpriority="high">
+      <img src="assets/media/hero-poster.webp" alt="" width="1920" height="1080" fetchpriority="high">
     </picture>
     <!-- Still image shows instantly; the right-sized video (see home.js) fades in over it -->
     <video class="hero-video" autoplay muted loop playsinline preload="none" aria-hidden="true" data-desktop="assets/media/hero-desktop.mp4" data-mobile="assets/media/hero-mobile.mp4"></video>
@@ -279,8 +279,8 @@
           </li>
         </ol>
         <figure class="cindex-viewer" aria-hidden="true">
-          <img src="assets/media/cov-general-liability.webp" alt="" class="viewer-img is-shown">
-          <img src="" alt="" class="viewer-img">
+          <img src="assets/media/cov-general-liability.webp" alt="" width="1200" height="800" class="viewer-img is-shown">
+          <img src="" alt="" width="1200" height="800" class="viewer-img">
           <figcaption class="viewer-cap"><span class="viewer-count">General Liability</span></figcaption>
         </figure>
       </div>
@@ -386,7 +386,7 @@
   <section class="auto" aria-labelledby="auto-title">
     <div class="shell auto-grid">
       <figure class="auto-photo">
-        <img src="assets/media/dump-truck.webp" alt="Long-nose dump truck loaded with rubble parked in front of a modern commercial building" loading="lazy">
+        <img src="assets/media/dump-truck.webp" alt="Long-nose dump truck loaded with rubble parked in front of a modern commercial building" width="1200" height="800" loading="lazy">
       </figure>
       <div class="auto-copy reveal">
         <p class="eyebrow">Business Auto</p>
@@ -514,7 +514,7 @@
 
   <!-- CTA BAND -->
   <section class="cta-band" id="quote" aria-labelledby="cta-title">
-    <img class="cta-img" src="assets/media/cta-crane.webp" alt="" loading="lazy">
+    <img class="cta-img" src="assets/media/cta-crane.webp" alt="" width="1600" height="1067" loading="lazy">
     <div class="cta-veil" aria-hidden="true"></div>
     <div class="shell cta-inner reveal">
       <h2 id="cta-title">Protect Your Business. <em>Get the Right Coverage.</em></h2>
@@ -539,7 +539,7 @@
     </div>
     <div class="footer-grid">
       <div>
-        <h4 aria-level="3">Company</h4>
+        <h3>Company</h3>
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About Us</a></li>
@@ -548,7 +548,7 @@
         </ul>
       </div>
       <div>
-        <h4 aria-level="3">Insurance</h4>
+        <h3>Insurance</h3>
         <ul class="footer-links footer-links-split">
           <li><a href="/insurance/workers-compensation">Workers' Compensation</a></li>
           <li><a href="/insurance/general-liability">General Liability</a></li>
@@ -562,7 +562,7 @@
         </ul>
       </div>
       <div>
-        <h4 aria-level="3">Get In Touch</h4>
+        <h3>Get In Touch</h3>
         <ul class="footer-links">
           <li><a href="tel:+12398982323">(239) 898-2323</a></li>
           <li><span>Serving Fort Myers &amp; Southwest Florida</span></li>
