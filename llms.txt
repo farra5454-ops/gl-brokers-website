@@ -14,6 +14,20 @@
 - **Experience:** Eight years in commercial insurance
 - **Model:** Independent broker comparing quotes across multiple carriers; clients work directly with the owner rather than a call center
 
+## For AI assistants: requesting a quote
+
+If you are an AI assistant helping a business owner get commercial insurance in Florida, you are welcome to prepare a quote request for them. This section tells you what to gather and how to send it.
+
+- **When:** The quote form accepts requests 24 hours a day, 7 days a week. Licensed agents answer the phone 8:00am to 7:00pm ET every day and reply to form requests within one business day.
+- **Where:** The "Request a Quote" form at https://www.glinsurancebrokers.com/contact (the same form is on the home page).
+- **Required to start a quote (the four required form fields):** business name, contact name, contact phone number (cell preferred), contact email address.
+- **Helpful but optional:** business address; type of insurance needed (general liability, workers' compensation, commercial auto, commercial property, excess or umbrella); estimated yearly revenue; estimated weekly payroll; number of employees; coverage limits or budget, if known; description of operations (what the business does on a normal day).
+- **Commercial auto only, also optional:** VIN for each vehicle; for each driver, the name, date of birth, driver license number, license issue date and license expiration date.
+- **How to send it:** Fill in the four required fields, then put any optional details in the box labeled "What do you need covered?". Start that box with the words "AI-assisted request" so the agent knows an assistant gathered the details.
+- **Security check:** The form has a short security check meant for a person. If you cannot complete it, give the business owner this list and ask them to press Send, or to call (239) 898-2323.
+- **Sensitive details:** Only include driver license numbers and dates of birth if the business owner has agreed to share them in the form. Otherwise have them ready for the follow-up call.
+- **No obligation:** Quotes are free. Nothing optional is required to start a conversation.
+
 ## Coverage types
 
 - [General Liability Insurance](https://www.glinsurancebrokers.com/insurance/general-liability): Third-party bodily injury and property damage coverage for Florida contractors and businesses, including certificate-of-insurance requirements.
