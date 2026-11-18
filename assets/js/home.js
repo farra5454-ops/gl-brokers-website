@@ -12,14 +12,27 @@
   var heroVideo = document.querySelector(".hero-video");
   if (heroVideo) {
     var isPhone = window.matchMedia("(max-width: 760px)").matches;
-    heroVideo.src = heroVideo.getAttribute(isPhone ? "data-mobile" : "data-desktop");
-    heroVideo.muted = true;
     var reveal = function () { heroVideo.classList.add("is-playing"); };
     heroVideo.addEventListener("playing", reveal);
     var tryPlay = function () { var pr = heroVideo.play(); if (pr && pr.catch) pr.catch(function () {}); };
-    tryPlay();
-    // Some phones block autoplay until the first touch; start it then
-    document.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+    var started = false;
+    var start = function () {
+      if (started) return;
+      started = true;
+      heroVideo.src = heroVideo.getAttribute(isPhone ? "data-mobile" : "data-desktop");
+      heroVideo.muted = true;
+      tryPlay();
+    };
+    if (isPhone) {
+      // Phones (Alex, 2026-11-18): the still photo shows first; the video starts downloading 2.5 seconds after
+      // the page has finished loading, so it doesn't compete with the first screen on a slow connection.
+      var later = function () { setTimeout(start, 2500); };
+      if (document.readyState === "complete") later(); else window.addEventListener("load", later, { once: true });
+    } else {
+      start();
+    }
+    // Some phones block autoplay until the first touch; start it then (right away if it hasn't started yet)
+    document.addEventListener("touchstart", function () { if (started) tryPlay(); else start(); }, { once: true, passive: true });
   }
   /* Mobile menu */
   var toggle = document.querySelector(".nav-toggle");
