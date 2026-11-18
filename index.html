@@ -424,7 +424,7 @@
         <div class="form-banner">
           <h2 id="quote-title">Request a Quote</h2>
         </div>
-        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST" data-turnstile-sitekey="0x4AAAAAAF5_4mPUavsTRISu">
+        <form id="contact-form" action="https://formspree.io/f/mgogypje" method="POST" data-turnstile-sitekey="0x4AAAAAAF5_4mPUavsTRISu" data-turnstile-lazy>
           <!-- Hidden spam trap (Formspree "honeypot"): people never see it, bots fill it in and Formspree drops them -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
@@ -596,9 +596,9 @@
   <a class="btn btn-glass" href="/contact">Get a Quote</a>
 </div>
 
-<!-- Cloudflare Turnstile: the "Success!" spam check above the Send button (form-guard.js draws it; Formspree verifies it) -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
-<script src="assets/js/form-guard.js?v=20261109" defer></script>
+<!-- Cloudflare Turnstile: the "Success!" spam check above the Send button (form-guard.js loads Cloudflare's script and draws it; Formspree verifies it).
+     On phones the script waits until the quote form is near the screen or touched (data-turnstile-lazy on the form). -->
+<script src="assets/js/form-guard.js?v=20261118a" defer></script>
 <script src="assets/js/sent-card.js?v=20261109" defer></script>
 <script src="assets/js/home.js?v=20261118a" defer></script>
 <script>

@@ -27,8 +27,19 @@
 
   var widget = null, token = "", unavailable = false, tries = 0;
 
+  // Home on phones (form has data-turnstile-lazy): Cloudflare's script (about 1.7 MB) waits until the
+  // form is close to the screen or someone touches it, so it doesn't slow the first screen.
+  // Everywhere else it loads right away, as before. Added 2026-11-18.
+  var API = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+  function loadApi() {
+    if (window.turnstile || document.querySelector('script[src^="https://challenges.cloudflare.com/turnstile/"]')) return;
+    var s = document.createElement("script");
+    s.src = API; s.async = true;
+    document.head.appendChild(s);
+  }
+
   // Cloudflare's script loads in the background; draw the box once it's ready
-  (function draw() {
+  function draw() {
     if (!window.turnstile) {
       // if it never loads (blocked or offline), don't trap the visitor: let the send try anyway
       if (++tries < 50) { setTimeout(draw, 200); } else { unavailable = true; }
@@ -40,7 +51,27 @@
       "expired-callback": function () { token = ""; },
       "error-callback": function () { token = ""; }
     });
-  })();
+  }
+
+  var started = false;
+  function start() {
+    if (started) return;
+    started = true;
+    loadApi();
+    draw();
+  }
+  var lazy = form.hasAttribute("data-turnstile-lazy") && window.matchMedia("(max-width: 760px)").matches;
+  if (!lazy || !("IntersectionObserver" in window)) {
+    start();
+  } else {
+    var near = new IntersectionObserver(function (entries) {
+      if (entries.some(function (en) { return en.isIntersecting; })) { near.disconnect(); start(); }
+    }, { rootMargin: "600px 0px" });
+    near.observe(form);
+    ["focusin", "pointerdown", "touchstart"].forEach(function (ev) {
+      form.addEventListener(ev, start, { capture: true, passive: true });
+    });
+  }
 
   // the token Cloudflare put in the form (read fresh each time, so a reset or expired check counts as "not done")
   function passed() {
