@@ -73,17 +73,23 @@
     front = 1 - front;
     cap.textContent = el.querySelector(".cindex-name").textContent.replace(/ Insurance$/, "");
   };
+  // The side viewer only shows above 980px (home.css); phones and tablets never need its full-size preloads
+  var hasViewer = window.matchMedia("(min-width: 981px)").matches;
   items.forEach(function (el) {
     // Phones and tablets get the photo inline instead of the side viewer
+    var img = el.getAttribute("data-img");
     var thumb = document.createElement("img");
     thumb.className = "cindex-thumb";
-    thumb.src = el.getAttribute("data-img");
-    thumb.alt = el.getAttribute("data-alt");
     thumb.loading = "lazy";
+    // 800px copy for most phones; the 1200px original for sharper screens and tablets
+    thumb.srcset = img.replace(/\.webp$/, "-800.webp") + " 800w, " + img + " 1200w";
+    thumb.sizes = "(max-width: 980px) 92vw, 1px";
+    thumb.src = img;
+    thumb.alt = el.getAttribute("data-alt");
     el.querySelector("a").appendChild(thumb);
     el.addEventListener("mouseenter", function () { activate(el); });
     el.querySelector("a").addEventListener("focus", function () { activate(el); });
-    var pre = new Image(); pre.src = el.getAttribute("data-img");
+    if (hasViewer) { var pre = new Image(); pre.src = img; }
   });
 
   /* Scroll reveals */

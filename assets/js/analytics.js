@@ -49,15 +49,29 @@
   var gaEnabled = /^G-[A-Z0-9]+$/i.test(GA4_ID);
   var clarityEnabled = /^[a-z0-9]{5,}$/i.test(CLARITY_ID);
 
-  /* ---------- Load GA4 ---------- */
+  /* ---------- Load GA4 ----------
+     The Google script (about 180 KB) waits until the page has finished
+     loading, or the visitor's first tap, scroll or key press, so it doesn't
+     slow the first screen on phones. Everything tracked before then waits
+     in dataLayer and is sent as soon as the script arrives. */
   if (gaEnabled) {
-    var ga = document.createElement("script");
-    ga.async = true;
-    ga.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA4_ID);
-    document.head.appendChild(ga);
-
     gtag("js", new Date());
     gtag("config", GA4_ID);
+
+    var gaLoaded = false;
+    var firstTouch = ["pointerdown", "touchstart", "scroll", "keydown"];
+    var loadGA = function () {
+      if (gaLoaded) return;
+      gaLoaded = true;
+      firstTouch.forEach(function (ev) { window.removeEventListener(ev, loadGA, true); });
+      var ga = document.createElement("script");
+      ga.async = true;
+      ga.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA4_ID);
+      document.head.appendChild(ga);
+    };
+    firstTouch.forEach(function (ev) { window.addEventListener(ev, loadGA, { capture: true, passive: true }); });
+    if (document.readyState === "complete") setTimeout(loadGA, 1500);
+    else window.addEventListener("load", function () { setTimeout(loadGA, 1500); });
   }
 
   /* ---------- Load Microsoft Clarity ---------- */
